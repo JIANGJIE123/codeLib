@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人人贷</title>
+    <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style type="text/css">
+        *{margin: 0;padding: 0}
+        .wrap{padding: 0!important;}
+        body{background: #f2f2f2;font-size: 12px;color: #848484;}
+        .top{width: 100%;height: 83px;background: white}
+        .hd{width: 1080px;height:100%;margin: 0 auto;display: flex;justify-content: space-between;align-items: center;}
+        .logo img{width:90px; height:34px;}
+        .hd_p{font-size: 14px;color: #a2a2a2;}
+        .hd2{color: #d8b567;}
+        .hd3{color: #d8b567;font-size: 20px}
+        .hero{width: 100%;height: 491px;background: url("hjpc.jpg") white center;}
+        .login_wrap{width: 1080px;height: 100%;margin: 0 auto;display: flex;align-items: center;flex-direction: row-reverse;}
+        .login{width: 350px;height: 420px;background: white;border-radius: 3px;}
+        .login_hd{height: 55px;text-align: center;line-height: 55px;font-size: 14px;color: #848484;border-bottom: 1px solid #e6e6e6;background:url("lpIcon.png") 65px center no-repeat #fafafa;}
+        .login_hd p{padding-left: 30px;}
+        .item{border-radius: 2px;border:1px solid #e6e6e6;width: 85%;margin: 15px auto 0;padding-left: 13px;}
+        .item_inp{width: 215px;height: 42px;line-height: 42px;font-size: 16px;border: none;outline: none;}
+        .item2{margin: 15px auto 0;width: 85%}
+        #w_code{width: 175px;height: 42px;outline: none;padding-left: 13px;border: none;}
+        .code{background: #ff771c;color: #fff;font-size: 14px;width: 105px;height: 42px;border-radius: 3px;cursor: pointer;border: none;float: right;}
+        .item2_inp{line-height: 42px;font-size: 16px;border-radius: 2px;border:1px solid #e6e6e6;display: inline-block;}
+        .state{margin-left: 7.5%;margin-top: 15px;margin-bottom: 0;}
+        .submit{background: #ff771c;color: #fff;font-size: 16px;width:85%;height: 42px;border-radius: 3px;cursor: pointer;border: none;margin-top: 40px}
+        .s1_top{border-bottom: 1px solid #e6e6e6;}
+        .users_num{border-right: 1px solid #ebebeb;}
+        .s1,.s2,.s3,.s4{width: 1080px;margin: 0 auto;background: white;font-size: 18px;text-align: center;margin: 16px auto}
+        .s1_top{padding: 30px}
+        .s1_bot{padding: 38px}
+        .num em{font-style:normal;border: 1px solid #e5afa9;border-radius: 2px;color: #be3729;margin-right: 9px;padding: 0 5px;}
+        .ic{margin-right: 28px;}
+        .s2_top{padding: 10px;border-bottom: 1px solid #ebebeb;}
+        .s2_top ul{display: flex;justify-content: space-between;margin-bottom: 0;}
+        .s2_bot{padding: 40px;position: relative}
+        .s2_item{border-right: 1px solid #ebebeb;}
+        .join_wrap{display: flex;justify-content: space-around;position: absolute;top:50%;right: 0;transform: translateY(-50%)}
+        #join{line-height: 42px;border-radius: 5px;width: 110px;color: #fff;font-size: 14px;background: #bc3434;cursor: pointer;text-align: center;border: none;outline: none;}
+        .tx{border-bottom: 1px solid #ebebeb;padding: 30px}
+        .s3_join{color: red;}
+        .s3{background:#f2f2f2!important; }
+        .s3 header,.s3 footer{padding: 10px}
+        .s3_item{background: white;padding: 0;width: 170px;}
+        .s3_wrap{display: flex;justify-content: space-between;}
+        .line{list-style: none}
+        .cir{display: inline-block; width: 16px;height: 16px;border-radius:50%;border: 4px solid midnightblue;margin-right: 40px;
+            position: relative;
+        }
+        .cir:after{content: "";height: 49px;width: 2px;display: block;background:midnightblue ;
+            position: absolute;top:12px;left: 50%;transform: translateX(-50%);
+        }
+        .line li{padding: 20px;display: flex;align-items: center;}
+        .cir_last:after{
+            background: -webkit-linear-gradient(midnightblue, aliceblue); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(midnightblue, aliceblue); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(midnightblue, aliceblue); /* Firefox 3.6 - 15 */
+            background: linear-gradient(midnightblue, aliceblue); /* 标准的语法 */
+        }
+        .s4 header{padding: 15px;border-bottom: 1px solid #ebebeb;text-align: left}
+
+    </style>
+</head>
+<body>
+<div class="container-fluid wrap">
+    <header class="top">
+        <div class="hd">
+            <a href="#" class="logo"><img src="logo-new@2x.png"></a>
+            <p class="hd_p"><span class="hd1">已有账号?</span>&nbsp;<span class="hd2">立即登录</span>&nbsp;&nbsp;<span class="hd3">400-090-6600</span></p>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="login_wrap">
+            <div class="login">
+                <header class="login_hd"><p>出借资金全程由民生银行存管</p></header>
+                <div class="main">
+                    <div class="item">
+                        <input type="text" class="item_inp" id="phone" placeholder="输入手机号码">
+                    </div>
+                    <div class="item2">
+                        <div class="item2_inp">
+                        <input type="text" class="" id="w_code" placeholder="输入验证码">
+                        </div>
+                        <input type="button" value="获取验证码" class="code">
+                    </div>
+                    <div class="item">
+                        <input type="text" class="item_inp" id="pwd" placeholder="输入登录密码">
+                    </div>
+                    <div class="checkbox state">
+                        <label>
+                            <input type="checkbox">我已阅读并同意 《<a href="#">we.com平台注册服务协议</a>》和《<a href="#">人人贷注册服务协议</a>》《<a href="#">人人贷隐私权政策</a>》
+                        </label>
+                    </div>
+                    <input type="button" class="submit center-block" value="注册领1288元红包">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="s1">
+        <div class="s1_top">
+            <ul class="rwo list-unstyled">
+                <li class="col-sm-6 users_num">累计服务用户数超 <span class="num"><em>2</em><em>0</em><em>8</em><em>8</em></span>万</li>
+                <li class="col-sm-6">累计成交额超  <span class="num"><em>6</em><em>7</em><em>6</em></span>亿</li>
+            </ul>
+        </div>
+        <div class="s1_bot">
+            <ul class="row list-unstyled">
+                <li class="col-sm-4"><img src="depository.png" width="50px" class="ic">AAA级信用认证</li>
+                <li class="col-sm-4"><img src="depository.png" width="50px" class="ic">银行资金存管</li>
+                <li class="col-sm-4"><img src="depository.png" width="50px" class="ic">8年稳健运营</li>
+            </ul>
+        </div>
+    </section>
+    <section class="s2">
+    <div class="s2_top">
+        <ul class="list-unstyled">
+            <li class="">新手专享 U计划-新</li>
+            <li class="">限量发布</li>
+        </ul>
+    </div>
+    <div class="s2_bot">
+        <ul class="row list-unstyled">
+            <li class="col-sm-2 s2_item"><p>10.0%</p><p>参考年回报率</p></li>
+            <li class="col-sm-2 s2_item"><p>一个月</p><p>锁定期</p></li>
+            <li class="col-sm-2 s2_item"><p>1000元</p><p>最低出借金额</p></li>
+            <li class="col-sm-6 s2_item join_wrap"><span>使用红包，收益更高</span><input type="button" value="立即加入" id="join"></li>
+        </ul>
+    </div>
+</section>
+    <section class="s2">
+        <div class="s2_top">
+            <ul class="list-unstyled">
+                <li class="">新手专享 U计划-新</li>
+                <li class="">限量发布</li>
+            </ul>
+        </div>
+        <div class="s2_bot">
+            <ul class="row list-unstyled">
+                <li class="col-sm-2 s2_item"><p>10.0%</p><p>参考年回报率</p></li>
+                <li class="col-sm-2 s2_item"><p>一个月</p><p>锁定期</p></li>
+                <li class="col-sm-2 s2_item"><p>1000元</p><p>最低出借金额</p></li>
+                <li class="col-sm-6 s2_item join_wrap"><span>使用红包，收益更高</span><input type="button" value="立即加入" id="join"></li>
+            </ul>
+        </div>
+    </section>
+    <section class="s3">
+        <div class="s3_wrap">
+                <div class="s3_item">
+                    <header>U计划-1个月<img src="uplan_xian.png" width="130xp" height="1px"></header>
+                    <div class="tx">
+                        <p>5.8%</p>
+                        <p>参考年回报率</p>
+                    </div>
+                    <footer><button>立即加入</button></footer>
+            </div>
+                <div class="s3_item">
+                    <header>U计划-1个月<img src="uplan_xian.png" width="130xp" height="1px"></header>
+                    <div class="tx">
+                        <p>5.8%</p>
+                        <p>参考年回报率</p>
+                    </div>
+                    <footer><button>立即加入</button></footer>
+                 </div>
+                <div class="s3_item">
+                    <header>U计划-1个月<img src="uplan_xian.png" width="130xp" height="1px"></header>
+                    <div class="tx">
+                        <p>5.8%</p>
+                        <p>参考年回报率</p>
+                    </div>
+                    <footer><button>立即加入</button></footer>
+                </div>
+                <div class="s3_item">
+                <header>U计划-1个月<img src="uplan_xian.png" width="130xp" height="1px"></header>
+                <div class="tx">
+                    <p>5.8%</p>
+                    <p>参考年回报率</p>
+                </div>
+                <footer><button>立即加入</button></footer>
+                </div>
+                <div class="s3_item">
+                <header>U计划-1个月<img src="uplan_xian.png" width="130xp" height="1px"></header>
+                <div class="tx">
+                    <p>5.8%</p>
+                    <p>参考年回报率</p>
+                </div>
+                <footer><button>立即加入</button></footer>
+                </div>
+                <div class="s3_item">
+                    <header>U计划-1个月<img src="uplan_xian.png" width="130xp" height="1px"></header>
+                    <div class="tx">
+                        <p>5.8%</p>
+                        <p>参考年回报率</p>
+                    </div>
+                    <footer><a href="#" class="s3_join">立即加入</a></footer>
+                </div>
+        </div>
+    </section>
+    <section class="s4">
+        <header>8年耕耘，我们希望走得更远</header>
+        <ul class="line">
+            <li><span class="cir"></span><span>2010年成立，业绩保持行业领先</span></li>
+            <li><span class="cir"></span><span>2014年，所属集团 获得1.3亿美元A轮融资</span></li>
+            <li><span class="cir"></span><span>2016年，率先完成银行资金存管的平台之一</span></li>
+            <li><span class="cir cir_last"></span><span>2017年，被iTrust互联网信用评价中心授予AAA信用认证，AAA为最高信用评级</span></li>
+        </ul>
+    </section>
+</div>
+<script src="../jquery-3.3.1.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

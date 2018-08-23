@@ -1,0 +1,18 @@
+*{padding: 0}
+html{color: #333;background-color: #fff;}
+body{font: 12px/1.5 tahoma, arial, "Microsoft Yahei", "Hiragino Sans GB", \5b8b\4f53;font-family: 微软雅黑;}
+a{text-decoration: none!important;color: #333!important;}
+.wrap{padding: 0}
+header{width: 100%;background:#F1F1F1}
+.hd{width: 1200px;min-width: 1200px;height: 36px;line-height: 36px;}
+.user{background: url("icon-top-allnav.png") no-repeat -158px 0;display: inline-block;width: 19px;height: 18px;position: absolute;top: 9px;left: -20px;}
+.hd_item{position: relative}
+.hd_item a{border-right: 1px solid #ccc;padding: 0 6px 0 0;}
+.hd_l{margin: 0;float: left}
+.hd_r_r{float: right;height: 36px;}
+.hd_r{float: right}
+.hd_r_r a{width: 24px;height: 25px;line-height: 25px;display: inline-block;text-align: center;margin-top: 6px;margin-right: 10px;}
+.wx{background: url("icon-top-allnav.png") no-repeat -32px top;}
+.xl{background: url("icon-top-allnav.png") no-repeat;}
+.free{width: 104px!important;height: 20px!important;color: white;background: red!important;line-height: 20px!important;}
+.free_wrap{height: 36px;line-height: 36px;display: inline-block;vertical-align: top;}

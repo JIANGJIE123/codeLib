@@ -62,6 +62,17 @@
         }
         .s4 header{padding: 15px;border-bottom: 1px solid #ebebeb;text-align: left}
 
+        .toolbar{position: fixed;top: 40%;right: 50px;z-index: 999;}
+        .list{list-style: none;margin: 0 0 10px 0;width: 100px;height: 40px;}
+        .list_item{background: url("toolbar.png") no-repeat #4998f4;width: 40px;height: 40px;border-radius: 4px;cursor: pointer;display: inline-block;float: right}
+        .set_top{background-position: 0 -569px;}
+        .phone{background-position: 0 -684px;}
+        .back_to_top{line-height: 40px;color: white;display: inline-block;height: 40px;text-align: center;font-size: 14px;width: 60px;visibility: hidden}
+        .list2{background: red;border-radius: 4px;list-style: none;}
+        .list_item2{background: url("toolbar.png") no-repeat red 0 -569px;width: 40px;height: 40px;border-radius: 4px;cursor: pointer;display: inline-block;float: right;}
+
+
+
     </style>
 </head>
 <body>
@@ -207,8 +218,47 @@
             <li><span class="cir cir_last"></span><span>2017年，被iTrust互联网信用评价中心授予AAA信用认证，AAA为最高信用评级</span></li>
         </ul>
     </section>
+    <div class="toolbar">
+        <ul>
+            <li class="list">
+                <a href="#top" class="list_item phone"></a>
+            </li>
+            <li class="list">
+                <span class="back_to_top">置顶</span>
+                <a  href="#phone" class="list_item set_top" ></a>
+            </li>
+        </ul>
+    </div>
 </div>
 <script src="../jquery-3.3.1.min.js"></script>
 <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 100) {
+                $(".set_top").show();
+            } else {
+                $(".set_top").hide();
+            }
+            ;
+        });
+        $(".set_top").click(function () {
+            $('html,body').stop().animate({"scrollTop":"0px"},1000);
+            return false;
+        })
+
+        $(".set_top").hover(function () {
+            $(this).parent().css({"background":"red","border-radius": "4px"});
+            $(this).addClass("list_item2");
+            $(".back_to_top").css("visibility","visible");
+        },function () {
+            $(this).parent().css({"background":"transparent","border-radius": "4px"});
+            $(this).removeClass("list_item2");
+            $(".back_to_top").css("visibility","hidden");
+        })
+    })
+
+
+</script>
 </body>
 </html>

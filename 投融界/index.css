@@ -1,5 +1,5 @@
 *{padding: 0}
-html{color: #333;background-color: #fff;}
+html{color: #333;background-color: #f2f2f2;;}
 body{font: 12px/1.5 tahoma, arial, "Microsoft Yahei", "Hiragino Sans GB", \5b8b\4f53;font-family: 微软雅黑;}
 a{text-decoration: none!important;color: #333!important;}
 .wrap{padding: 0}
@@ -16,3 +16,29 @@ header{width: 100%;background:#F1F1F1}
 .xl{background: url("icon-top-allnav.png") no-repeat;}
 .free{width: 104px!important;height: 20px!important;color: white;background: red!important;line-height: 20px!important;}
 .free_wrap{height: 36px;line-height: 36px;display: inline-block;vertical-align: top;}
+
+/*nav*/
+.nv_wrap{width: 100%;}
+.nv_content{width: 1200px;margin: 0 auto;height: 94px;display: flex;line-height: 94px;}
+.nav_item{margin-left: 38px;padding: 0!important;}
+.nav_item a{text-decoration: none;color: #222;font-size: 16px;display: block;height: 94px;text-align: center;}
+.logo_t{color: #666666;font-size: 14px;border-left: 1px solid #d2d2d2;margin-left: 10px;padding-left: 8px;}
+.nv{margin: 0;padding: 0;}
+.search{position: relative}
+#search{width: 280px;height: 36px;font-size: 12px;border: 1px solid #bb0000;background-color: #fff;padding-left: 80px;outline: none;padding-right: 46px;}
+.select_pos{height: 33px;line-height: 33px;width: 70px;position: absolute;top:0;left: 0;top: 31px;left: 1px;text-align: center;
+    background: url("arrow.png") no-repeat #f8f8f8 55px center;
+}
+.select_t{margin-right: 10px}
+.search_icon{display: inline-block;width: 44px;height: 34px!important;background: url("icon_home.png") no-repeat #bb0000 -157px 9px;position: absolute;top:30px;right: 0;}
+
+/*swiper*/
+.swiper-pagination-bullet{background-color:white;width: 10px;height: 10px }
+.swiper-pagination-bullet-active{background-color:#bb0000}
+.swiper-button-next,.swiper-button-prev{width: 54px;height: 54px;background-color: #000;opacity: 0.5}
+
+/*works*/
+.works_wrap{width: 100%;background: white;}
+.works{width: 1200px;margin-bottom: 0;padding: 32px 0}
+.work{background: url("icon_home.png") no-repeat 0 -24px;width: 30px;height: 100%;}
+.works li{height: 66px;width: 160px;display: flex;justify-content: space-around;}

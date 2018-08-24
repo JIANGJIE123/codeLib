@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>投融界</title>
     <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../swiper/swiper-4.3.5.min.css">
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
@@ -27,8 +28,99 @@
             </ul>
         </div>
     </header>
+    <section class="nv_wrap">
+        <div class="nv_content">
+            <div class="logo">
+                <img src="logo-w1200.png">
+                <span class="logo_t">专业的融资服务平台</span>
+            </div>
+            <ul class="list-unstyled list-inline nv">
+                <li class="nav_item"><a href="#">首页</a></li>
+                <li class="nav_item"><a href="#">找资金</a></li>
+                <li class="nav_item"><a href="#">选项目</a></li>
+                <li class="nav_item"><a href="#">融资活动</a></li>
+                <li class="nav_item"><a href="#">商业计划书</a></li>
+                <li class="nav_item"><a href="#">成功案例</a></li>
+                <li class="nav_item search_wrap">
+                    <div class="search">
+                        <div class="select_pos">
+                            <div class="select_t">找资金</div>
+                              <select class="select_tx" style="display: none">
+                                <option>找资金</option>
+                                <option>找项目</option>
+                                <option>找文章</option>
+                              </select>
+                        </div>
+                            <input type="text" id="search" placeholder="输入关键词，搜一搜...">
+                            <a href="#" class="search_icon"></a>
+                    </div>
+                    <!--<div class="select_state">-->
+                        <!--<span>热门搜索：</span>-->
+                        <!--<a href="#">投资创业</a>-->
+                        <!--<a href="#">企业融资</a>-->
+                        <!--<a href="#">个人投资</a>-->
+                        <!--<a href="#">互联网投资</a>-->
+                    <!--</div>-->
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="401_1526365831.jpg"></div>
+            <div class="swiper-slide"><img src="401_1529660374.png"></div>
+            <div class="swiper-slide"><img src="401_1532247060.jpg"></div>
+            <div class="swiper-slide"><img src="401_1534493122.jpg"></div>
+            <div class="swiper-slide"><img src="401_1534925685.jpg"></div>
+            <div class="swiper-slide"><img src="401_1535075403.jpg"></div>
+            <div class="swiper-slide"><img src="401_1534987186.jpg"></div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev" style="display: none"></div>
+        <div class="swiper-button-next" style="display: none"></div>
+    </div>
+    <section class="works_wrap">
+        <ul class="row list-unstyled center-block works">
+            <li class="col-sm-2"><a href="#"><p><span>23</span>年</p><p>项目对接</p></a><div class="work"></div></li>
+            <li class="col-sm-2"><a href="#"><p><span>34</span>万+</p><p>资金方</p></a><div class="work"></div></li>
+            <li class="col-sm-2"><a href="#"><p><span>260</span>万+</p><p>项目方</p></a><div class="work"></div></li>
+            <li class="col-sm-2"><a href="#"><p><span>2,170</span>亿+</p><p>融资金额</p></a><div class="work"></div></li>
+            <li class="col-sm-2"><a href="#"><p><span>70,000</span>亿</p><p>总持有资金</p></a><div class="work"></div></li>
+            <li class="col-sm-2"><a href="#"><p><span>500</span>场+</p><p>举办活动</p></a><div class="work"></div></li>
+        </ul>
+    </section>
 </div>
 <script src="../jquery-3.3.1.min.js"></script>
 <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../swiper/swiper-4.3.5.min.js"></script>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        loop: true,
+        autoplay:true,
+        effect : 'fade',
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+            currentClass : 'my-pagination-current',
+        },
+
+        // 如果需要前进后退按钮
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+    });
+    $(".swiper-container").hover(function () {
+        $(".swiper-button-prev").fadeIn()
+        $(".swiper-button-next").fadeIn()
+    },function () {
+        $(".swiper-button-prev").fadeOut()
+        $(".swiper-button-next").fadeOut()
+    })
+</script>
 </body>
 </html>

@@ -36,8 +36,8 @@
             </div>
             <ul class="list-unstyled list-inline nv">
                 <li class="nav_item"><a href="#">首页</a></li>
-                <li class="nav_item"><a href="#">找资金</a></li>
-                <li class="nav_item"><a href="#">选项目</a></li>
+                <li class="nav_item"><a href="#" class="choose">找资金</a></li>
+                <li class="nav_item"><a href="#" class="choose">选项目</a></li>
                 <li class="nav_item"><a href="#">融资活动</a></li>
                 <li class="nav_item"><a href="#">商业计划书</a></li>
                 <li class="nav_item"><a href="#">成功案例</a></li>
@@ -64,16 +64,26 @@
                 </li>
             </ul>
         </div>
+        <div class="drop_down_card">
+            <div class="drop_down">
+                <ul>
+                    <li><a href="#">11111</a></li>
+                    <li><a href="#">22222</a></li>
+                    <li><a href="#">33333</a></li>
+                </ul>
+            </div>
+        </div>
     </section>
+    <section class="hero">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="401_1526365831.jpg"></div>
-            <div class="swiper-slide"><img src="401_1529660374.png"></div>
-            <div class="swiper-slide"><img src="401_1532247060.jpg"></div>
-            <div class="swiper-slide"><img src="401_1534493122.jpg"></div>
-            <div class="swiper-slide"><img src="401_1534925685.jpg"></div>
-            <div class="swiper-slide"><img src="401_1535075403.jpg"></div>
-            <div class="swiper-slide"><img src="401_1534987186.jpg"></div>
+            <div class="swiper-slide"><img src="401_1526365831.jpg" class="img-responsive"></div>
+            <div class="swiper-slide"><img src="401_1529660374.png" class="img-responsive"></div>
+            <div class="swiper-slide"><img src="401_1532247060.jpg" class="img-responsive"></div>
+            <div class="swiper-slide"><img src="401_1534493122.jpg" class="img-responsive"></div>
+            <div class="swiper-slide"><img src="401_1534925685.jpg" class="img-responsive"></div>
+            <div class="swiper-slide"><img src="401_1535075403.jpg" class="img-responsive"></div>
+            <div class="swiper-slide"><img src="401_1534987186.jpg" class="img-responsive"></div>
         </div>
         <!-- 如果需要分页器 -->
         <div class="swiper-pagination"></div>
@@ -82,6 +92,47 @@
         <div class="swiper-button-prev" style="display: none"></div>
         <div class="swiper-button-next" style="display: none"></div>
     </div>
+        <div class="login">
+            <div class="login_head">
+                <p class="hide_" id="login_btn">登录</p>
+                <p class="" id="reg_btn">免费注册</p>
+            </div>
+            <form role="form" class="form_" id="reg">
+                <div class="form-group">
+                    <input type="text" class="login_item login_item1 form-control" id="phone" placeholder="输入您的手机号码">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="result" placeholder="输入计算结果" class="login_item form-control">
+                    <img src="code.png" width="90px" class="exp"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="test" placeholder="请输入验证码" class="login_item form-control">
+                    <span class="test">获得验证码</span>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked>我已阅读并同意<a href="#" style="color: white!important;">《投融界服务协议》</a>
+                    </label>
+                </div>
+                <button type="submit" class="reg">免费注册</button>
+            </form>
+            <form role="form" class="form_" id="login">
+                <div class="form-group">
+                    <input type="text" class="login_item login_item1 form-control" id="user" placeholder="手机号码">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="login_item login_item1 form-control" id="pwd" placeholder="密码">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" checked>两周内自动登录
+                    </label>
+                    <a href="#" style="color: white!important;float: right">忘记密码</a>
+                </div>
+                <button type="submit" class="reg">登录</button>
+            </form>
+        </div>
+    </section>
     <section class="works_wrap">
         <ul class="row list-unstyled center-block works">
             <li class="col-sm-2"><a href="#"><p><span>23</span>年</p><p>项目对接</p></a><div class="work"></div></li>
@@ -120,6 +171,38 @@
     },function () {
         $(".swiper-button-prev").fadeOut()
         $(".swiper-button-next").fadeOut()
+    })
+    // login_card
+    $("#login").hide();
+    $("#login_btn").click(function () {
+        if(!$("#reg_btn").hasClass("hide_")){
+            $("#reg_btn").addClass("hide_");
+        }
+        if($("#login_btn").hasClass("hide_")){
+            $("#login_btn").removeClass("hide_");
+        }
+        $("#reg").hide();
+        $("#login").show();
+    });
+    $("#reg_btn").click(function () {
+        if(!$("#login_btn").hasClass("hide_")){
+            $("#login_btn").addClass("hide_");
+        }
+        if($("#reg_btn").hasClass("hide_")){
+            $("#reg_btn").removeClass("hide_");
+        }
+        $("#login").hide();
+        $("#reg").show();
+    });
+    
+    $(".choose").each(function (index,element) {
+        $(this).hover(function () {
+            $(this).addClass("cur")
+            $(".drop_down_card").show();
+        },function () {
+            $(this).removeClass("cur")
+            $(".drop_down_card").slideUp("slow");
+        })
     })
 </script>
 </body>

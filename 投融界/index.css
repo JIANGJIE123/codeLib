@@ -21,7 +21,7 @@ header{width: 100%;background:#F1F1F1}
 .nv_wrap{width: 100%;}
 .nv_content{width: 1200px;margin: 0 auto;height: 94px;display: flex;line-height: 94px;}
 .nav_item{margin-left: 38px;padding: 0!important;}
-.nav_item a{text-decoration: none;color: #222;font-size: 16px;display: block;height: 94px;text-align: center;}
+.nv_t{text-decoration: none;color: #222;font-size: 16px;display: block;height: 94px;text-align: center;}
 .logo_t{color: #666666;font-size: 14px;border-left: 1px solid #d2d2d2;margin-left: 10px;padding-left: 8px;}
 .nv{margin: 0;padding: 0;}
 .search{position: relative}
@@ -31,10 +31,10 @@ header{width: 100%;background:#F1F1F1}
 }
 .select_t{margin-right: 10px}
 .search_icon{display: inline-block;width: 44px;height: 34px!important;background: url("icon_home.png") no-repeat #bb0000 -157px 9px;position: absolute;top:30px;right: 0;}
-.choose:after{content: "";position: relative;right: -3px;top: -3px;display: inline-block;width: 0;height: 0;border-left: 3px solid transparent;border-right: 3px solid transparent;
+.choose1:after,.choose2:after{content: "";position: relative;right: -3px;top: -3px;display: inline-block;width: 0;height: 0;border-left: 3px solid transparent;border-right: 3px solid transparent;
     border-top: 5px solid #666;border-bottom: 0;transition: all 0.6s ease 0.1s;}
 .cur:after{transform: rotate(180deg);}
-.drop_down_card{height:200px;width: 100%;background: white;padding: 25px;border-top:1px solid #dadada;z-index:99;position: absolute;display: none;}
+.drop_down_card{height:200px;width: 100%;background: white;padding: 25px;border-top:1px solid #dadada;z-index:99;position: absolute;left: 0;display: none;}
 .drop_down{width: 1200px;margin: 0 auto}
 
 /*swiper*/

@@ -35,12 +35,21 @@
                 <span class="logo_t">专业的融资服务平台</span>
             </div>
             <ul class="list-unstyled list-inline nv">
-                <li class="nav_item"><a href="#">首页</a></li>
-                <li class="nav_item"><a href="#" class="choose">找资金</a></li>
-                <li class="nav_item"><a href="#" class="choose">选项目</a></li>
-                <li class="nav_item"><a href="#">融资活动</a></li>
-                <li class="nav_item"><a href="#">商业计划书</a></li>
-                <li class="nav_item"><a href="#">成功案例</a></li>
+                <li class="nav_item"><a href="#" class="nv_t">首页</a></li>
+                <li class="nav_item nv_drop">
+                    <a href="#" class="choose1 nv_t">找资金</a>
+                    <div class="drop_down_card">
+                        <ul class="drop_down list-unstyled list-inline">
+                            <li><a href="#">11111</a></li>
+                            <li><a href="#">22222</a></li>
+                            <li><a href="#">33333</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav_item"><a href="#" class="choose2 nv_t">选项目</a></li>
+                <li class="nav_item"><a href="#" class="nv_t">融资活动</a></li>
+                <li class="nav_item"><a href="#" class="nv_t">商业计划书</a></li>
+                <li class="nav_item"><a href="#" class="nv_t">成功案例</a></li>
                 <li class="nav_item search_wrap">
                     <div class="search">
                         <div class="select_pos">
@@ -63,15 +72,6 @@
                     <!--</div>-->
                 </li>
             </ul>
-        </div>
-        <div class="drop_down_card">
-            <div class="drop_down">
-                <ul>
-                    <li><a href="#">11111</a></li>
-                    <li><a href="#">22222</a></li>
-                    <li><a href="#">33333</a></li>
-                </ul>
-            </div>
         </div>
     </section>
     <section class="hero">
@@ -194,16 +194,16 @@
         $("#login").hide();
         $("#reg").show();
     });
-    
-    $(".choose").each(function (index,element) {
-        $(this).hover(function () {
-            $(this).addClass("cur")
+
+    $(".nv_drop").hover(function () {
+            $(".choose1").addClass("cur")
             $(".drop_down_card").show();
         },function () {
-            $(this).removeClass("cur")
+            $(".choose1").removeClass("cur")
             $(".drop_down_card").slideUp("slow");
-        })
-    })
+        });
+
+
 </script>
 </body>
 </html>

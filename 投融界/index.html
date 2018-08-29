@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container-fluid wrap">
-    <header>
+    <header class="top_hd">
         <div class="hd center-block">
             <p class="hd_l"><span>客服热线：</span><span>400-858-9000</span></p>
             <div class="hd_r_r">
@@ -143,6 +143,98 @@
             <li class="col-sm-2"><a href="#"><p><span>500</span>场+</p><p>举办活动</p></a><div class="work"></div></li>
         </ul>
     </section>
+    <section class="findMon_wrap">
+        <div class="findMon">
+            <i></i>
+            <header class="findMon_hd clearfix">
+                <a class="findMon_hd_l">找资金</a>
+                <a href="#" class="findMon_hd_r">发布资金</a>
+            </header>
+            <div class="main">
+                <ul class="list-unstyled list-inline findMon_ul">
+                    <li class="main_item">
+                        <img src="find_fund_05.jpg" alt="find_fund">
+                        <div class="findMon_tx">
+                            <h1>天使投资</h1>
+                            <p>早期项目的福音，从这里开始</p>
+                            <div class="cir_right"></div>
+                        </div>
+                    </li>
+                    <li class="main_item">
+                        <img src="find_fund_05.jpg" alt="find_fund">
+                        <div class="findMon_tx">
+                            <h1>天使投资</h1>
+                            <p>早期项目的福音，从这里开始</p>
+                            <div class="cir_right"></div>
+                        </div>
+                    </li>
+                    <li class="main_item">
+                        <img src="find_fund_05.jpg" alt="find_fund">
+                        <div class="findMon_tx">
+                            <h1>天使投资</h1>
+                            <p>早期项目的福音，从这里开始</p>
+                            <div class="cir_right"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <footer class="findMon_fd">
+                <a href="#">点击查看更多</a>
+            </footer>
+        </div>
+    </section>
+
+    <section class="findMon_wrap">
+        <div class="findMon">
+            <i></i>
+            <header class="findMon_hd clearfix">
+                <a class="findMon_hd_l">成功案例</a>
+                <a href="#" class="findMon_hd_r">发布资金</a>
+            </header>
+            <div class="main">
+                <ul class="list-unstyled list-inline findMon_ul">
+                    <li class="main_item">
+                        <img src="find_fund_05.jpg" alt="find_fund">
+                        <div class="findMon_tx">
+                            <h1>天使投资</h1>
+                            <p>早期项目的福音，从这里开始</p>
+                            <div class="cir_right"></div>
+                        </div>
+                    </li>
+                    <li class="main_item">
+                        <img src="find_fund_05.jpg" alt="find_fund">
+                        <div class="findMon_tx">
+                            <h1>天使投资</h1>
+                            <p>早期项目的福音，从这里开始</p>
+                            <div class="cir_right"></div>
+                        </div>
+                    </li>
+                    <li class="main_item">
+                        <img src="find_fund_05.jpg" alt="find_fund">
+                        <div class="findMon_tx">
+                            <h1>天使投资</h1>
+                            <p>早期项目的福音，从这里开始</p>
+                            <div class="cir_right"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <footer class="findMon_fd">
+                <a href="#">点击查看更多</a>
+            </footer>
+        </div>
+    </section>
+    <div class="float_sidebar_menu">
+        <ul class="list-unstyled list-group">
+            <li class="list-group-item"><a href="#">找资金</a></li>
+            <li class="list-group-item"><a href="#">成功案例</a></li>
+            <li class="list-group-item"><a href="#">直约投资人</a></li>
+            <li class="list-group-item"><a href="#">找资金</a></li>
+            <li class="list-group-item"><a href="#">找资金</a></li>
+            <li class="list-group-item"><a href="#">找资金</a></li>
+            <li class="list-group-item"><a href="#">找资金</a></li>
+        </ul>
+    </div>
 </div>
 <script src="../jquery-3.3.1.min.js"></script>
 <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -202,8 +294,18 @@
             $(".choose1").removeClass("cur")
             $(".drop_down_card").slideUp("slow");
         });
+// 滚轮
 
-
+    $(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 1) {
+                $(".nv_wrap").css({"box-shadow":"rgb(204, 204, 204) 0px 0px 10px","top":"0"})
+            } else {
+                $(".nv_wrap").css({"box-shadow":"none","top":"36px"})
+            }
+            ;
+        });
+    })
 </script>
 </body>
 </html>

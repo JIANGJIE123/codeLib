@@ -34,7 +34,7 @@ a{text-decoration: none!important;color: #333!important;}
 .choose1:after,.choose2:after{content: "";position: relative;right: -3px;top: -3px;display: inline-block;width: 0;height: 0;border-left: 3px solid transparent;border-right: 3px solid transparent;
     border-top: 5px solid #666;border-bottom: 0;transition: all 0.6s ease 0.1s;}
 .cur:after{transform: rotate(180deg);}
-.drop_down_card{height:200px;width: 100%;background: white;padding: 25px;border-top:1px solid #dadada;z-index:99;position: absolute;left: 0;display: none;}
+.drop_down_card{height:200px;width: 100%;background: white;padding: 25px;border-top:1px solid #dadada;z-index:999;position: absolute;left: 0;display: none;}
 .drop_down{width: 1200px;margin: 0 auto}
 
 /*swiper*/
@@ -79,4 +79,8 @@ a{text-decoration: none!important;color: #333!important;}
 .findMon i{display: block;width: 3px;height: 24px;background: #b81c22;position: absolute;left: 0px;top: 26px;}
 
 /*float_sidebar_menu*/
-.float_sidebar_menu{position: absolute;left: 50%;top: 694px;margin-left: -710px;width: 100px;height: 280px;z-index: 999;}
+.float_sidebar_menu{position: absolute;left: 50%;top:683px;margin-left: -710px;width: 100px;height: 280px;z-index: 99;}
+.sidebar_activ{background: red}
+.sidebar_activ a{color: white!important;}
+
+.select_tx{position: absolute;top: -1px;appearance: none;-webkit-appearance: none;-moz-appearance: none;background: transparent;border: none;outline: none;border-radius: 0!important;}

@@ -53,8 +53,8 @@
                 <li class="nav_item search_wrap">
                     <div class="search">
                         <div class="select_pos">
-                            <div class="select_t">找资金</div>
-                              <select class="select_tx" style="display: none">
+                            <div class="select_t"></div>
+                              <select class="select_tx form-control" style="">
                                 <option>找资金</option>
                                 <option>找项目</option>
                                 <option>找文章</option>
@@ -225,14 +225,14 @@
         </div>
     </section>
     <div class="float_sidebar_menu">
-        <ul class="list-unstyled list-group">
-            <li class="list-group-item"><a href="#">找资金</a></li>
-            <li class="list-group-item"><a href="#">成功案例</a></li>
-            <li class="list-group-item"><a href="#">直约投资人</a></li>
-            <li class="list-group-item"><a href="#">找资金</a></li>
-            <li class="list-group-item"><a href="#">找资金</a></li>
-            <li class="list-group-item"><a href="#">找资金</a></li>
-            <li class="list-group-item"><a href="#">找资金</a></li>
+        <ul class="list-unstyled list-group ">
+            <li class="list-group-item sidebar_activ sidebar"><a href="#">找资金</a></li>
+            <li class="list-group-item sidebar"><a href="#">成功案例</a></li>
+            <li class="list-group-item sidebar"><a href="#">直约投资人</a></li>
+            <li class="list-group-item sidebar"><a href="#">找资金</a></li>
+            <li class="list-group-item sidebar"><a href="#">找资金</a></li>
+            <li class="list-group-item sidebar"><a href="#">找资金</a></li>
+            <li class="list-group-item sidebar"><a href="#">找资金</a></li>
         </ul>
     </div>
 </div>
@@ -295,17 +295,39 @@
             $(".drop_down_card").slideUp("slow");
         });
 // 滚轮
+    var _scroll =function () {
+        if ($(window).scrollTop() > 1) {
+            $(".nv_wrap").css({"box-shadow":"rgb(204, 204, 204) 0px 0px 10px","top":"0"})
+        } else {
+            $(".nv_wrap").css({"box-shadow":"none","top":"36px"})
+        };
+        if($(window).scrollTop()>610){
+            $(".float_sidebar_menu").css({"position":"fixed","top": "110px"})
+        }else {
+            $(".float_sidebar_menu").css({"position":"absolute","top": "683px"})
+        }
 
-    $(function () {
-        $(window).scroll(function () {
-            if ($(window).scrollTop() > 1) {
-                $(".nv_wrap").css({"box-shadow":"rgb(204, 204, 204) 0px 0px 10px","top":"0"})
-            } else {
-                $(".nv_wrap").css({"box-shadow":"none","top":"36px"})
-            }
-            ;
-        });
-    })
+        //分层
+        if($(window).scrollTop()>1099){
+            $(".sidebar").each(function (index, elem) {
+                console.log($(window).scrollTop());
+                console.log($(".sidebar:nth-child(2)"))
+                if($(this).hasClass('sidebar_activ')){
+                    $(this).removeClass('sidebar_activ')
+                };
+                $(".sidebar:eq(1)").addClass('sidebar_activ')
+            })
+        }else {
+            $(".sidebar").each(function (index, elem) {
+                if($(this).hasClass('sidebar_activ')){
+                    $(this).removeClass('sidebar_activ')
+                };
+                $(".sidebar:eq(0)").addClass('sidebar_activ')
+            })
+        }
+    };
+    $(document).ready($(window).scroll(_scroll))
+
 </script>
 </body>
 </html>

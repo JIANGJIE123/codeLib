@@ -1,0 +1,39 @@
+1、5种值
+a.inherit
+b.线类：baseline(默认)/top/middle/bottom
+c.文本类：text-top,text-bottom
+d.上标下标类：sub,super
+e.数值百分比类：20px,2em,20%......(在baseline对齐基础上上下偏移对应数值大小;百分比值是相对于line-height计算的)
+
+2、IE6/IE7下vertical-align百分比值不支持小数line-height
+
+3、起作用的前提：
+应用于inline水平的元素和table-cell元素
+inline水平——inline:  <img>,<span>,<strong>,<em>...
+              inline-block:<input>(IE8+),<button>(IE8+),...
+table-cell元素：table-cell:<td>
+默认状态下：图片、按钮、文字和单元格可用
+元素应用float或绝对定位就会变成block水平
+
+4、<p><img/></p>
+垂直居中：
+a.p{display:table-cell;vertical-align:middle;}
+b.p{height:200px;line-height:200px;}  img{vertical-align:middle}
+
+5、text-align:justify
+
+6、实践经验：
+a.小图标+文字居中：使用vertical-align负值
+b.不定尺寸图片或多行文字的垂直居中：主体元素inline-block化；0宽度100%高度辅助元素；vertical-align:middle
+
+7、不固定图片大小完全居中，<p><img/></p>,p{line-height:200px;font-size:0;}
+
+8、vertical-align:text-top
+盒子的顶部和父级content area 的顶部对齐
+vertical-align:text-bottom
+盒子的顶部和父级content area 的底部对齐
+
+9、<sub></sub> ——vertical-align:sub
+ <sup></sup>    ——vertical-align:supper
+
+

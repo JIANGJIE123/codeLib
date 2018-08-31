@@ -1,0 +1,13 @@
+1、行高：两行文字基线之间的距离
+2、高度的表现不是行高，而是内容区域和行间距
+3、属性值：normal(默认),数值（根据当前元素的font-size大小计算），长度值（1.5em,px,pt,rem）,百分号（根据font-size）
+    inherit
+4、line-height:1.5 所有可继承元素根据font-size重计算行高（全局下建议使用数值）；
+line-height:150%/1.5em 当前元素根据font-size计算行高，继承给下面的元素
+5、<p><img/></p>图片底边间隙
+解决方法：a.img{display:block}  b.img{vertical-align: bottom;}  c.p{line-height: 0;}
+6、基本上高度受行高控制
+7、<p><img/></p>
+图片水平垂直居中：
+p{line-height:300px;text-align: center;}    p>img{vertical-align: middle;}
+8、图片默认为inline-block

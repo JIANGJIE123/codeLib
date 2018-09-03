@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="lib/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <p>site:{{site}}</p>
+    <p>url:{{url}}</p>
+    <p>{{details()}}</p>
+    <span v-bind:title="message">悬停此处查看时间</span>
+    <span v-if="seen">jiangjie</span>
+    <ol>
+        <li v-for="todo in todos">
+            {{todo.text}}
+        </li>
+    </ol>
+<ol>
+    <todo-item v-for="item in groceryList " v-bind:todo="item"></todo-item>
+</ol>
+
+    <p>{{ralhtml}}</p>
+    <p v-html="ralhtml"></p>
+</div>
+
+<script type="text/javascript">
+    Vue.component('todo-item',{
+        props:['todo'],
+        template:'<li>{{todo.text}}<li/>'
+    })
+
+    var vm=new Vue({
+        el:"#demo",
+        data:{
+            site:"菜鸟教程",
+            url:"www.runoob.com",
+            alexa:"10000",
+            message:"页面加载于"+new Date().toLocaleString(),
+            seen:false,
+            todos:[
+                {text:"jiangjie"},
+                {text: "huzhen"},
+                {text:"lalalal"}
+
+            ],
+            groceryList:[
+                {id:0,text:"蔬菜"},
+                {id:1,text:"奶酪"},
+                {id:2,text:"随便其他人什么"}
+            ],
+            ralhtml:"<h1 style='color: red'>jiangjie</h1>"
+        },
+        methods:{
+            details:function () {
+                return this.site+"-学的不仅是技术，更是梦想"
+            }
+        }
+    })
+</script>
+</body>
+</html>

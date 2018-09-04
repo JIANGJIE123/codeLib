@@ -3,8 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <title>中国石化</title>
+    <link rel="stylesheet" type="text/css" href="../swiper/swiper-4.3.5.min.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <style type="text/css">
+        .swiper-pagination-bullet{opacity: 1;background: white;outline: none}
+        .swiper-pagination-bullet-active{background: #007aff;}
+        .swiper-pagination-customs{width: 19px;height:11px;line-height:11px;color: white;display: inline-block;border-left: 1px solid white;text-align: center}
+        .swiper-pagination-custom{background: url("imgs/news_bg.png") no-repeat;bottom: -2px;text-align: right}
+        .swiper-pagination-customs-activ{background:red}
+    </style>
 </head>
 <body>
+    <div class="container-fluid box">
+        <header>
+            <div class="hd_top row">
+                <div class="hd_logo_left col-sm-4 text-left">
+                    <a href="#"><img src="logo.gif"></a>
+                </div>
+                <div class="hd_link_right col-sm-8 text-right">
+                    <ul class="list-inline list-unstyled hd_link1">
+                        <li><a href="#" class="hd_link_a">官方微博</a>|</li>
+                        <li><a href="#" class="hd_link_a">移动客户端</a>|</li>
+                        <li><a href="#" class="hd_link_a">繁体</a>|</li>
+                        <li><a href="#" class="hd_link_a">English</a>|</li>
+                        <li><a href="#" class="hd_link_a">网站浏览向导</a>|</li>
+                        <li><a href="#" class="hd_link_a">帮助</a></li>
+                    </ul>
+                    <ul class="list-inline list-unstyled hd_link2">
+                        <li><a href="#" class="hd_link_a">首页</a>|</li>
+                        <li><a href="#" class="hd_link_a">中国石化网站群</a>|</li>
+                        <li><a href="#" class="hd_link_a">中国石油化工股份有限公司</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hd_menu">
+                <ul class="list-unstyled list-inline">
+                    <li><a href="#" class="hd_menu_a">关于我们</a></li>
+                    <li><a href="#" class="hd_menu_a">新闻中心</a></li>
+                    <li><a href="#" class="hd_menu_a">业务发展</a></li>
+                    <li><a href="#" class="hd_menu_a">投资者关系</a></li>
+                    <li><a href="#" class="hd_menu_a">产品与服务</a></li>
+                    <li><a href="#" class="hd_menu_a">社会责任</a></li>
+                    <li><a href="#" class="hd_menu_a">科技创新</a></li>
+                    <li><a href="#" class="hd_menu_a">人力资源</a></li>
+                    <li><a href="#" class="hd_menu_a">石化学堂</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="main">
+            <!--轮播图-->
+            <div class="banner1 swiper-container swiper-no-swiping">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="imgs/01banner.png"></div>
+                    <div class="swiper-slide"><img src="imgs/02banner.png"></div>
+                    <div class="swiper-slide"><img src="imgs/03banner.jpg"></div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination" style="bottom: 20px;text-align: right;padding-right: 80px"></div>
+            </div>
 
+            <section class="s">
+                <div class="s1_container s_com row">
+                    <div class="s1_left col-sm-8">
+                        <div class="s1_t"><a href="#">党组学习贯彻全国宣传思想工作会议精神</a></div>
+                        <div class="news_recommend">
+                            <div class="swiper-container banner2 swiper-no-swiping">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="imgs/news1.png"></div>
+                                    <div class="swiper-slide"><img src="imgs/news2.png"></div>
+                                    <div class="swiper-slide"><img src="imgs/news3.png"></div>
+                                    <div class="swiper-slide"><img src="imgs/news4.png"></div>
+                                    <div class="swiper-slide"><img src="imgs/news5.png"></div>
+                                </div>
+                                <!-- 如果需要分页器 -->
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <div class="news"></div>
+                    </div>
+                    <div class="s1_right col-sm-4">
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <footer>
+            <div class="ft_foot"></div>
+            <div class="bottom"></div>
+        </footer>
+    </div>
+
+<script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+<script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="../swiper/swiper-4.3.5.min.js"></script>
+    <script>
+        var mySwiper = new Swiper ('.banner1', {
+            autoplay:true,
+            loop: true,
+            // 分页器
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                clickableClass : 'my-pagination-clickable',
+            },
+        })
+        var mySwiper = new Swiper ('.banner2', {
+            autoplay:true,
+            loop: true,
+            // 分页器
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                clickableClass : 'my-pagination-clickable',
+                type : 'custom',
+                renderCustom: function(swiper,current,total){
+                    var paginationHtml = `
+                         <span class="swiper-pagination-customs">1</span>
+                         <span class="swiper-pagination-customs">2</span>
+                         <span class="swiper-pagination-customs">3</span>
+                         <span class="swiper-pagination-customs">4</span>
+                         <span class="swiper-pagination-customs">5</span>
+                            `;
+                    for(var i= 0; i<total; i++) {
+                        // 判断是不是激活焦点，是的话添加active类，不是就只添加基本样式类
+                        if(i === (current -1)){
+                            $(".swiper-pagination-customs").eq(i).addClass("swiper-pagination-customs-activ")
+                            //paginationHtml=`<span class="swiper-pagination-customs swiper-pagination-customs-activ">1</span>`
+
+                        }else {
+                            // if($(".swiper-pagination-customs").hasClass("swiper-pagination-customs-activ")){
+                            //     $(".swiper-pagination-customs").removeClass("swiper-pagination-customs-activ")
+                            // }
+                        }
+                    }
+                    return paginationHtml;
+                }
+            },
+            effect : 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+        })
+    </script>
 </body>
 </html>

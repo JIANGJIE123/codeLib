@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本溢出_三个点</title>
+    <style type="text/css">
+        .p1,.p2,.p3{width: 100px;height: 100px;margin: auto}
+        .p1{text-overflow:ellipsis;overflow: hidden;white-space: nowrap;}
+        .p2{text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp:5;-webkit-box-orient: vertical;overflow: hidden;}
+        .p3{position: relative;overflow: hidden;}
+        .p3:after{display: block;content: "...";position: absolute;right: 0;bottom: 0;background: url("ellipsis_bg.png") repeat-y;padding:0 20px 1px 45px;
+            height: 16px;width: 10px;}
+    </style>
+</head>
+<body>
+<p class="p1">单行文本溢出单行文本溢出单行文本溢出单行文本溢出单行文本溢出</p>
+<br/>
+<p class="p2">多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出</p>
+<br/>
+<p class="p3">跨浏览器多行文本溢出跨浏览器多跨浏览器多跨浏览器多多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出多行文本溢出</p>
+</body>
+</html>

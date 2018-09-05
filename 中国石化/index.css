@@ -24,4 +24,18 @@ html,body {
 .s1_t a{text-decoration: none;color: #214275;font-family: 微软雅黑;font-size: 24px;font-weight: bold;line-height: 50px;}
 .s_com{width: 875px;margin: 0 auto;padding: 15px 0px 0;}
 
-.news_recommend{width: 240px}
+.news_recommend{width: 240px;}
+.news_li{color: #1b51ab;font-weight: bold;cursor: pointer;text-decoration: none;padding: 7px;}
+.newes_t{background: url("imgs/tab_out.gif") repeat-x left bottom}
+.news{width: 300px;margin-left: 15px;}
+.news_li_ac{background: url("imgs/tab_on.gif") no-repeat left bottom;}
+.news_li_ac a{text-decoration: none;color: #666}
+.news_p a{text-decoration: none;color: #666}
+.news_p{line-height: 22px;background: url("imgs/li_bg.gif")no-repeat left center;padding-left: 10px}
+.news_p span{float: right}
+
+.know_more{background: url("imgs/li_bg.gif") no-repeat;background-position: left center;padding-left: 10px;}
+.know_more a:hover{text-decoration: none!important;}
+.new_box{display: flex;justify-content: space-between;margin-top: 20px;}
+
+

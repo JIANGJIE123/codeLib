@@ -193,22 +193,22 @@
                         </div>
                         </div>
                     </div>
-                    <div class="s1_right col-sm-4">
-                        <div class="custom_Vswiper" style="position: relative;margin-left: 15px;width: 240px;height: 404px;overflow: hidden">
-                            <ul class="list-unstyled custom_Vswiper_ul" style="padding-top: 33px;">
+                    <div class="s1_right col-sm-4" style="position: relative;margin-top: 25px;">
+                        <div class="custom_Vswiper" style="position: relative;margin-left: 15px;width: 240px;height:340px;overflow: hidden;margin-top: 30px;">
+                            <ul class="list-unstyled custom_Vswiper_ul" style="overflow: hidden;position: absolute;top:0;">
                                 <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v1.png" width="240" height="100"></li>
                                 <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v2.jpg" width="240" height="100"></li>
                                 <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v3.png" width="240" height="100"></li>
-                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v4.png"></li>
-                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v5.jpg"></li>
-                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v6.png"></li>
-                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v7.png"></li>
-                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v8.png"></li>
-                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v9.png"></li>
+                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v4.png" width="240" height="100"></li>
+                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v5.jpg" width="240" height="100"></li>
+                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v6.png" width="240" height="100"></li>
+                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v7.png" width="240" height="100"></li>
+                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v8.png" width="240" height="100"></li>
+                                <li class="custom_Vswiper_li" style="margin-bottom: 20px;"><img src="imgs/v9.png" width="240" height="100"></li>
                             </ul>
-                            <div id="custom_Vswiper_prev" class="custom_Vswiper_prev" style="background: url(imgs/icon.gif)no-repeat 0 -155px;width: 240px;height: 30px;position: absolute;top:3px;"><a href="#"></a></div>
-                            <div id="custom_Vswiper_next" class="custom_Vswiper_next" style="position: absolute;bottom: 0px;background: url(imgs/icon.gif)no-repeat 0 -190px;width: 240px;height: 30px;"><a href="#"></a></div>
-                        </div>
+                           </div>
+                        <div id="custom_Vswiper_prev" class="custom_Vswiper_prev" style="background: url(imgs/icon.gif)no-repeat 0 -155px;width: 240px;height: 30px;position: absolute;top: 0px;left: 50%;transform: translateX(-50%);"><a href="#"></a></div>
+                        <div id="custom_Vswiper_next" class="custom_Vswiper_next" style="position: absolute;bottom: -20px;background: url(imgs/icon.gif)no-repeat 0 -190px;width: 240px;height: 30px;position: absolute;left: 50%;transform: translateX(-50%);"><a href="#"></a></div>
                     </div>
                 </div>
             </section>
@@ -240,10 +240,22 @@
 <script src="../swiper/swiper-4.3.5.min.js"></script>
 <script>
    // 竖直滑动
-$(".custom_Vswiper_pre").click(function () {
-
-})
-
+   v_top=0
+   function vSwiper(){
+           $("#custom_Vswiper_next").click(function () {
+               if((v_top>-720) && (v_top<=0)) {
+                   v_top -= 120;
+                   $(".custom_Vswiper_ul").css("top", v_top + "px");
+               }
+           });
+           $("#custom_Vswiper_prev").click(function () {
+               if(v_top<0 && v_top>=-720){
+                   v_top+=120;
+                   $(".custom_Vswiper_ul").css("top",v_top+"px");
+               }
+           });
+   }
+   vSwiper();
         // banner滑动
         var mySwiper1 = new Swiper ('.banner1', {
             autoplay:true,
@@ -266,7 +278,7 @@ $(".custom_Vswiper_pre").click(function () {
                 clickableClass : 'my-pagination-clickable',
                 type : 'custom',
                 renderCustom: function(swiper,current,total){
-                    toggleHover($(".swiper-pagination-customs"),"swiper-pagination-customs-activ",current);
+                        cur=current;
                     for(var i= 0; i<total; i++) {
                         // 判断是不是激活焦点，是的话添加active类，不是就只添加基本样式类
                         if(i === (current -1)){
@@ -308,15 +320,18 @@ $(".custom_Vswiper_pre").click(function () {
             mySwiper2.autoplay.start();
         });
 
-        function toggleHover(elem,styl,num) {
+        function toggleHover(elem,styl,cur) {
             elem.hover(function () {
                 $(this).addClass(styl);
-            },function () {
-                $(this).removeClass(styl);
-                elem.eq(num-1).addClass(styl);
-            })
 
-        }
+            },function () {
+                debugger;
+                $(this).removeClass(styl);
+               elem.eq(cur-1).addClass(styl);
+            })
+        };
+   //toggleHover($(".swiper-pagination-customs"),"swiper-pagination-customs-activ",cur)
+        setInterval('toggleHover($(".swiper-pagination-customs"),"swiper-pagination-customs-activ",cur)',300);
 
         var indx=1;
         for(let i=1;i<5;i++){

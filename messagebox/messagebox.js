@@ -211,7 +211,6 @@
 		input: "input",
 		custom: "custom"
 	};
-	
 	window.alert = function(msg,callback){
 		window.parent.wxc.xcConfirm(msg,"info",{
 			onOk:callback

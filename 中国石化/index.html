@@ -10,7 +10,7 @@
         .swiper-pagination-bullet{opacity: 1;background: white;outline: none}
         .swiper-pagination-bullet-active{background: #007aff;}
         .swiper-pagination-customs{cursor: pointer;width: 19px;height:12px;line-height:12px;color: white;border-left: 1px solid white;text-align: center;display: block;position: relative;bottom: -3px;float: left}
-        .swiper-pagination-custom{background: url("imgs/news_bg.png") no-repeat center;font-size: 10px;height: 15px;position: absolute;bottom: 113px}
+        .swiper-pagination-custom{background: url("imgs/news_bg.png") no-repeat center;font-size: 10px;height: 15px;position: absolute;bottom: 0px}
         .swiper-pagination-customs-activ{background:#CC0000;}
         .swiper-pagination-customs-activ:after{display: block;content: "";border:3px solid transparent;border-bottom: 3px solid #CC0000;position: absolute;top:-50%;left: 50%;transform: translateX(-50%)}
         .pagination_box{float: right;}
@@ -83,9 +83,10 @@
                                     <div class="swiper-slide"><img src="imgs/news3.png"></div>
                                     <div class="swiper-slide"><img src="imgs/news4.png"></div>
                                     <div class="swiper-slide"><img src="imgs/news5.png"></div>
+                                    <div class="swiper-pagination"></div>
                                 </div>
                                 <!-- 如果需要分页器 -->
-                                <div class="swiper-pagination"></div>
+
                                 <div class="pagination0">
                                     <h6 class="pagination_t"><a href="#">1中国石化与中国航油​签署战略合作框架协议</a></h6>
                                     <p class="pagination_tx"> 8月17日，中国石化与中国航油战略合作框架协议签约仪式在总部举行。
@@ -212,20 +213,39 @@
                     </div>
                 </div>
             </section>
-            <section class="s2 row">
-                <div class="s2_l col-sm-3">
-                    <h1>产品与服务</h1>
+            <section class="row s2">
+                <div class="s2_l col-sm-4">
+                    <h2 class="s2_l_t"><a href="#">产品与服务</a></h2>
                     <div>
                         <table>
-                            <tr><td><a href="#">加油卡</a></td><td><a href="#">润滑油</a></td><td><a href="#">成品油</a></td></tr>
-                            <tr><td><a href="#">液化石油气</a></td><td><a href="#">化工产品</a></td><td><a href="#">石油焦</a></td></tr>
-                            <tr><td><a href="#">催化剂</a></td><td><a href="#">沥青</a></td><td><a href="#">天然气</a></td></tr>
-                            <tr><td><a href="#">物资采购平台</a></td><td><a href="#">成品油客服</a></td><td><a href="#">润滑油客服</a></td></tr>
+                            <tr><td><a href="#" class="s2_l_td">加油卡</a></td><td><a href="#" class="s2_l_td">润滑油</a></td><td><a href="#" class="s2_l_td">成品油</a></td></tr>
+                            <tr><td><a href="#" class="s2_l_td">液化石油气</a></td><td><a href="#" class="s2_l_td">化工产品</a></td><td><a href="#" class="s2_l_td">石油焦</a></td></tr>
+                            <tr><td><a href="#" class="s2_l_td">催化剂</a></td><td><a href="#" class="s2_l_td">沥青</a></td><td><a href="#" class="s2_l_td">天然气</a></td></tr>
+                            <tr><td><a href="#" class="s2_l_td">物资采购平台</a></td><td><a href="#" class="s2_l_td">成品油客服</a></td><td><a href="#" class="s2_l_td">润滑油客服</a></td></tr>
+                            <tr class="pp_t"><td><a href="#">品牌形象</a></td><td></td><td></td></tr>
+                            <tr class="pp"><td><img src="imgs/xcp2012.jpg"></td><td><img src="imgs/ppxxp2015.jpg"></td><td><img src="imgs/tywhp2015.jpg"></td></tr>
                         </table>
+                        <div class="gc">
+                            <h2><a href="#">工程专业人员查询</a></h2>
+                            <a href="#"><img src="imgs/jlgcs20180402.png"></a>
+                            <a href="#"><img src="imgs/sgzygl20180402.png"></a>
+                        </div>
                     </div>
                 </div>
-                <div class="s2_m col-sm-6"></div>
-                <div class="s2_r col-sm-3"></div>
+                <div class="s2_m col-sm-4" style="border: 1px solid #ccc;padding: 0;border-top-left-radius: 20px;">
+                    <h2 class="sz_t">社会责任</h2>
+                    <div class="s2_m_m">
+                        <a href="#"><img src="imgs/20180611_03.jpg" class="sz_img"></a>
+                        <a href="#"><img src="imgs/20180611_06.jpg" class="sz_img"></a>
+                        <a href="#"><img src="imgs/20180611_08.jpg" class="sz_img"></a>
+                        <ul class="list-unstyled list-inline">
+                            <li><a href="#"><img src="imgs/20180611_11.jpg"></a></li>
+                            <li><a href="#"><img src="imgs/newpic1.jpg"></a></li>
+                            <li><a href="#"><img src="imgs/newpic3.jpg"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="s2_r col-sm-4" style="border: 1px solid #ccc;height: 300px;"></div>
             </section>
 
         </div>
@@ -233,6 +253,7 @@
             <div class="ft_foot"></div>
             <div class="bottom"></div>
         </footer>
+
     </div>
 
 <script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
@@ -310,6 +331,7 @@
         // 点击滑动
         $(".swiper-pagination-customs").click(function () {
             let to=$(this).text();
+            cur=Number(to);
             mySwiper2.slideTo(to, 500, false);
         });
 
@@ -320,18 +342,19 @@
             mySwiper2.autoplay.start();
         });
 
-        function toggleHover(elem,styl,cur) {
+        function toggleHover(elem,styl) {
             elem.hover(function () {
                 $(this).addClass(styl);
 
             },function () {
-                debugger;
+                var index=cur-1;
+                console.log(index)
                 $(this).removeClass(styl);
-               elem.eq(cur-1).addClass(styl);
+               elem.eq(index).addClass(styl);
             })
         };
-   //toggleHover($(".swiper-pagination-customs"),"swiper-pagination-customs-activ",cur)
-        setInterval('toggleHover($(".swiper-pagination-customs"),"swiper-pagination-customs-activ",cur)',300);
+        var elem=$(".swiper-pagination-customs")
+   toggleHover(elem,"swiper-pagination-customs-activ");
 
         var indx=1;
         for(let i=1;i<5;i++){

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .main{display: none}
+    </style>
+</head>
+<body>
+<button id="tt" onclick="demo();">弹出框</button>
+<div class="main">
+    <input type="text" id="main_tx">
+</div>
+<script>
+    function demo() {
+        document.querySelector(".main").style.display="block";
+        document.querySelector("#main_tx").focus();
+    }
+var flag=0;
+    document.onkeydown= function (e) {
+        var theEvent = window.event || e;
+        var code = theEvent.keyCode || theEvent.which;
+        if (code == 13 && flag==1) {
+            document.querySelector(".main").style.display="none";
+            flag=0;
+        }
+        if (code == 13 && flag==0) {
+            document.querySelector(".main").style.backgroundColor="red";
+            flag=1;
+        }
+    }
+</script>
+</body>
+</html>

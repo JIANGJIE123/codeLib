@@ -1,0 +1,4 @@
+.about_main{height: 1000px;width: 100%}
+.about_li{float: right;display: block;text-decoration: none;color: #555;width: 196px;height: 35px;line-height: 35px;padding-left: 20px;border-bottom: 1px solid #eeeeee;font-size: 12px;font-weight: normal;}
+.about_li:hover{color:#00CCCC;text-decoration: none;}
+.about_li_top{font-size: 16px;font-weight: 700;padding-top: 20px;border-bottom: none;padding-bottom: 30px;}

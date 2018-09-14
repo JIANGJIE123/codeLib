@@ -33,13 +33,13 @@
 <script>
     var tx=document.querySelectorAll(".tx");
     function move() {
+        console.log("jiangjie");
         tx[0].style.animation='words 7s linear';
         tx[1].style.animation='words 7s linear 12s';
         tx[2].style.animation='words 7s linear 19s';
     };
-    setInterval(function () {
-        move();
-    },1000)
+    //move();
+    setInterval('move()',52000)
 </script>
 </body>
 </html>

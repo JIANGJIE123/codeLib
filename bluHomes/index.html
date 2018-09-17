@@ -4,17 +4,86 @@
     <meta charset="UTF-8">
     <title>bluHomes</title>
     <style type="text/css">
-        .container{position: relative;width: 100vw;height: 100vh;}
-        video{width: 100%;height: 100%;}
+        html,body,.container{height: 100%;width: 100%;}
+        *{padding: 0;margin: 0;}
+        .container{position: relative;width: 100%;height: 100%;}
+        video{width: 100%;height: 100%;display: block;object-fit: cover;position: absolute;z-index: -1;}
+        header{padding: 0 70px;padding-top: 14px;height:60px;display: flex;justify-content:space-between;}
+        .nv a{text-decoration: none;color: white;text-transform: uppercase;font-size: 14px;font-weight: 500;margin-right: 20px;}
+        .menu{width: 16px;height: 16px}
+        .line{width: 100%;height: 2px;background: white;margin-bottom: 3px;}
+        .logo img{display: inline-block;height: 24px;width: auto;}
+        .home_link a{width: calc(25% - 20px);text-decoration: none;color: white;display: inline-block;padding: 10px;
+            background-color: rgba(0,0,0,0.5);font-size: 14px;font-weight: 500;margin: 8px;box-sizing: border-box;}
+        .main_tx{font-size: 48px;color: #FFF;font-weight: 100;text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);margin-bottom: 10px;}
+        .home_link{width: 100%;max-width: 720px;margin: 0 auto;}
+        section{position: absolute;width: 100%;bottom: 20%;text-align: center;}
+        @keyframes fade {
+            0%{opacity: 1.0}
+            25%{opacity: 0.75}
+            50%{opacity: 0.5}
+            75%{opacity: 0.25}
+            100%{opacity: 0.0}
+        }
+        /*.tx{animation: fade 4s linear}*/
     </style>
 </head>
 <body>
-<div class="container">
-    <video controls="controls">
-        <source src="BluHomes_Web_v3.mp4" type="video/mp4">
-        <source src="BluHomes_Web_v3.ogg" type="video/ogg">
-        <source src="BluHomes_Web_v3.webm" type="video/webm">
-    </video>
-</div>
+    <div class="container">
+        <video preload="auto" autoplay loop muted>
+            <source src="BluHomes_Web_v3.mp4" type="video/mp4">
+            <source src="BluHomes_Web_v3.ogg" type="video/ogg">
+            <source src="BluHomes_Web_v3.webm" type="video/webm">
+        </video>
+        <header>
+            <div class="logo"><img src="bluhomes_logo.png"></div>
+            <div class="nv">
+                <a href="#">BREEZEHOUSE</a>
+                <a href="#">FARMHOUSE</a>
+                <a href="#">ORIGIN</a>
+                <a href="#">CABANA</a>
+            </div>
+            <div class="menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </header>
+        <section>
+            <h1 class="main_tx">
+                <span class="tx" style="display: block">Premium Prefab.</span>
+                <span class="tx" style="display: none">Award winning design.</span>
+                <span class="tx" style="display: none">Smart,green and safe.</span>
+                <span class="tx" style="display: none">Faster to build</span>
+            </h1>
+            <div class="home_link">
+                <a href="#">get a quote</a>
+                <a href="#">visit us</a>
+                <a href="#">our homes</a>
+                <a href="#">home gallery</a>
+            </div>
+        </section>
+    </div>
+<script type="text/javascript">
+    var txs=document.querySelectorAll(".tx");
+    var j=0;
+    function tx() {
+        if(j<txs.length){
+        txs[j].style.display="none";
+            if(j==(txs.length-1)) {
+                txs[0].style.display="block";
+            } else {
+                txs[j+1].style.display="block";
+            };
+        j++;
+        }else {
+            j=0;
+            txs[j].style.display="none";
+            txs[j+1].style.display="block";
+            j++;
+        }
+    };
+    setInterval('tx()',4000)
+</script>
 </body>
 </html>

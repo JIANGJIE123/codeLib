@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div跳跳出现</title>
+    <style type="text/css">
+        @keyframes bounceInUp {
+            0%{opacity: 0;transform: translate3d(0,3000px,0)}
+            60%{opacity: 1;transform: translate3d(0,-20px,0)}
+            75%{transform: translate3d(0,10px,0)}
+            90%{transform: translate3d(0,-5px,0)}
+            100%{transform: translate3d(0,0,0)}
+        }
+        .pop{visibility: visible;animation-name: bounceInUp;animation-duration: 1s;
+            /*transition: all 3s cubic-bezier(0.215, 0.610, 0.355, 1.000)*/
+        }
+
+
+        .nv{position: absolute;width: 616px;padding-left: 0;background: #eee;height: 50px;display: none;-webkit-transition: color 0.2s,background 0.4s;}
+        .link{list-style-type: none;}
+        .link li{display: inline-block;margin: auto;position: relative;}
+        .link li a{width: 100px;height: 30px;text-align: center;line-height: 30px;background: rgba(0,0,0,0.5);display: inline-block;}
+
+
+
+        @keyframes fly {
+            0%{top:0%;}
+            50%{top:50%;}
+            100%{top:100%;}
+        }
+        #mask{animation: fly 0.3s linear}
+    </style>
+</head>
+<body>
+<div class="pop" style="margin-top: 200px">
+    <img src="bg03.jpg">
+</div>
+<div>
+    <ul class="link">
+        <li>
+            <a href="#">网站首页</a>
+            <ul class=""></ul>
+        </li>
+        <li>
+            <a href="#">经营范围</a>
+            <ul class="nv">
+                <li>MT4外汇系统</li>
+                <li>撮合交易系统</li>
+                <li>APP交易系统</li>
+                <li>短线外汇系统</li>
+                <li>服务器运维</li>
+                <li>直销系统开发</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">整体解决方案</a>
+            <ul class="nv">
+                <li>风控管理</li>
+                <li>海外公司注册</li>
+                <li>海外金融牌照申请</li>
+                <li>三方支付接口对接</li>
+                <li>数据对接</li>
+                <li>各种系统搭建</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div style="background: blue;width: 100px;height: 100px;margin: auto;position: relative;" id="box"><a href="#" style="display: block;text-align: center;color: white;text-decoration: none;position: absolute;top: 50%;transform: translateY(-50%);">
+    台风“山竹”
+    <br/>
+    停止编号</a>
+<div style="width: 100px;height: 85px;background:rgba(255,255,255,0.5);position: absolute;top:0;left: 0;display: none" id="mask"></div>
+</div>
+<script src="../jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(".link li").hover(function () {
+        $(this).children(".nv").animate({height:'toggle'});
+    });
+
+
+    $("#box").hover(function () {
+        $("#mask").show();
+        $("#mask").css("top","100%")
+    },function () {
+        $("#mask").hide();
+    })
+</script>
+</body>
+</html>

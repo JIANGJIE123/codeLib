@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <style type="text/css">
+        .class1{background: green;}
+        .ac{width:100px;height: 100px;background: #007aff;}
+        .ac1{background: red;}
+    </style>
+</head>
+<body>
+<!--插值-->
+<!--1、插文本-->
+
+<div id="insert1">
+    <p>{{msg}}</p>
+    <p>{{fun1()}}</p>
+</div>
+
+<!--2、插html-->
+<div id="insert2" v-bind:class="{'class1':class1}">
+    <div v-html="message"></div>
+    {{5+9}}
+    <p>{{msg2.split('').reverse().join('')}}</p>
+    <p>{{ok ? 'yes':'no'}}</p>
+    <p v-bind:id="'list'+ id">p文本</p>
+<!--插值-->
+
+<!--3、指令-->
+    <!--v-if 指令将根据表达式 seen 的值(true 或 false )来决定是否插入 p 元素。-->
+    <p v-if="seen">现在你看见我了</p>
+    <a v-bind:href="url">百度</a>
+<!--3、指令-->
+
+<!--4、用户输入-->
+    <input v-model="inpt">
+    <p>{{inpt}}</p>
+    <button v-on:click="reverse">反转字符串</button>
+<!--4、用户输入-->
+
+<!--5、过滤器-->
+    <p>{{msg_f | filterA}}</p>
+<!--5、过滤器-->
+
+<!--6、条件判断-->
+    <p v-if="seen">插入P元素</p>
+    <p v-else>没插入p</p>
+
+    <p v-if="num===1">1</p>
+    <p v-else-if="num===2">2</p>
+    <p v-else="num===3">3</p>
+
+    <template v-if="kk">
+        <h1>菜鸟技术</h1>
+        <h1>菜鸟技术</h1>
+    </template>
+
+    <!--ok为false的话则display:none-->
+    <p v-show="ok">v-show</p>
+<!--6、条件判断-->
+
+<!--循环-->
+    <ol>
+        <li v-for="num in fruits">{{num.name}}</li>
+    </ol>
+    <ul>
+        <template v-for="num in fruits">
+           <li>{{num.name}}</li>
+            <li>.....................</li>
+        </template>
+    </ul>
+    <!--迭代对象-->
+    <ul>
+        <li v-for="(value,key,index) in obj">{{index}}.{{key}}:{{value}}</li>
+    </ul>
+    <ul>
+        <li v-for="n in 10">{{n}}</li>
+    </ul>
+<!--循环-->
+    
+<!--监听属性-->
+    <p>{{counter}}</p>
+    <button @click="counter++">点击加1</button>
+<!--监听属性-->
+
+<!--样式绑定-->
+    <div v-bind:class="{ac:isAc,ac1:isAc}"></div>
+<!--样式绑定-->
+</div>
+
+
+
+<script src="vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:"#insert1",
+        data:{
+            msg:"how are you?",
+        },
+        methods:{
+            fun1:function () {
+                var tx="jiangjie ";
+                return tx +this.msg;
+            }
+        }
+    })
+
+    var vm2=new Vue({
+        el:"#insert2",
+        data:{
+            message:"<h1>hello world!</h1>",
+            msg2:"how are you?",
+            class1:false,
+            ok:false,
+            id:1,
+            seen:false,
+            url:"http://www.baidu.com",
+            inpt:"placeholder",
+            msg_f:"jiangjie",
+            kk:true,
+            num:2,
+            fruits:[
+                { name:"苹果"},
+                {name:"梨子"},
+                {name:"橘子"}
+            ],
+            obj:{
+                name: '菜鸟教程',
+                url: 'http://www.runoob.com',
+                slogan: '学的不仅是技术，更是梦想！'
+            },
+            counter:1,
+            isAc:true,
+        },
+        methods:{
+            reverse:function () {
+                this.inpt=this.inpt.split('').reverse().join('');
+            }
+        },
+        filters:{
+            filterA:function (value) {
+                if(!value){return ""};
+                value=value.toString();
+                return value.charAt(0).toUpperCase()+value.slice(1);
+            }
+        }
+    })
+    
+    
+    vm2.$watch('counter',function (nval,oval) {
+        alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+    })
+</script>
+</body>
+</html>

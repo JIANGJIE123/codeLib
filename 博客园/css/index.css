@@ -1,0 +1,16 @@
+*{padding: 0;margin: 0;}
+header{width: 100%}
+.top span{font-size: 12px;}
+.top span a{font-size: 12px;text-decoration: none;color: #5b5b5b;}
+.top span:first-child{float: left}
+.top span:last-child{float: right}
+.top{margin: 0 10px;}
+.ad_box{border: 1px solid #eee;margin: 0 10px;border-radius: 5px}
+.ad a:first-child{float: left;}
+.ad a:last-child{float: right}
+.ad a img{vertical-align: bottom}
+.ad a{margin: 8px}
+.ad{}
+
+.clearfloat:after{content: "";display: block;clear: both;}
+

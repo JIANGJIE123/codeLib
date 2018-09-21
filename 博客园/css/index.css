@@ -1,4 +1,11 @@
 *{padding: 0;margin: 0;}
+body{
+    font-size: 12px;
+    font-family: 'PingFang SC','Helvetica Neue','Helvetica','Arial',sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 header{width: 100%}
 .top span{font-size: 12px;}
 .top span a{font-size: 12px;text-decoration: none;color: #5b5b5b;}
@@ -14,3 +21,41 @@ header{width: 100%}
 
 .clearfloat:after{content: "";display: block;clear: both;}
 
+.container-fluid{padding: 0;}
+.nv{background-color: #2b6695}
+.nv a{color: white;text-decoration: none;padding: 5px 8px;display: block;font-size: 14px;}
+.nv a:hover{text-decoration: underline;}
+.nv ul{margin-left:0px;padding-left: 15px;box-shadow: -3px 1px 3px rgba(0,0,0,0.25)}
+.nv{margin: 8px 7px 0 10px}
+
+.main_l,.main_m,.main_r{float: left}
+.main_l{background:#eef;padding: 0;}
+.main_l ul li{background-color:#eef;border: 1px dotted #83abc6;border-right: none;border-left: none;padding: 5px 15px;}
+.main{margin: 8px 7px 0 10px;}
+.main_l ul{
+    border-right: 1px solid #83abc6;
+    border-bottom: 3px solid #156EB4;
+    border-left: 4px solid #156EB4;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.main_l img{float: right}
+.site_cate{font-size: 14px;color: black;background: url("../images/site_cate_title_bg.png")no-repeat -4px top;
+    padding-left: 28px!important;border-top: none!important;font-weight: bold;}
+.nv_bottom{background: url("../images/site_cate_bottom_bg.gif")no-repeat -4px bottom;padding-bottom: 5px}
+
+.fresh{float: right!important;}
+.fresh a{display: inline-block!important;padding: 10px 0px!important;}
+.fresh a:last-child{margin-left: 8px;}
+
+.main_r_box{background:#eef;width: 300px;margin: auto;}
+.main_r{margin-top: 40px;}
+.find{border:1px solid #7e9db9;width: 180px;height: 25px;box-sizing: content-box;margin-right: 10px}
+.find_btn{width: 80px;height: 26px;font-size: 13px;color: #666}
+.main_r_inpt{padding: 5px;padding: 13px 0 0 15px;}
+.txyun{margin-top: 15px;}
+.link{text-decoration: none;color: #555;margin-top: 8px;padding: 0 5px;}
+.link a{text-decoration: none;color: #555;}
+.link a:hover{text-decoration: underline;color: red;}
+.link_first{margin-top: 14px;}
+.news{border: 1px solid #ddd;}

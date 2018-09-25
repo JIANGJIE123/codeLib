@@ -82,3 +82,10 @@ header{width: 100%}
 .uname{margin-right: 4px;}
 
 .main_m_nv a{background-color: #e8edf0;border: 1px solid #c8d3de!important;border-radius:0!important;}
+.main_l_box{border:1px solid #ccc;border-radius: 5px;margin-bottom: 20px;}
+.main_l_box_t{color: #222;font-size: 13px;font-weight:bold;margin: 7px 5px;}
+.main_l_box_link{padding-left: 12px;letter-spacing:0.5px;}
+.box_link{color:#404040;line-height: 20px;}
+.box_link:hover{color: #e33e06;}
+.main_l_bottom li{line-height: 20px}
+

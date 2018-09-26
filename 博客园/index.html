@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>新闻区 - 博客园</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="css/index.css" rel="stylesheet">
 </head>
@@ -89,6 +90,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!--分页-->
+                <ul class="pagination pagination-sm" style="display: flex;justify-content: center;">
+                    <li><a href="#">&#60;Prev</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">next&#62;</a></li>
+                </ul>
             </div>
             <!--左栏-->
             <div class="main_l">
@@ -371,26 +382,26 @@
                         <input type="button" value="Google" class="find_btn">
                     </div>
                     <div class="txyun">
-                        <img src="images/24442-20180914091653473-28924727.jpg" width="100%" height="250">
+                        <a href="#"><img src="images/24442-20180914091653473-28924727.jpg" width="100%" height="250"></a>
                         <p class="link link_first"><a href="#">【教程】腾讯云从0到1开发一个小程序</a></p>
                         <p class="link"><a href="#">【推荐】HTML5拓扑3D机房，电力工控Web SCADA</a></p>
                         <p class="link"><a href="#">【调查】2018年程序员开发工作现状调查</a></p>
                     </div>
                     <div class="news main_r_com">
-                        <h6><a href="#">最新新闻</a></h6>
+                        <h6 class="main_r_t"><a href="#">最新新闻</a><a href="#" class="more">»</a></h6>
                         <p class="link"><a href="#">2018诺贝尔奖预测：美国11人，日本1人，中国无人</a></p>
                         <p class="link"><a href="#">警方侦破造谣抹黑百度“黑公关”案件 多人被刑拘</a></p>
                         <p class="link"><a href="#">低到尘埃里才开出花？不如高入宇宙中绽放芬芳</a></p>
                         <p class="link"><a href="#">愿景基金成利润发动机 软银股价创18年新高</a></p>
-                        <p class="link"><a href="#">"吉祥三宝"阿爸突然离世！每分钟就有1人因心肌梗塞死</a></p>
+                        <p class="link"><a href="#">"吉祥三宝"阿爸突然离世！每分钟就有1人因心肌梗塞</a></p>
                         <p class="link"><a href="#">GitHub的中国乱象：刷星、高仿、骂街和版聊</a></p>
                         <p class="link"><a href="#">反思！科学研究为啥对90%的基因视而不见？</a></p>
                         <p class="link"><a href="#">短视频下半场遭遇流量高压 Vlog能成为解药吗？</a></p>
                         <p class="link"><a href="#">比特大陆官方回应终止IPO并尝试重组：不予置评</a></p>
                         <p class="link"><a href="#">下有对策：谷歌拟调整搜索结果应对特朗普旅游禁令</a></p>
                     </div>
-                    <div class="read main_r_com">
-                        <h6><a href="#">48小时阅读排行</a></h6>
+                    <div class="read_rang main_r_com">
+                        <h6 class="main_r_t"><a href="#">48小时阅读排行</a><a href="#" class="more">»</a></h6>
                         <p class="link"><a href="#">一个小时学会Maven</a></p>
                         <p class="link"><a href="#">即将发布的 ASP.NET Core 2.2 会有哪些新玩意儿？</a></p>
                         <p class="link"><a href="#">IdentityServer4实战 - 谈谈 JWT Token 的安全策略</a></p>
@@ -402,6 +413,74 @@
                         <p class="link"><a href="#">【朝花夕拾】Android Log篇</a></p>
                         <p class="link"><a href="#">基于.net core webapi和mongodb的日志系统</a></p>
                     </div>
+                    <div style="margin-bottom: 10px"><a href="#"><img src="images/minjiekaifa.jpg" width="100%" height="250"></a></div>
+                    <div class="read_rang main_r_com">
+                        <h6 class="main_r_t"><a href="#">10天推荐排行榜</a><a href="#" class="more">»</a></h6>
+                        <p class="link"><a href="#">一个小时学会Maven</a></p>
+                        <p class="link"><a href="#">即将发布的 ASP.NET Core 2.2 会有哪些新玩意儿？</a></p>
+                        <p class="link"><a href="#">IdentityServer4实战 - 谈谈 JWT Token 的安全策略</a></p>
+                        <p class="link"><a href="#">职场篇:失败之后</a></p>
+                        <p class="link"><a href="#">给信息安全爱好者的一封信</a></p>
+                        <p class="link"><a href="#">关于“芯”的那些事</a></p>
+                        <p class="link"><a href="#">【我们一起写框架】MVVM的WPF框架（三）—数</a></p>
+                        <p class="link"><a href="#">毕业一年了-一个前端下半年的总结</a></p>
+                        <p class="link"><a href="#">【朝花夕拾】Android Log篇</a></p>
+                        <p class="link"><a href="#">基于.net core webapi和mongodb的日志系统</a></p>
+                    </div>
+                    <div class="read_rang main_r_com">
+                        <h6 class="main_r_t"><a href="#">编辑推荐</a><a href="#" class="more">»</a></h6>
+                        <p class="link"><a href="#">一个小时学会Maven</a></p>
+                        <p class="link"><a href="#">即将发布的 ASP.NET Core 2.2 会有哪些新玩意儿？</a></p>
+                        <p class="link"><a href="#">IdentityServer4实战 - 谈谈 JWT Token 的安全策略</a></p>
+                        <p class="link"><a href="#">职场篇:失败之后</a></p>
+                        <p class="link"><a href="#">给信息安全爱好者的一封信</a></p>
+                        <p class="link"><a href="#">关于“芯”的那些事</a></p>
+                        <p class="link"><a href="#">【我们一起写框架】MVVM的WPF框架（三）—数</a></p>
+                        <p class="link"><a href="#">毕业一年了-一个前端下半年的总结</a></p>
+                        <p class="link"><a href="#">【朝花夕拾】Android Log篇</a></p>
+                        <p class="link"><a href="#">基于.net core webapi和mongodb的日志系统</a></p>
+                    </div>
+                    <div class="read_rang main_r_com">
+                        <h6 class="main_r_t"><a href="#">推荐新闻</a><a href="#" class="more">»</a></h6>
+                        <p class="link"><a href="#">一个小时学会Maven</a></p>
+                        <p class="link"><a href="#">即将发布的 ASP.NET Core 2.2 会有哪些新玩意儿？</a></p>
+                        <p class="link"><a href="#">IdentityServer4实战 - 谈谈 JWT Token 的安全策略</a></p>
+                        <p class="link"><a href="#">职场篇:失败之后</a></p>
+                        <p class="link"><a href="#">给信息安全爱好者的一封信</a></p>
+                        <p class="link"><a href="#">关于“芯”的那些事</a></p>
+                        <p class="link"><a href="#">【我们一起写框架】MVVM的WPF框架（三）—数</a></p>
+                        <p class="link"><a href="#">毕业一年了-一个前端下半年的总结</a></p>
+                        <p class="link"><a href="#">【朝花夕拾】Android Log篇</a></p>
+                        <p class="link"><a href="#">基于.net core webapi和mongodb的日志系统</a></p>
+                    </div>
+                    <div style="margin-bottom: 10px"><a href="#"><img src="images/rengongzhin.jpg" width="100%" height="250"></a></div>
+                    <div class="read_rang main_r_com">
+                        <h6 class="main_r_t"><a href="#">博文已解决问题</a><a href="#" class="more">»</a></h6>
+                        <p class="link"><a href="#">一个小时学会Maven</a></p>
+                        <p class="link"><a href="#">即将发布的 ASP.NET Core 2.2 会有哪些新玩意儿？</a></p>
+                        <p class="link"><a href="#">IdentityServer4实战 - 谈谈 JWT Token 的安全策略</a></p>
+                        <p class="link"><a href="#">职场篇:失败之后</a></p>
+                        <p class="link"><a href="#">给信息安全爱好者的一封信</a></p>
+                        <p class="link"><a href="#">关于“芯”的那些事</a></p>
+                        <p class="link"><a href="#">【我们一起写框架】MVVM的WPF框架（三）—数</a></p>
+                        <p class="link"><a href="#">毕业一年了-一个前端下半年的总结</a></p>
+                        <p class="link"><a href="#">【朝花夕拾】Android Log篇</a></p>
+                        <p class="link"><a href="#">基于.net core webapi和mongodb的日志系统</a></p>
+                    </div>
+                    <div class="read_rang main_r_com">
+                        <h6 class="main_r_t"><a href="#">知识库最新文章</a><a href="#" class="more">»</a></h6>
+                        <p class="link"><a href="#">一个小时学会Maven</a></p>
+                        <p class="link"><a href="#">即将发布的 ASP.NET Core 2.2 会有哪些新玩意儿？</a></p>
+                        <p class="link"><a href="#">IdentityServer4实战 - 谈谈 JWT Token 的安全策略</a></p>
+                        <p class="link"><a href="#">职场篇:失败之后</a></p>
+                        <p class="link"><a href="#">给信息安全爱好者的一封信</a></p>
+                        <p class="link"><a href="#">关于“芯”的那些事</a></p>
+                        <p class="link"><a href="#">【我们一起写框架】MVVM的WPF框架（三）—数</a></p>
+                        <p class="link"><a href="#">毕业一年了-一个前端下半年的总结</a></p>
+                        <p class="link"><a href="#">【朝花夕拾】Android Log篇</a></p>
+                        <p class="link"><a href="#">基于.net core webapi和mongodb的日志系统</a></p>
+                    </div>
+                    <div style="padding-bottom: 10px"><a href="#"><img src="images/cxy.png" width="100%" height="250"></a></div>
                 </div>
             </div>
         </div>

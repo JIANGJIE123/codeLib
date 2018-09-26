@@ -60,7 +60,8 @@ header{width: 100%}
 .link a{text-decoration: none;color: #555;}
 .link a:hover{text-decoration: underline;color: red;}
 .link_first{margin-top: 14px;}
-.news{border: 1px solid #ddd;}
+.main_r_com{border: 1px solid #ddd;margin-bottom: 20px}
+.main_r_t{display: flex;justify-content: space-between;}
 
 .editor a{color: #015fb6;}
 .editor_pick{height: 30px;line-height: 35px!important;}

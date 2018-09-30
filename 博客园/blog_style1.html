@@ -5,7 +5,16 @@
     <title>blog_style1</title>
     <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/blog_style1.css">
-    <link rel="stylesheet" type="text/css" href="t/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="t/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">-->
+    <style type="text/css">
+        /*layDate修改*/
+        .layui-laydate{font-size: 12px!important;border-radius: 7px!important;}
+        .layui-laydate-main {width: 227px!important;}
+        .layui-laydate-content td, .layui-laydate-content th {height: 0px!important;padding: 0px!important;}
+        .laydate-prev-m{padding-right: 0!important;}
+        .laydate-next-m{padding-left: 0!important;}
+        .laydate-set-ym {width: 110% !important;text-align: left!important;}
+    </style>
 </head>
 <body>
 
@@ -37,7 +46,7 @@
     <div class="row">
         <!--左边-->
         <div class="col-sm-2 left">
-            <div class="com_box">
+            <div class="com_box" style="margin-top: 0;">
                 <ul class="list-unstyled msg">
                     <li>昵称：<a href="#">JJian</a></li>
                     <li>园龄：<a href="#">6个月</a></li>
@@ -48,40 +57,107 @@
             </div>
 
             <!--日历-->
+            <!--layUi-->
             <div class="com_box">
-                <input type="text" id="test1">
+                <div id="test1"></div>
+            </div>
+
+            <!--dateTimepick-->
+            <!--<div class="com_box">-->
+                <!--<input size="16" type="text" value="" class="form_datetime">-->
+            <!--</div>-->
+            <div class="com_box">
+                <ul class="list-group list-unstyled">
+                    <li class="list-group-item com_box_t">搜索</li>
+                    <li>
+                        <p class="search"><input type="text"><input type="button" value="找找看"></p>
+                        <p class="search"><input type="text"><input type="button" value="谷歌搜索"></p>
+                    </li>
+                </ul>
             </div>
             <div class="com_box">
-                <input size="16" type="text" value="" class="form_datetime">
+                <ul class="list-group">
+                    <li class="list-group-item com_box_t list_extend_t">常用链接</li>
+                    <li class="list-group-item list_extend"><a href="#">我的随笔</a></li>
+                    <li class="list-group-item list_extend"><a href="#">我的参与</a></li>
+                    <li class="list-group-item list_extend"><a href="#">我的评论</a></li>
+                    <li class="list-group-item list_extend"><a href="#">我的标签</a></li>
+                </ul>
+            </div>
+            <div class="com_box">
+                <ul class="list-group">
+                    <li class="list-group-item com_box_t list_extend_t">我的标签</li>
+                    <li class="list-group-item list_extend"><a href="#">Mybatis(3)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">MySQL(3)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Tomcat(1)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">设计模式(1)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Java(1)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Java并发编程(1)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">JVM(1)</a></li>
+                </ul>
+            </div>
+            <div class="com_box">
+                <ul class="list-group">
+                    <li class="list-group-item com_box_t list_extend_t">随笔分类</li>
+                    <li class="list-group-item list_extend"><a href="#">Java并发编程(1)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Java常用设计模式(1)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Java基础(2)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Mybatis(3)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">MySQL(4)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Nginx</a></li>
+                    <li class="list-group-item list_extend"><a href="#">Redis</a></li>
+                    <li class="list-group-item list_extend"><a href="#">工作与生活(2)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">理解Java虚拟机(4)</a></li>
+                </ul>
+            </div>
+            <div class="com_box">
+                <ul class="list-group">
+                    <li class="list-group-item com_box_t list_extend_t">随笔档案</li>
+                    <li class="list-group-item list_extend"><a href="#">2018年9月 (2)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">2018年8月 (7)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">2018年7月 (6)</a></li>
+                    <li class="list-group-item list_extend"><a href="#">2018年6月 (2)</a></li>
+                </ul>
             </div>
         </div>
 
         <!--右边-->
-        <div class="col-sm-10 right">kk</div>
+        <div class="col-sm-10 right">kk
+            <table>
+                <tbody>
+                <tr>
+                    <td>分类结果：</td>
+                    <td>审核结果:</td>
+                    <td><textarea style="width: 300px;height: 80px;resize:none"></textarea></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
 <script src="../jquery-3.3.1.min.js"></script>
 <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="t/laydate/laydate.js"></script>
-<script src="t/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+<!--<script src="t/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>-->
 <script>
     //执行一个laydate实例
     laydate.render({
-        elem: '#test1' //指定元素
+        elem: '#test1', //指定元素
+        position: 'static'
     });
 
     //datetimepicker
     //日期插件
-    $(".form_datetime").datetimepicker({
-        format: 'yyyy-mm-dd',//显示格式
-        todayHighlight: 1,//今天高亮
-        minView: "month",//设置只显示到月份
-        startView:2,
-        forceParse: 0,
-        showMeridian: 1,
-        autoclose: 1//选择后自动关闭
-    });
+    // $(".form_datetime").datetimepicker({
+    //     format: 'yyyy-mm-dd',//显示格式
+    //     todayHighlight: 1,//今天高亮
+    //     minView: "month",//设置只显示到月份
+    //     startView:2,
+    //     forceParse: 0,
+    //     showMeridian: 1,
+    //     autoclose: 1//选择后自动关闭
+    // });
 
 </script>
 </body>

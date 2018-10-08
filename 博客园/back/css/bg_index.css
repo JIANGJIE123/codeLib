@@ -1,0 +1,23 @@
+*{padding: 0;margin: 0;}
+html,body{
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 0;
+    background-color: #bbb;
+}
+/*头部*/
+.bg_hd_l{float: left}
+.bg_hd_r{float: right;}
+.clearfloat:after{display: block;clear: both;content: ""}
+header{background: none repeat scroll 0 0 #f8f8f8;border-bottom: 1px solid #ccc;padding: 5px}
+a{color: #002c99;text-decoration: none;}
+.bg_hd_l a{margin-left: 10px;color: #515151;text-decoration: none;}
+.bg_hd_l a:hover{text-decoration: underline}
+.bg_hd_r a:hover{color: #f60;text-decoration: underline;}
+
+
+/*脚部*/
+footer{background: #FFFFFF;margin:8px 5px;padding: 3px}
+.bg_ft{float: right}
+.bg_ft a:hover{color: #c06;text-decoration: underline;}

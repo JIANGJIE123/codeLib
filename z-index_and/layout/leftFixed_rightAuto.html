@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左列定宽，右列自适应</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0}
+        .wrap{background: green;height: 100px}
+        .left1{background: gold;width: 200px;float: left}
+        .right1{background: greenyellow;margin-left: 100px}
+
+        .parent{background: green;height: 100px;}
+        .left2{background: gold;float: left;width: 100px;}
+        .right-fix{width: 100%;margin-left: 100px;float: right}
+        .right2{ background: greenyellow;margin-left: 100px}
+
+        .left3{background: gold;width: 200px;float: left}
+        .right3{background: greenyellow;overflow: hidden;}
+
+        .wrap4{background: green;height: 100px;display: table;table-layout: fixed;width: 100%;}
+        .left4{background: gold;width: 200px;display: table-cell}
+        .right4{background: greenyellow;display: table-cell}
+
+        .wrap5{background: green;height: 100px;display: flex}
+        .left5{background: gold;width: 200px;}
+        .right5{background: greenyellow;flex: 1;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="left1">
+        左列定宽，右列自适应
+    </div>
+    <div class="right1"><p>
+        利用float+margin 实现
+        .left{float:left;width:100px;}
+        .right:{margin-left:100px;}
+    </p></div>
+</div>
+<br/>
+<div class="parent">
+    <div class="left2">左列定宽，右列自适应</div>
+    <div class="right-fix">
+        <div class="right2">
+            <p>利用float+margin(fix)实现 .left{width:100px;float:left;}
+                .right-fix{width:100%;margin-left:100px; float:right;}
+                .right:{margin-left:100px;} </p>
+        </div>
+    </div>
+</div>
+<br/>
+<div class="wrap">
+    <div class="left3">
+        左列定宽，右列自适应
+    </div>
+    <div class="right3">
+        <p>
+            hello使用float+overflow实现
+            .left{width:100px;float:left;}
+            .right{overfloat:hidden;}
+        </p>
+    </div>
+</div>
+<br/>
+<div class="wrap4">
+    <div class="left4">
+        左列定宽，右列自适应
+    </div>
+    <div class="right4">
+        <p>
+            使用table实现, 通过表格内单元格自动排列的特性来实现<br/>
+            .parent{display: table;table-layout: fixed;width: 100%;}<br/>
+            .left{width:100px;}<br/>
+            .right,.left{display:table-cell;}
+        </p>
+    </div>
+</div>
+
+<br/>
+<div class="wrap5">
+    <div class="left5">
+        左列定宽，右列自适应
+    </div>
+    <div class="right5">
+        <p>
+            使用table实现, 通过表格内单元格自动排列的特性来实现<br/>
+            .parent{display: table;table-layout: fixed;width: 100%;}<br/>
+            .left{width:100px;}<br/>
+            .right,.left{display:table-cell;}
+        </p>
+    </div>
+</div>
+</body>
+</html>

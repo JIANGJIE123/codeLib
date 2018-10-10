@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三列,其中两列定宽,一列自适应</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        .wrap{background: green;height: 100px}
+        .left1{background: darkolivegreen;width: 100px;float: left}
+        .center1{background: gold;width: 100px;float: left;word-wrap: break-word;}
+        .right1{background: greenyellow;margin-left: 200px}
+
+        .left2{background: darkolivegreen;width: 100px;float: left}
+        .center2{background: gold;width: 100px;float: left;word-wrap: break-word;}
+        .right2{background: greenyellow;overflow: hidden}
+
+        .wrap3{background: green;height: 100px;width: 100%;display: table;table-layout: fixed;}
+        .left3{background: darkolivegreen;width: 100px;display: table-cell;word-break:break-word;}
+        .center3{background: gold;width: 100px;display: table-cell;word-break: break-word}
+        .right3{background: greenyellow;}
+
+        .wrap4{background: green;height: 100px;display: flex}
+        .left4{background: darkolivegreen;width: 100px;word-break:break-word;}
+        .center4{background: gold;width: 100px;word-break: break-word}
+        .right4{background: greenyellow;flex: 1;}
+
+        .wrap5{background: green;height: 200px;}
+        .left5{background: darkolivegreen;width: 100px;word-break:break-word;float: left;}
+        .center5{background: gold;word-break: break-word;width: 100%;float: left;margin-right: -200px;}
+        .right5{background: greenyellow;flex: 1;width: 100px;word-break: break-word;float: right;}
+
+        .wrap6{background: green;height: 200px;display: table;table-layout: fixed;width: 100%}
+        .left6{background: darkolivegreen;width: 100px;word-break:break-word;display: table-cell}
+        .center6{background: gold;word-break: break-word;}
+        .right6{background: greenyellow;width: 100px;word-break: break-word;display: table-cell}
+
+        .wrap7{background: green;height: 200px;display: flex;}
+        .left7{background: darkolivegreen;width: 100px;word-break:break-word;}
+        .center7{background: gold;word-break: break-word;flex: 1}
+        .right7{background: greenyellow;width: 100px;word-break: break-word;d}
+    </style>
+</head>
+<body>
+左中两列定宽,右侧自适应
+<div class="wrap">
+    <div class="left1"><p>利用float+margin实现</p></div>
+    <div class="center1"><p>.left,.center{float:left;width:100px;}</p></div>
+    <div class="right1"><p>.right{margin-left:200px;}</p></div>
+</div>
+<br/>
+<div class="wrap">
+    <div class="left2"><p>利用float+margin实现</p></div>
+    <div class="center2"><p>.left,.center{float:left;width:100px;}</p></div>
+    <div class="right2"><p>.right{overflow: hidden}</p></div>
+</div>
+<br/>
+<div class="wrap3">
+    <div class="left3"><p>利用table实现  .parent{display:table;table-layout:fixed;width:100%;}</p></div>
+    <div class="center3"><p>.left,.center.right{display:table-cell;}</p></div>
+    <div class="right3"><p>.left,.right{width:100px;}</p></div>
+</div>
+
+<br/>
+<div class="wrap4">
+    <div class="left4"><p>用flex 实现 .parent{display:flex;}</p></div>
+    <div class="center4"><p>.left,.center{width:100px;}</p></div>
+    <div class="right4"><p>.right{flex:1}</p></div>
+</div>
+<br/>
+
+两侧定宽,中栏自适应
+<div class="wrap5">
+    <div class="left5"><p>用float+margin实现 .left{width:100px;float:left;}</p></div>
+    <div class="center5"><p>.center{float:left;width:100%;margin-right:-200px;}</p></div>
+    <div class="right5"><p>.right{width:100px;float:right;}</p></div>
+</div>
+<br/>
+<div class="wrap6">
+    <div class="left6"><p>用table 实现 .parent{width:100%;display:table;table-layout:fixed;}</p></div>
+    <div class="center6"><p>.left,.center,.right{display:table-cell;}</p></div>
+    <div class="right6"><p>.left,.right{width:100px;}</p></div>
+</div>
+<br/>
+<div class="wrap7">
+    <div class="left7"><p>用flex实现 .parent{display:flex;}</p></div>
+    <div class="center7"><p>.left,right{width:100px;}</p></div>
+    <div class="right7"><p>.center{flex:1;}</p></div>
+</div>
+<br/>
+<pre>
+    2.4 一列不定宽,一列自适应
+    ① 用float+overflow实现
+    .left{float:left;}
+    .right{overflow:hidden;}
+
+    ② 用table实现
+    .parent{display:table;table-layout:fixed;width:100%;}
+    .left{width:0.1%;}
+    .left,.right{display:table-cell;}
+
+    ③ 用flex 实现
+    .parent{display:flex;}
+    .right{flex:1;}
+</pre>
+</body>
+</html>

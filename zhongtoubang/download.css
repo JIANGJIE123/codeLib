@@ -19,6 +19,7 @@ header{background: #fff;margin-bottom: 8px;}
 .hd_bottom p a{font-size: 12px;color: #fff;}
 .state span{line-height: 14px;font-size: 12px;text-align: center;color: #939393;margin-left: 10px}
 .state{text-align: center;}
+.hd_bottom{padding-bottom: 33px;}
 
 .content{margin: 0 12px 8px;padding: 12px;background-color: #fff;
     -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);}

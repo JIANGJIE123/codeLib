@@ -1,0 +1,11 @@
+*{padding: 0;margin: 0}
+html,body{
+    font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+    line-height: 24px;
+    font-size: 14px;
+    color: #1e1e1e;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: none;
+    background: #edf2f4;
+}
+.hd_top{background: url("96.png") no-repeat}

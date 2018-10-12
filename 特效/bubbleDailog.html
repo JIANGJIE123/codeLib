@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>气泡对话框</title>
+    <style type="text/css">
+        .message1,.message2{
+            width: 200px;
+            height: 80px;
+            background-color: green;
+            color: #fff;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: 18px;
+            padding: 5px 12px 5px 12px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            word-break:break-all;
+            margin: 50px auto;
+            position: relative;
+            border-bottom-color: green;/*为了给after伪元素自动继承*/
+        }
+        .message1:before{
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: inherit;
+            left: -10px;
+            margin-top: -5px;
+            position: absolute;
+            top:50%;
+            transform: rotate(45deg);
+        }
+        .message2:after{
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -24px;
+            top:0px;
+            background-color: transparent;
+            border-width:0 0 20px 20px;
+            border-style: solid;
+            border-left-color:transparent;
+            border-bottom-color:inherit;
+            border-bottom-right-radius: 60px;
+        }
+        .tag_pop{
+            font-size: 14px;
+            margin:  0 auto;
+            width: 470px;
+            height: 88px;
+            color: gray;
+            background-color: #fff;
+            border:1px solid #ccd7ff;
+            box-sizing: border-box;
+            padding: 8px 10px;
+            position: relative;
+        }
+        .tag_pop:before{
+            width: 0;
+            height: 0;
+            content: "";
+            border:14px solid #ccd7ff;
+            position: absolute;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="message1">
+            Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://dunizb.com/demo/
+        </div>
+        <br/>
+        <div class="message2">
+            Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://dunizb.com/demo/
+        </div>
+    </div>
+    <br/>
+
+    <div class="container">
+        <div class="tag_pop">
+            <p class="tag_pop1">
+                <span>保接通下载</span>
+                <span>|</span>
+                <span>最近接通时间</span>
+            </p>
+            <p class="tag_pop2">
+                该求职者已经开启号码保护，此联系方式为通话密号替代的真实号码
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -10,9 +10,15 @@ header{height: 178px;background: url("../images/header.gif")no-repeat right top;
 .my_user a:hover{text-decoration: underline;}
 .hd{height: 178px;background: url("../images/bg_title.gif") 170px 40px no-repeat;}
 
-.my_left{width: 100%;float: left;}
-.my_right{width: 230px;float: left;margin-left: -230px;}
+.main{width: 97%;min-width: 950px;text-align: left;margin: auto;}
+.my_left_box{width: 100%;float: left; }
+.my_right_box{width: 230px;float: left;margin-left: -230px;}
 .nv_ul li{list-style: none;display: inline-block;}
 .nv_ul li a{color: #333;font-size: 12px;padding-top: 8px;text-decoration: none;}
+.state span{color: #333;font-size: 12px;padding-top: 8px;}
+.my_left{margin: 0 250px 0px 0px;background: #fefef2 url("../images/bg_left.gif") left top repeat-x;padding-top:35px;padding-bottom:15px;}
+.nv_ul{float: left;}
+.state{float: right;}
+.nv{margin: 8px 20px 3px;background: url("../images/line.gif")left bottom repeat-x;padding-bottom: 12px;}
 
 

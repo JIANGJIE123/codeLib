@@ -1,0 +1,18 @@
+*{padding: 0;margin: 0;}
+html{width: 100%;}
+body{color: #000;font-family: Verdana, Arial, Helvetica, sans-serif;line-height: 1.5;background: url("../images/bg_body.gif") left top;}
+.clearfloat:after{content: "";clear: both;display: block;}
+
+.wrap{margin: 0 auto;width: 100%;min-width: 930px;}
+header{height: 178px;background: url("../images/header.gif")no-repeat right top;}
+.my_user{padding-top: 25px;margin-left: 2em;font-weight: bold;}
+.my_user a{text-decoration: none;color: #935A32;font-size: 28px;font-family: "黑体","ms song","宋体","Arial","verdana","Helvetica", "sans-serif";}
+.my_user a:hover{text-decoration: underline;}
+.hd{height: 178px;background: url("../images/bg_title.gif") 170px 40px no-repeat;}
+
+.my_left{width: 100%;float: left;}
+.my_right{width: 230px;float: left;margin-left: -230px;}
+.nv_ul li{list-style: none;display: inline-block;}
+.nv_ul li a{color: #333;font-size: 12px;padding-top: 8px;text-decoration: none;}
+
+

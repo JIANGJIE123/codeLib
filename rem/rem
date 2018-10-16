@@ -25,3 +25,18 @@ ul{font-size:0.8rem;}
 
 5、假设你想把默认字号定为14px,浏览器的默认值16px，那么14/16=0.875em；
     :root{font-size:0.875em;}
+
+6、跑在手机端的web页面(H5页面，因为手机端兼容所有html5新特性)
+
+7、基于webview(浏览器)，告别IE拥抱webkit
+
+8、适配方法：
+    PC:
+    960px/1000px居中
+    盒子模型，定高，定宽
+    display:inline-block
+
+    移动web：
+    定高，宽度百分比
+    flex
+    媒体查询

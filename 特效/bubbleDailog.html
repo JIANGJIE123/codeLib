@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>气泡对话框</title>
     <style type="text/css">
-        .message1,.message2{
+        .message1,.message2,.my{
             width: 200px;
             height: 80px;
             background-color: green;
@@ -65,6 +65,9 @@
             position: absolute;
 
         }
+        .my:before{content: "";background: red;display: block;width: 20px;height: 20px;position: absolute;left: 25%;top:0px;background-color: transparent;
+        border-width: 0 0 20px 20px;border-style: solid;border-color: red;
+        }
 
     </style>
 </head>
@@ -74,7 +77,13 @@
             Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://dunizb.com/demo/
         </div>
         <br/>
+
         <div class="message2">
+            Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://dunizb.com/demo/
+        </div>
+
+        <br/>
+        <div class="my">
             Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://dunizb.com/demo/
         </div>
     </div>

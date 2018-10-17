@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>账单记录</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        body {
+            font-family: "PingFangSC-Regular", "Microsoft YaHei", Helvetica;
+            color: #333333;
+            background: #f5f7f9;
+        }
+        header{height: 68px;background: #fff;line-height: 68px;}
+        header ul{list-style: none;display: flex;justify-content: space-around;}
+        header ul li{flex: 1;text-align: center;}
+        header a{text-decoration: none;color: inherit;}
+
+        .date{font-size: 12px;color: #B0B0B0;}
+        .state{background: #B3DDF8;color: #60BCF8;font-size: 12px;display: inline-block;width: 65px;height: 21px;border-radius: 25px;line-height: 21px;text-align: center;}
+        .money_t{font-size: 14px;color: #6f6f6f;}
+        .money{color:#E26767;margin-right: 10px;}
+        .box_one{border-bottom:1px solid #F5F5F5;display: flex;justify-content: space-between;line-height:35px;align-items: center;}
+        .box_two{display: flex;justify-content: space-between;line-height: 65px}
+        section{background: #fff;margin-top: 12px;}
+        .box{padding: 0 13px;}
+        .ac{color: #29a8f8;border-bottom: 2px solid #29a8f8;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <ul>
+                <li><a href="javascript:void(0);">全部</a></li>
+                <li class="ac"><a href="javascript:void(0);">佣金收入</a></li>
+                <li><a href="javascript:void(0);">佣金提现</a></li>
+            </ul>
+        </header>
+        <section>
+            <div class="box">
+                <div class="box_one">
+                    <span class="date">2017/10.10/15:30</span>
+                    <span class="state">已成交</span>
+                </div>
+                <div class="box_two">
+                    <span class="thing">公司注册</span>
+                    <span class="money_t">佣金:<strong class="money"> ￥200.00</strong></span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

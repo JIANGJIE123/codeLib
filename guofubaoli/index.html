@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link href="imgs/logo02.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <title>首页</title>
+    <link href="lib/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="lib/swiper-4.3.5.min.css">
+    <style type="text/css">
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+        .swiper-container1 {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+        }
+        .swiper-slide1 {
+            position: relative;
+            font-size: 18px;
+            color:#fff;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            /*padding: 40px 60px;*/
+        }
+        .parallax-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 130%;
+            height: 100%;
+            -webkit-background-size: cover;
+            background-size: cover;
+            background-position: center;
+        }
+        .swiper-slide1 .title {
+            font-size: 41px;
+            font-weight: 300;
+            margin-bottom: -10px;
+        }
+        .swiper-slide1 .subtitle {
+            font-size: 21px;
+        }
+        .swiper-slide1 .text {
+            font-size: 14px;
+            max-width: 400px;
+            line-height: 1.3;
+        }
+        .subtitle{color: #222;font-weight: 500;font-size: 48px!important;visibility: visible;
+            position: absolute;left: 381.5px;top: 200px;
+        }
+        .text{color: #444444;font-weight: 400;font-size: 16px!important;visibility: visible;
+            position: absolute;left: 381.5px;top: 330px;}
+        .swiper1{background: #fff;width: 40px;height: 40px;background-image: none;}
+        .swiper1 i{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);font-size: 20px;font-weight: 300;}
+        .swiper1:hover{background: #CF9455}
+        .swiper1 i:hover{color: #fff!important;}
+        .more a{background: #cf9455;font-size: 14px !important;border-radius: 0px;color: #ffffff;font-weight: 600;text-transform: uppercase;
+            padding: 15px 35px !important;text-align: center;position: absolute;left: 381.5px;top: 420px;}
+        .swiper-container1 .hide{
+            opacity:0;
+        }
+        .swiper1_next,.swiper1_prev{
+            transition:opacity .5s;
+        }
+        .swiper1_prev{left: 5%!important;}
+        .swiper1_next{right: 5%!important;}
+        .swiper-slide2 img{display: block;max-width: 100%;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="hd">
+                <ul class="hd_l">
+                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>深圳市南山区沙河西路深圳湾科技生态园一区2栋C座401</li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>(0086) 755 8696 8375</li>
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i>linyanghong@guoxinpe.com</li>
+                </ul>
+                <ul class="hd_r">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="top">
+            <div class="logo"><img src="imgs/logo-guofubaoli.png" alt="logo"></div>
+            <ul class="nv">
+                <li><a href="#" class="ac">首页</a></li>
+                <li><a href="#">走进国富</a></li>
+                <li><a href="#">服务体系</a></li>
+                <li><a href="#">团队介绍</a></li>
+                <li><a href="#">媒体中心</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="banner">
+            <!--swiper-->
+            <div class="swiper-container swiper-container1">
+                <!--<div class="parallax-bg" style="" data-swiper-parallax="-23%"></div>-->
+                <div class="swiper-wrapper swiper-wrapper1">
+                    <div class="swiper-slide swiper-slide1">
+                        <div class="title" data-swiper-parallax="-300"><img src="imgs/slide1_1.jpg" alt="banner1"></div>
+                        <div class="subtitle" data-swiper-parallax="-200">我们致力于打造<br/>中国一流的保理服务品牌</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>我们将利用完备的风险测控体系，全力为中小企业客户提供专业化、全方位层次的保理服务。</p>
+                        </div>
+                        <div class="more"><a href="#">了解更多</a></div>
+                    </div>
+                    <div class="swiper-slide swiper-slide1">
+                        <div class="title" data-swiper-parallax="-300" data-swiper-parallax-opacity="0"></div>
+                        <div class="subtitle" data-swiper-parallax="-200">我们致力于解决<br/>中小企业的融资难题</div>
+                        <div class="text" data-swiper-parallax="-100">
+                            <p>快捷、高效、安全的融资渠道，将帮助您的企业更有效的进军各个领域的市场。
+                             </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <!--<div class="swiper-pagination swiper-pagination-white"></div>-->
+                <!-- Add Navigation -->
+                <div class="swiper-button-prev swiper-button-white hide swiper1_prev swiper1"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                <div class="swiper-button-next swiper-button-white hide swiper1_next swiper1"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div class="consult">
+            <div class="consult_box">
+                <div class="consult_tx">
+                    <h3>国富保理金融 – 引领保理融资的未来</h3>
+                    <p>我们为全国各地的卖家提供完善的融资服务。马上联系我们，获取更多资讯。</p>
+                </div>
+                <div class="consult_btn"><a href="#">免费咨询</a></div>
+            </div>
+        </div>
+        <div class="advatage">
+            <div class="advatage_t">
+                <h1>我们的优势</h1>
+            </div>
+            <div class="advatage_tx">
+                <div class="advatage_item">
+                    <div class="advatage_tt">
+                        <div class="ad_img">
+                            <img src="imgs/business_icon.png" alt="安全保障">
+                        </div>
+                        <a href="#">安全保障</a>
+                    </div>
+                    <p class="advatage_p">买方不付款或延迟付款的风险均由国富保理为您承担，始终如一的优质服务让您可以安心与全国客户开启合作。</p>
+                    <div class="advatage_btn"><a href="#">了解详情<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                </div>
+                <div class="advatage_item">
+                    <div class="advatage_tt">
+                        <div class="ad_img">
+                            <img src="imgs/investment_icon.png" alt="安全保障">
+                        </div>
+                        <a href="#">安全保障</a>
+                    </div>
+                    <p class="advatage_p">买方不付款或延迟付款的风险均由国富保理为您承担，始终如一的优质服务让您可以安心与全国客户开启合作。</p>
+                    <div class="advatage_btn"><a href="#">了解详情<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                </div>
+                <div class="advatage_item">
+                    <div class="advatage_tt">
+                        <div class="ad_img">
+                            <img src="imgs/divorce_icon.png" alt="安全保障">
+                        </div>
+                        <a href="#">安全保障</a>
+                    </div>
+                    <p class="advatage_p">买方不付款或延迟付款的风险均由国富保理为您承担，始终如一的优质服务让您可以安心与全国客户开启合作。</p>
+                    <div class="advatage_btn"><a href="#" >了解详情<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="about">
+            <div class="about_box">
+                <div class="about_l">
+                    <div class="about_t">
+                        <h1>关于<span>国富</span>保理</h1>
+                    </div>
+                    <div class="about_tx">
+                        <p>深圳国富商业保理有限公司（以下简称“国富保理”）经国家工商总局，深圳市前海管理局核准，由国内知名的基金管理公司发起在深圳市成立的商业保理公司，依托雄厚的股东背景与广泛的社会资源，业务辐射全国。公司员工拥有来自大型保理公司、外资银行、大型投资公司等金融机构，高管团队均有保理行业从业经验，团队专业性高，经营汇集。</p>
+                        <br/>
+                        <br/>
+                        <p>国富保理拥有一整套完备的风险测控体系，内控系统稳定性好，可靠性高。公司将致力于打造中国一流的保理服务品牌，为中小企业客户提供专业化、全方位、多层次的保理服务。</p>
+                    </div>
+                </div>
+                <div class="about_r">
+                    <img src="imgs/investment_law.jpg" alt="照片">
+                </div>
+            </div>
+        </div>
+        <div class="coo">
+            <div class="coo_tx">
+                <h1>合作伙伴 <span class="coo_s">联合</span> 国富 <span class="coo_s"></span>共赢</span> 未来</h1>
+                <p>国富合作伙伴计划鼓励个人或企业成为我们的代理人，向全国企业推广国富保理融资服务。我们为合作伙伴设立优厚的奖励方案，共同组建融资动态网络。</p>
+                <div class="coo_btn"><a href="#">联系我们</a></div>
+            </div>
+        </div>
+        <div class="coreTeam">
+            <div class="coreTeam_t"><h1>核心团队</h1></div>
+            <!-- Swiper -->
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide swiper-slide2">
+                        <img src="imgs/m_team_3.jpg" alt="phone">
+                        <div class="CT_tx">
+                            <div class="CT_P">
+                                <h5><a href="#">Mark Willy</a></h5>
+                                <p>Criminal Law</p>
+                            </div>
+                            <div class="CT_icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide2">
+                        <img src="imgs/m_team_3.jpg" alt="phone">
+                        <div class="CT_tx">
+                            <div class="CT_P">
+                                <h5><a href="#">Mark Willy</a></h5>
+                                <p>Criminal Law</p>
+                            </div>
+                            <div class="CT_icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide2">
+                        <img src="imgs/m_team_3.jpg" alt="phone">
+                        <div class="CT_tx">
+                            <div class="CT_P">
+                                <h5><a href="#">Mark Willy</a></h5>
+                                <p>Criminal Law</p>
+                            </div>
+                            <div class="CT_icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide2">
+                        <img src="imgs/m_team_3.jpg" alt="phone">
+                        <div class="CT_tx">
+                            <div class="CT_P">
+                                <h5><a href="#">Mark Willy</a></h5>
+                                <p>Criminal Law</p>
+                            </div>
+                            <div class="CT_icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide2">
+                        <img src="imgs/m_team_3.jpg" alt="phone">
+                        <div class="CT_tx">
+                            <div class="CT_P">
+                                <h5><a href="#">Mark Willy</a></h5>
+                                <p>Criminal Law</p>
+                            </div>
+                            <div class="CT_icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper-slide2">
+                        <img src="imgs/m_team_3.jpg" alt="phone">
+                        <div class="CT_tx">
+                            <div class="CT_P">
+                                <h5><a href="#">Mark Willy</a></h5>
+                                <p>Criminal Law</p>
+                            </div>
+                            <div class="CT_icon">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination swiper-pagination2"></div>
+            </div>
+        </div>
+        <div class="benefit">
+                <div class="benefit_box">
+                    <div class="benefit_l">
+                            <h1 class="lineL">买家利益</h1>
+                        <div class="benefit_item">
+                            <ul>
+                                <li>现金流改善<i class="fa fa-chevron-right"></i></li>
+                                <li>业务增长<i class="fa fa-chevron-right"></i></li>
+                                <li>风险管理<i class="fa fa-chevron-right"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="benefit_r">
+                            <h1 class="lineL">客户反馈</h1>
+                        <div class="benefit_swiper">
+                                swiper
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="write_msg">
+            <div class="write_msg_box">
+                <h1 class="lineM">填写免费咨询信息</h1>
+                <div class="formI">
+                    <div class="formI_inpt"><input type="text" placeholder="Name*"><input type="text" placeholder="E-mail*"></div>
+                    <div class="formI_inpt"><input type="text" placeholder="Subject"><input type="text" placeholder="Phone*"></div>
+                    <div class="write_tx_box"><textarea cols="50" rows="5" placeholder="Messsasge" class="write_tx"></textarea></div>
+                </div>
+                <div class="write_btn"><a href="#">提交</a></div>
+            </div>
+        </div>
+        <div class="product">
+            <h1 class="lineM">理财产品</h1>
+            <div class="product_tx">
+                <div class="product_item">
+                    <h3>Basic</h3>
+                    <div class="cir">
+                        <span class="cir_num">$39</span>
+                        <br/>
+                        <span class="cir_p">MONTHLY</span>
+                    </div>
+                    <p>
+                        Storage 100MB
+                        Dedicated RAM 500MB
+                        Network Transfer 1 TB
+                        FTP Users 10
+                        E-mail Accounts 5
+                    </p>
+                    <div><a href="#" class="pro_btn">Read More &gt;</a></div>
+                </div>
+                <div class="product_item">
+                    <h3>Basic</h3>
+                    <div class="cir">
+                        <span class="cir_num">$39</span>
+                        <br/>
+                        <span class="cir_p">MONTHLY</span>
+                    </div>
+                    <p>
+                        Storage 100MB
+                        Dedicated RAM 500MB
+                        Network Transfer 1 TB
+                        FTP Users 10
+                        E-mail Accounts 5
+                    </p>
+                    <div><a href="#" class="pro_btn">Read More &gt;</a></div>
+                </div>
+                <div class="product_item">
+                    <h3>Basic</h3>
+                    <div class="cir">
+                        <span class="cir_num">$39</span>
+                        <br/>
+                        <span class="cir_p">MONTHLY</span>
+                    </div>
+                    <p>
+                        Storage 100MB
+                        Dedicated RAM 500MB
+                        Network Transfer 1 TB
+                        FTP Users 10
+                        E-mail Accounts 5
+                    </p>
+                    <div><a href="#" class="pro_btn">Read More &gt;</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="lib/swiper-4.3.5.min.js"></script>
+ <script src="lib/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container1', {
+        loop : true,
+        speed: 600,
+        parallax: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        preventInteractionOnTransition : true,
+    });
+    //鼠标移出隐藏按钮，移入显示按钮
+    swiper.el.onmouseover=function(){
+        swiper.navigation.$nextEl.removeClass('hide');
+        swiper.navigation.$prevEl.removeClass('hide');
+    }
+    swiper.el.onmouseout=function(){
+        swiper.navigation.$nextEl.addClass('hide');
+        swiper.navigation.$prevEl.addClass('hide');
+    }
+    var swiper2 = new Swiper('.swiper-container2', {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination2',
+            clickable: true,
+        },
+    });
+</script>
+</body>
+</html>

@@ -13,14 +13,6 @@
             position: relative;
             height: 100%;
         }
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color:#000;
-            margin: 0;
-            padding: 0;
-        }
         .swiper-container1 {
             width: 100%;
             height: 100%;
@@ -58,16 +50,25 @@
             line-height: 1.3;
         }
         .subtitle{color: #222;font-weight: 500;font-size: 48px!important;visibility: visible;
-            position: absolute;left: 381.5px;top: 200px;
+            position: absolute;
+            /*left: 381.5px;top: 200px;*/
+            left: 10%;top: 10%
         }
         .text{color: #444444;font-weight: 400;font-size: 16px!important;visibility: visible;
-            position: absolute;left: 381.5px;top: 330px;}
+            position: absolute;
+            /*left: 381.5px;top: 330px;*/
+            left: 10%;top: 40%
+        }
+        .text p{line-height: 1.5;letter-spacing: 1px;}
         .swiper1{background: #fff;width: 40px;height: 40px;background-image: none;}
         .swiper1 i{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);font-size: 20px;font-weight: 300;}
         .swiper1:hover{background: #CF9455}
         .swiper1 i:hover{color: #fff!important;}
         .more a{background: #cf9455;font-size: 14px !important;border-radius: 0px;color: #ffffff;font-weight: 600;text-transform: uppercase;
-            padding: 15px 35px !important;text-align: center;position: absolute;left: 381.5px;top: 420px;}
+            padding: 15px 35px !important;text-align: center;position: absolute;
+            /*left: 381.5px;top: 420px;*/
+            left: 10%;top: 65%
+        }
         .swiper-container1 .hide{
             opacity:0;
         }
@@ -77,6 +78,14 @@
         .swiper1_prev{left: 5%!important;}
         .swiper1_next{right: 5%!important;}
         .swiper-slide2 img{display: block;max-width: 100%;}
+        .slide_img1{width: 100%;margin:0 auto;}
+        .slide_img1 img{width: 100%;max-width: 100%;display: block;}
+
+        .swiper-slide3 a{display: inline-block;padding: 10px;background: #fff;}
+        .swiper-slide3{margin-right: 0!important;}
+        .swiper-button-prev3,.swiper-button-next3{height: 40px;width: 34px;color: #fff;border: 1px solid #cf9455;background-image: none;}
+        .swiper-button-prev3 i,.swiper-button-next3 i{position: absolute;top:50%;left: 50%;transform: translate(-50%,-50%);color: #cf9455}
+        .swiper-wrapper3{width: 1080px;margin: 0 auto;}
     </style>
 </head>
 <body>
@@ -114,7 +123,7 @@
                 <!--<div class="parallax-bg" style="" data-swiper-parallax="-23%"></div>-->
                 <div class="swiper-wrapper swiper-wrapper1">
                     <div class="swiper-slide swiper-slide1">
-                        <div class="title" data-swiper-parallax="-300"><img src="imgs/slide1_1.jpg" alt="banner1"></div>
+                        <div class="title slide_img1" data-swiper-parallax="-300"><img src="imgs/slide1_1.jpg" alt="banner1"></div>
                         <div class="subtitle" data-swiper-parallax="-200">我们致力于打造<br/>中国一流的保理服务品牌</div>
                         <div class="text" data-swiper-parallax="-100">
                             <p>我们将利用完备的风险测控体系，全力为中小企业客户提供专业化、全方位层次的保理服务。</p>
@@ -122,7 +131,7 @@
                         <div class="more"><a href="#">了解更多</a></div>
                     </div>
                     <div class="swiper-slide swiper-slide1">
-                        <div class="title" data-swiper-parallax="-300" data-swiper-parallax-opacity="0"></div>
+                        <div class="title slide_img1" data-swiper-parallax="-300" data-swiper-parallax-opacity="0"></div>
                         <div class="subtitle" data-swiper-parallax="-200">我们致力于解决<br/>中小企业的融资难题</div>
                         <div class="text" data-swiper-parallax="-100">
                             <p>快捷、高效、安全的融资渠道，将帮助您的企业更有效的进军各个领域的市场。
@@ -137,7 +146,7 @@
                 <div class="swiper-button-next swiper-button-white hide swiper1_next swiper1"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
             </div>
         </div>
-        <div class="consult">
+        <section class="consult">
             <div class="consult_box">
                 <div class="consult_tx">
                     <h3>国富保理金融 – 引领保理融资的未来</h3>
@@ -145,8 +154,8 @@
                 </div>
                 <div class="consult_btn"><a href="#">免费咨询</a></div>
             </div>
-        </div>
-        <div class="advatage">
+        </section>
+        <section class="advatage">
             <div class="advatage_t">
                 <h1>我们的优势</h1>
             </div>
@@ -182,8 +191,8 @@
                     <div class="advatage_btn"><a href="#" >了解详情<i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
                 </div>
             </div>
-        </div>
-        <div class="about">
+        </section>
+        <section class="about">
             <div class="about_box">
                 <div class="about_l">
                     <div class="about_t">
@@ -200,15 +209,15 @@
                     <img src="imgs/investment_law.jpg" alt="照片">
                 </div>
             </div>
-        </div>
-        <div class="coo">
+        </section>
+        <section class="coo">
             <div class="coo_tx">
                 <h1>合作伙伴 <span class="coo_s">联合</span> 国富 <span class="coo_s"></span>共赢</span> 未来</h1>
                 <p>国富合作伙伴计划鼓励个人或企业成为我们的代理人，向全国企业推广国富保理融资服务。我们为合作伙伴设立优厚的奖励方案，共同组建融资动态网络。</p>
                 <div class="coo_btn"><a href="#">联系我们</a></div>
             </div>
-        </div>
-        <div class="coreTeam">
+        </section>
+        <section class="coreTeam">
             <div class="coreTeam_t"><h1>核心团队</h1></div>
             <!-- Swiper -->
             <div class="swiper-container swiper-container2">
@@ -307,8 +316,8 @@
                 <!-- Add Pagination -->
                 <div class="swiper-pagination swiper-pagination2"></div>
             </div>
-        </div>
-        <div class="benefit">
+        </section>
+        <section class="benefit">
                 <div class="benefit_box">
                     <div class="benefit_l">
                             <h1 class="lineL">买家利益</h1>
@@ -327,8 +336,8 @@
                         </div>
                     </div>
                 </div>
-        </div>
-        <div class="write_msg">
+        </section>
+        <section class="write_msg">
             <div class="write_msg_box">
                 <h1 class="lineM">填写免费咨询信息</h1>
                 <div class="formI">
@@ -338,60 +347,207 @@
                 </div>
                 <div class="write_btn"><a href="#">提交</a></div>
             </div>
-        </div>
-        <div class="product">
+        </section>
+        <section class="product">
             <h1 class="lineM">理财产品</h1>
             <div class="product_tx">
                 <div class="product_item">
                     <h3>Basic</h3>
                     <div class="cir">
-                        <span class="cir_num">$39</span>
-                        <br/>
-                        <span class="cir_p">MONTHLY</span>
+                        <div class="cir_tx">
+                            <span class="cir_num">$39</span>
+                            <br/>
+                            <span class="cir_p">MONTHLY</span>
+                        </div>
                     </div>
-                    <p>
-                        Storage 100MB
-                        Dedicated RAM 500MB
-                        Network Transfer 1 TB
-                        FTP Users 10
-                        E-mail Accounts 5
-                    </p>
+                    <ul class="pro_tx">
+                        <li>Storage 100MB</li>
+                        <li>Dedicated RAM 500MB</li>
+                        <li>Network Transfer 1 TB</li>
+                        <li>FTP Users 10</li>
+                        <li>E-mail Accounts 5</li>
+                    </ul>
                     <div><a href="#" class="pro_btn">Read More &gt;</a></div>
                 </div>
                 <div class="product_item">
                     <h3>Basic</h3>
                     <div class="cir">
-                        <span class="cir_num">$39</span>
-                        <br/>
-                        <span class="cir_p">MONTHLY</span>
+                        <div class="cir_tx">
+                            <span class="cir_num">$39</span>
+                            <br/>
+                            <span class="cir_p">MONTHLY</span>
+                        </div>
                     </div>
-                    <p>
-                        Storage 100MB
-                        Dedicated RAM 500MB
-                        Network Transfer 1 TB
-                        FTP Users 10
-                        E-mail Accounts 5
-                    </p>
+                    <ul class="pro_tx">
+                        <li>Storage 100MB</li>
+                        <li>Dedicated RAM 500MB</li>
+                        <li>Network Transfer 1 TB</li>
+                        <li>FTP Users 10</li>
+                        <li>E-mail Accounts 5</li>
+                    </ul>
                     <div><a href="#" class="pro_btn">Read More &gt;</a></div>
                 </div>
                 <div class="product_item">
                     <h3>Basic</h3>
                     <div class="cir">
-                        <span class="cir_num">$39</span>
-                        <br/>
-                        <span class="cir_p">MONTHLY</span>
+                        <div class="cir_tx">
+                            <span class="cir_num">$39</span>
+                            <br/>
+                            <span class="cir_p">MONTHLY</span>
+                        </div>
                     </div>
-                    <p>
-                        Storage 100MB
-                        Dedicated RAM 500MB
-                        Network Transfer 1 TB
-                        FTP Users 10
-                        E-mail Accounts 5
-                    </p>
+                    <ul class="pro_tx">
+                        <li>Storage 100MB</li>
+                        <li>Dedicated RAM 500MB</li>
+                        <li>Network Transfer 1 TB</li>
+                        <li>FTP Users 10</li>
+                        <li>E-mail Accounts 5</li>
+                    </ul>
                     <div><a href="#" class="pro_btn">Read More &gt;</a></div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section class="static">
+            <div class="static_box">
+                <div class="static_item">
+                    <div class="static_cir c1">
+                        <span>90%</span>
+                    </div>
+                    <h3 class="static_t">满意客户</h3>
+                </div>
+                <div class="static_item">
+                    <div class="static_cir c2">
+                        <span>70%</span>
+                    </div>
+                    <h3 class="static_t">满意客户</h3>
+                </div>
+                <div class="static_item">
+                    <div class="static_cir c3">
+                        <span>95%</span>
+                    </div>
+                    <h3 class="static_t">满意客户</h3>
+                </div>
+                <div class="static_item">
+                    <div class="static_cir c4">
+                        <span>95%</span>
+                    </div>
+                    <h3 class="static_t">满意客户</h3>
+                </div>
+            </div>
+        </section>
+        <section class="dynamic">
+            <div class="dynamic_box">
+                <h1 class="lineM">企业动态</h1>
+                <div class="dynamic_tx">
+                    <div class="dynamic_item">
+                        <div class="dy_top responsiv_img">
+                            <img src="imgs/dynamic.jpg" alt="">
+                            <div class="dy_date">
+                                <span class="day">30</span>
+                                <span class="month">JAM</span>
+                            </div>
+                        </div>
+                        <div class="dy_bottom">
+                            <h1><a href="#" class="dy_t">We have won against Corporate business law case</a></h1>
+                            <p class="dy_p">Bmply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever…</p>
+                            <div class="dy_ft">
+                                <span><i class="fa fa-user" aria-hidden="true"></i>by<a href="#"> Radius Theme</a></span>
+                                <span><i class="fa fa-comment-o" aria-hidden="true"></i><a href="#">2 comments</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamic_item">
+                        <div class="dy_top responsiv_img">
+                            <img src="imgs/dynamic.jpg" alt="">
+                            <div class="dy_date">
+                                <span class="day">30</span>
+                                <span class="month">JAM</span>
+                            </div>
+                        </div>
+                        <div class="dy_bottom">
+                            <h1><a href="#" class="dy_t">We have won against Corporate business law case</a></h1>
+                            <p class="dy_p">Bmply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever…</p>
+                            <div class="dy_ft">
+                                <span><i class="fa fa-user" aria-hidden="true"></i>by<a href="#"> Radius Theme</a></span>
+                                <span><i class="fa fa-comment-o" aria-hidden="true"></i><a href="#">2 comments</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dynamic_item">
+                        <div class="dy_top responsiv_img">
+                            <img src="imgs/dynamic.jpg" alt="">
+                            <div class="dy_date">
+                                <span class="day">30</span>
+                                <span class="month">JAM</span>
+                            </div>
+                        </div>
+                        <div class="dy_bottom">
+                            <h1><a href="#" class="dy_t">We have won against Corporate business law case</a></h1>
+                            <p class="dy_p">Bmply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever…</p>
+                            <div class="dy_ft">
+                                <span><i class="fa fa-user" aria-hidden="true"></i>by<a href="#"> Radius Theme</a></span>
+                                <span><i class="fa fa-comment-o" aria-hidden="true"></i><a href="#">2 comments</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partner">
+            <div class="partner_box">
+                <h1 class="lineM">合作伙伴</h1>
+                <div class="banner3">
+                    <!-- Swiper -->
+                    <div class="swiper-container swiper-container3">
+                        <div class="swiper-wrapper swiper-wrapper3">
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                            <div class="swiper-slide swiper-slide3"><a href="#"><img src="imgs/logo-5.png"></a></div>
+                        </div>
+
+                        <div class="swiper-button-prev swiper-button-prev3"><i class="fa fa-chevron-left" aria-hidden="true"></i></div><!--左箭头-->
+                        <div class="swiper-button-next swiper-button-prev3"><i class="fa fa-chevron-right" aria-hidden="true"></i></div><!--右箭头-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ft">
+            <div class="ft_box">
+                <div class="ft_item">
+                    <h1 class="lineL ft_t">关于国富</h1>
+                    <p>
+                        深圳国富商业保理有限公司（以下简称“国富保理”）经国家工商总局，深圳市前海管理局核准，由国内知名的基金管理公司发起在深圳市成立的商业保理公司，依托雄厚的股东背景与广泛的社会资源，业务辐射全国。
+                    </p>
+                </div>
+                <div class="ft_item">
+                    <h1 class="lineL ft_t">服务体系</h1>
+                    <ul class="ft_ul">
+                       <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i> Business Law</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i> Criminal Law</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i>Financial Law</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i>Investment Law</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i>Family Law</a></li>
+                        <li><a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i>Divorce Law</a></li>
+                    </ul>
+                </div>
+                <div class="ft_item">
+                    <h1 class="lineL ft_t">联系我们</h1>
+                    <ul class="ft_ul">
+                        <li><a href="#"><i class="fa fa-map-marker"></i>深圳市南山区沙河西路深圳湾科技生态园一区2栋C座401</a></li>
+                        <li><a href="#"><i class="fa fa-phone"></i>(0086) 755 8696 8375</a></li>
+                        <li><a href="#"><i class="fa fa-clock-o"></i>09 am - 05:30 pm</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i>linyanghong@guoxinpe.com</a></li>
+                        <li><a href="#"><i class="fa fa-fax"></i>(0086) 755 2660 4979</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <footer class="ft_bottom"><p>国富保理 © All Rights Reserved 2017. guofubaoli.com</p></footer>
     </div>
 <script type="text/javascript" src="lib/swiper-4.3.5.min.js"></script>
  <script src="lib/jquery-3.3.1.min.js"></script>
@@ -425,6 +581,18 @@
         pagination: {
             el: '.swiper-pagination2',
             clickable: true,
+        },
+    });
+    var swiper3 = new Swiper('.swiper-container3', {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination2',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next3',
+            prevEl: '.swiper-button-prev3',
         },
     });
 </script>

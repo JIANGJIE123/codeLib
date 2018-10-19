@@ -1,0 +1,15 @@
+.connect_banner_tx h1{color: #ffffff;font-size: 36px;font-weight: 500;margin-bottom: 15px;}
+.connect_banner_tx  ul li a{color: #e2e2e2;}
+.connect_banner_tx  ul li{display: inline-block}
+.connect_banner_tx  ul li a:hover{color: #cf9455;}
+.connect_banner_tx{width: 1200px;position: absolute;top:50%;transform: translateY(-50%)}
+.connect_banner_box{position: relative;display: flex;justify-content: center;}
+.connect_main{width: 100%;}
+.connect_box{width: 1200px;margin: 0 auto;padding: 110px 0px 120px 0px;display: flex;justify-content: space-between;}
+.connect_addr li{font-size: 18px;padding: 10px 0}
+.connect_addr li i{color: #cf9455;padding-right: 15px;}
+.connect_addr{margin-top: 20px;}
+.connect_inpt input{background: transparent;border: 1px solid #d6d6d6;border-radius: 0;box-shadow: none;font-size: 14px;font-style: italic;color: #868686;margin-bottom: 0;padding: 4px 10px;height: 32px;width: 95%;}
+.connect_inpt{margin-bottom: 15px;}
+.connect_inpt textarea{border: 1px solid #d6d6d6!important;}
+.connect_main_l,.connect_main_r{flex: 1}

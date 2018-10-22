@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- saved from url=(0014)about:internet -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <link href="imgs/logo02.png" rel="shortcut icon" type="image/vnd.microsoft.icon" />
@@ -49,19 +50,20 @@
             max-width: 400px;
             line-height: 1.3;
         }
-        .swiper_tx{position: absolute;top: 0;left: 10%;}
+
+        .swiper_tx{width:1200px;position: absolute;top: 100px;left: 50%;transform: translateX(-50%);}
         .subtitle{color: #222;font-weight: 500;font-size: 48px!important;visibility: visible;
-                margin-top: 0px;
+                    top:100px;opacity:0;top:80px;position: absolute;margin-top: 0px!important;
         }
         .text{color: #444444;font-weight: 400;font-size: 16px!important;visibility: visible;
-            margin-top: 30px;
+          top:240px;opacity:0;top:200px;position: absolute;margin-top: 0px!important;
         }
         .text p{line-height: 1.5;letter-spacing: 1px;}
         .swiper1{background: #fff;width: 40px;height: 40px;background-image: none;}
         .swiper1 i{position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);font-size: 20px;font-weight: 300;}
         .swiper1:hover{background: #CF9455}
         .swiper1 i:hover{color: #fff!important;}
-        .more{margin-top: 40px}
+        .more{ top:360px;opacity:1;opacity:0;top:300px;position: absolute;margin-top: 0px!important;}
         .more a{background: #cf9455;font-size: 14px !important;border-radius: 0px;color: #ffffff;font-weight: 600;text-transform: uppercase;
             padding: 15px 35px !important;text-align: center;
         }
@@ -75,8 +77,7 @@
         .swiper1_next{right: 5%!important;}
         .swiper-slide2 img{display: block;max-width: 100%;}
         .slide_img1{width: 100%;margin:0 auto;}
-        .slide_img1 img{width: 100%;max-width: 100%;display: block;}
-
+        .slide_img1 img{width: 100%;max-width: 100%;display: block;min-height: 550px;}
         .swiper-slide3 a{display: inline-block;padding: 10px;background: #fff;}
         .swiper-slide3{margin-right: 0!important;}
         .swiper-button-prev3,.swiper-button-next3{height: 40px;width: 34px;color: #fff;border: 1px solid #cf9455;background-image: none;}
@@ -85,9 +86,21 @@
 
         .s2_img{webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);-o-transform: scale(1);transform: scale(1);-webkit-transition: all 0.7s ease-out;-moz-transition: all 0.7s ease-out;-ms-transition: all 0.7s ease-out;-o-transition: all 0.7s ease-out;transition: all 0.7s ease-out;}
         .nameColor{color: #cf9455!important;}
+
+        .swiper-pagination4{text-align: right;}
+        .swiper-pagination4 .swiper-pagination-bullet{width: 12px;height: 12px;background: #869791;}
+        .swiper-pagination4 .swiper-pagination-bullet-active{background: #cf9455;}
     </style>
 </head>
 <body>
+<!--加载动画-->
+    <div class="load">
+        <div class="load_img">
+            <img src="imgs/logo-guofubaoli.png" alt="">
+        </div>
+        <div class="load_line" style="width: 0%;height: 5px;background:#cf9455;margin-top:40px"></div>
+    </div>
+
     <div class="wrap" style="display: none">
         <header>
             <div class="hd">
@@ -126,15 +139,15 @@
                     <div class="swiper-slide swiper-slide1">
                         <div class="title slide_img1" data-swiper-parallax="-300"><img src="imgs/slide1_1.jpg" alt="banner1"></div>
                         <div class="swiper_tx">
-                            <div class="subtitle" data-swiper-parallax="-200">我们致力于打造<br/>中国一流的保理服务品牌</div>
-                            <div class="text" data-swiper-parallax="-100">
+                            <div class="subtitle subtitle1" data-swiper-parallax="-200">我们致力于打造<br/>中国一流的保理服务品牌</div>
+                            <div class="text text1" data-swiper-parallax="-100">
                                 <p>我们将利用完备的风险测控体系，全力为中小企业客户提供专业化、全方位层次的保理服务。</p>
                             </div>
-                            <div class="more"><a href="#">了解更多</a></div>
+                            <div class="more more1"><a href="#">了解更多</a></div>
                         </div>
                     </div>
                     <div class="swiper-slide swiper-slide1">
-                        <div class="title slide_img1" data-swiper-parallax="-300" data-swiper-parallax-opacity="0"><img src="" alt="banner2"></div>
+                        <div class="title slide_img1" data-swiper-parallax="-300" data-swiper-parallax-opacity="0"></div>
                         <div class="swiper_tx">
                             <div class="subtitle" data-swiper-parallax="-200">我们致力于解决<br/>中小企业的融资难题</div>
                             <div class="text" data-swiper-parallax="-100">
@@ -483,7 +496,7 @@
                 <h1 class="lineM">企业动态</h1>
                 <div class="dynamic_tx">
                     <div class="dynamic_item">
-                        <div class="dy_top responsiv_img">
+                        <div class="dy_top responsiv_img dy_topHover">
                             <img src="imgs/dynamic.jpg" alt="">
                             <div class="dy_date">
                                 <span class="day">30</span>
@@ -500,7 +513,7 @@
                         </div>
                     </div>
                     <div class="dynamic_item">
-                        <div class="dy_top responsiv_img">
+                        <div class="dy_top responsiv_img dy_topHover">
                             <img src="imgs/dynamic.jpg" alt="">
                             <div class="dy_date">
                                 <span class="day">30</span>
@@ -517,7 +530,7 @@
                         </div>
                     </div>
                     <div class="dynamic_item">
-                        <div class="dy_top responsiv_img">
+                        <div class="dy_top responsiv_img dy_topHover">
                             <img src="imgs/dynamic.jpg" alt="">
                             <div class="dy_date">
                                 <span class="day">30</span>
@@ -592,14 +605,23 @@
         </section>
         <footer class="ft_bottom"><p>国富保理 © All Rights Reserved 2017. guofubaoli.com</p></footer>
     </div>
- <script src="lib/jquery-3.3.1.min.js"></script>
+ <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/swiper-4.3.5.min.js"></script>
-<script src="js/load.js"></script>
-<script src="js/index.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript">
+//动画
+    $(".load").css({"position": "absolute","top":"50%","left": "50%","transform": "translate(-50%,-50%)","width": "100%"})
+    $(".load_img").css("text-align", "center");
+    $(".load_line").delay("slow").animate({width:'100%'},'2s','linear');
+    setTimeout(function(){
+        $(".load").fadeOut();
+        $(".wrap").fadeIn();
+        initVeiw();
+    }, 1500);
+
 function initVeiw() {
     var swiper = new Swiper('.swiper-container1', {
-        loop:true,
+        // loop:true,
         speed: 600,
         parallax: true,
         navigation: {
@@ -607,6 +629,21 @@ function initVeiw() {
             prevEl: '.swiper-button-prev',
         }
     });
+    //banner首页进入动画
+    $(".subtitle").eq(swiper.realIndex).delay(500).animate({top:'100px',opacity:'1'},1500)
+    $(".text").eq(swiper.realIndex).delay(1500).animate({top:'240px',opacity:'1'},1500)
+    $(".more").eq(swiper.realIndex).delay(2000).animate({top:'360px',opacity:'1'},1500)
+
+    $(".swiper1").click(function () {
+        // $(".subtitle").eq(swiper.realIndex).delay(500).animate({left:'400px',opacity:'0'},1500);
+        // $(".text").eq(swiper.realIndex).delay(1500).animate({left:'500px',opacity:'0'},1500);
+        // $(".more").eq(swiper.realIndex).delay(2000).animate({left:'600px',opacity:'0'},1500);
+
+        $(".subtitle").eq(swiper.realIndex).delay(500).animate({left:'0px',opacity:'1'},1500);
+        $(".text").eq(swiper.realIndex).delay(1500).animate({left:'0px',opacity:'1'},1500);
+        $(".more").eq(swiper.realIndex).delay(2000).animate({left:'0px',opacity:'1'},1500);
+    })
+
     //鼠标移出隐藏按钮，移入显示按钮
     swiper.el.onmouseover=function(){
         swiper.navigation.$nextEl.removeClass('hide');
@@ -616,7 +653,6 @@ function initVeiw() {
         swiper.navigation.$nextEl.addClass('hide');
         swiper.navigation.$prevEl.addClass('hide');
     }
-
 
     var swiper2 = new Swiper('.swiper-container2', {
         slidesPerView: 4,
@@ -655,6 +691,27 @@ $(".swiper-slide2").hover(function () {
     $(this).find(".swiper-slide2_img").removeClass("s2_img");
     $(this).find(".swiper-slide2_name").removeClass("nameColor");
 })
+
+$(".product_item").hover(function () {
+    $(this).find(".cir").css("background","#cf9455");
+    $(this).find(".cir_p").css("color","#fff");
+    $(this).find(".pro_btn").css({"background":"#cf9455","color":"#fff"});
+},function () {
+    $(this).find(".cir").css("background","#1e2e3d");
+    $(this).find(".cir_p").css("color","#cf9455");
+    $(this).find(".pro_btn").css({"background":"#1e2e3d","color":"#cf9455"});
+})
+
+$(".dynamic_item").hover(function () {
+    $(this).find(".dy_top").addClass("dy_topHoverOp");
+    $(this).find(".dy_top img").addClass("dy_img");
+    $(this).find(".dy_bottom").addClass("dy_bottomHover");
+},function () {
+    $(this).find(".dy_top").removeClass("dy_topHoverOp");
+    $(this).find(".dy_top img").removeClass("dy_img");
+    $(this).find(".dy_bottom").removeClass("dy_bottomHover");
+})
+
 
 
 </script>

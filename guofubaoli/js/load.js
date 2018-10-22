@@ -1,4 +1,5 @@
 (function () {
+    console.log("jiangjie")
     $("body").append(`<div class="load">
         <div class="load_img">
             <img src="imgs/logo-guofubaoli.png" alt="">

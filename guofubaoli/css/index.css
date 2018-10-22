@@ -26,15 +26,25 @@ header{width: 100%;border-bottom: 1px solid #d6d6d6;padding: 8px 0;}
 .logo img{display: block;max-width: 100%;height: auto;vertical-align: middle}
 .nv li{display: inline-block;}
 .nv li a{color: #222222;display: inline-block;height: 64px;line-height: 64px;padding: 0 10px;font-size: 15px}
+.nv li a:hover{color: #cf9455}
+
 .nv{padding-right: 10px;}
 .ac{color: #cf9455!important;}
-
+.set_top:hover{background: #ac753b!important;}
 .consult{padding: 50px 0px 50px 0px;background-color: rgba(34, 34, 34, 1);width: 100%}
 .consult_box{width: 1200px;margin: 0 auto;display: flex;justify-content: space-between;}
 .consult_tx h3{color: #ffffff;font-size: 30px;margin-bottom: 5px;font-family: Roboto, sans-serif;font-weight: normal;line-height: 1.4;}
 .consult_tx p{color: white;font-size: 15px;}
 .consult_btn{margin-right: 10px;}
-.consult_btn a{background: #cf9455;border: none;color: #ffffff;display: inline-block;font-size: 15px;font-weight: 600;margin-top: 5px;padding: 20px 30px;}
+.consult_btn a{background: #cf9455;border: none;color: #ffffff;display: inline-block;font-size: 15px;font-weight: 600;margin-top: 5px;padding: 20px 30px;webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;-ms-transition: all 0.5s ease-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out;
+}
+.consult_btn a:hover{background: #ffffff;color: #cf9455;}
+.safe:hover{color:#cf9455 }
+.ftHover:hover{color:#cf9455}
+.detail{ webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;-ms-transition: all 0.5s ease-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}
+.detail:hover{background:#cf9455;color: #fff; }
+.coo_btn a:hover{background:#cf9455;webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;-ms-transition: all 0.5s ease-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out; }
+.write_btn a:hover{background: #ac753b;webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;-ms-transition: all 0.5s ease-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}
 .advatage{width: 1200px;padding: 110px 0px 70px 0px;margin: 0 auto}
 .advatage_p{text-align: center;margin: 0 0 10px;}
 .advatage_btn{text-align: center;}

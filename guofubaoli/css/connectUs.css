@@ -9,7 +9,8 @@
 .connect_addr li{font-size: 18px;padding: 10px 0}
 .connect_addr li i{color: #cf9455;padding-right: 15px;}
 .connect_addr{margin-top: 20px;}
-.connect_inpt input{background: transparent;border: 1px solid #d6d6d6;border-radius: 0;box-shadow: none;font-size: 14px;font-style: italic;color: #868686;margin-bottom: 0;padding: 4px 10px;height: 32px;width: 95%;}
+.connect_inpt input{outline:none;background: transparent;border: 1px solid #d6d6d6;border-radius: 0;box-shadow: none;font-size: 14px;font-style: italic;color: #868686;margin-bottom: 0;padding: 4px 10px;height: 32px;width: 95%;}
 .connect_inpt{margin-bottom: 15px;}
-.connect_inpt textarea{border: 1px solid #d6d6d6!important;}
+.connect_inpt textarea{border: 1px solid #d6d6d6!important;outline: none;}
 .connect_main_l,.connect_main_r{flex: 1}
+.connect_banner_box{background-image: url("../imgs/inner_banner.jpg"); background-repeat: no-repeat;background-position: 50% 50%;background-size: cover;background-attachment: fixed;padding: 135px 0 135px 0;}

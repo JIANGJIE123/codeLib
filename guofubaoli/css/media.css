@@ -14,7 +14,7 @@
 .media_text{border-top: 1px solid #d6d6d6;margin-top: 20px;padding-top: 20px;font-size: inherit;font-weight: normal;line-height: inherit;}
 .media_more{display: inline-block;margin-top: 15px;}
 .media_more a{border: 2px solid #cf9455;font-size: 14px;padding: 10px 25px;display: block;color: #444}
-.media_search_box input{background: transparent;border: 1px solid #d6d6d6;border-radius: 0;box-shadow: none;padding: 0 8px;height: 40px;width: 100%;display: inline-block;box-sizing: border-box;}
+.media_search_box input{background: transparent;border: 1px solid #d6d6d6;border-radius: 0;box-shadow: none;padding: 0 8px;height: 40px;width: 100%;display: inline-block;box-sizing: border-box;outline: none;}
 .media_search_box a{background: #cf9455;padding:10px 14px;color: #FFFFFF;position: absolute;right: 0;top: 0;}
 .media_search_box{position: relative;}
 .media_l_item{margin-bottom: 40px;}
@@ -40,3 +40,7 @@
 .pagination_ac{background: #cf9455!important;color: #fff!important;}
 .paganation_box ul li a{line-height: 40px;margin: 0 2px;height: 40px;width: 45px;background: #e5e5e5;display: inline-block;color: #444;}
 .paganation_box{margin: 24px 0 4px 0;text-align: center;}
+
+.connect_banner_box{background-image: url("../imgs/inner_banner.jpg"); background-repeat: no-repeat;background-position: 50% 50%;background-size: cover;background-attachment: fixed;padding: 135px 0 135px 0;}
+.k2ReadMore,.page{webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;-ms-transition: all 0.5s ease-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}
+.page:hover,.k2ReadMore:hover{color: #fff;background: #cf9455;}

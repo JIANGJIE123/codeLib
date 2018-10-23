@@ -362,26 +362,26 @@
         </section>
         <section class="benefit">
                 <div class="benefit_box">
-                    <div class="benefit_l">
+                    <div class="benefit_l fadeinL">
                             <h1 class="lineL buy">买家利益</h1>
                         <div class="benefit_item">
                             <ul>
-                                <li class="buyer">现金流改善<i class="fa fa-chevron-right" style="transform:rotate(90deg)"></i>
-                                    <p class="buyer_p" style="font-size: 15px;padding: 25px 0 10px 0px;line-height: 24px;display: block;color: #444!important;">
+                                <li class="buyer" style="height: 131px;overflow: hidden;box-sizing: content-box;color: rgb(207, 148, 85);">现金流改善<i class="fa fa-chevron-right" style="transform:rotate(90deg)"></i>
+                                    <p class="buyer_p" style="font-size: 15px;padding: 25px 0 10px 0px;line-height: 24px;color: #444!important;">
                                         无需等待60/90/120天付款期<br/>
                                         立即获得付款，改善现金流<br/>
                                         获得的基础资金可用于再投资
                                     </p>
                                 </li>
-                                <li class="buyer">业务增长<i class="fa fa-chevron-right"></i>
-                                    <p class="buyer_p" style="font-size: 15px;padding: 25px 0 10px 0px;line-height: 24px;display: none;color: #444!important; ">
+                                <li class="buyer" style="height: 24px;overflow: hidden;box-sizing: content-box">业务增长<i class="fa fa-chevron-right"></i>
+                                    <p class="buyer_p" style="font-size: 15px;padding: 25px 0 10px 0px;line-height: 24px;color: #444!important;">
                                         无需等待60/90/120天付款期<br/>
                                         立即获得付款，改善现金流<br/>
                                         获得的基础资金可用于再投资
                                     </p>
                                 </li>
-                                <li class="buyer">风险管理<i class="fa fa-chevron-right"></i>
-                                    <p class="buyer_p" style="font-size: 15px;padding: 25px 0 10px 0px;line-height: 24px;display: none;color: #444!important; ">
+                                <li class="buyer" style="height: 24px;overflow: hidden;box-sizing: content-box">风险管理<i class="fa fa-chevron-right"></i>
+                                    <p class="buyer_p" style="font-size: 15px;padding: 25px 0 10px 0px;line-height: 24px;color: #444!important; ">
                                         无需等待60/90/120天付款期<br/>
                                         立即获得付款，改善现金流<br/>
                                         获得的基础资金可用于再投资
@@ -390,7 +390,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="benefit_r">
+                    <div class="benefit_r fadeinR">
                             <h1 class="lineL">客户反馈</h1>
                         <div class="benefit_swiper">
                             <div class="swiper-container swiper-container4">
@@ -671,18 +671,21 @@
     }, 1500);
 
     $('.buyer').click(function () {
-        var attrDis=$(this).find("p").css("display");
-        console.log(attrDis);
-        attrDis.split('')
-        if(attrDis.length!==5){
-            $(this).css("color","#cf9455")
-            $(this).find("p").css("display","block");
+        // var attrDis=$(this).find("p").css("display");
+        // console.log(attrDis);
+        // attrDis.split('')
+        var h=Number($(this).height());
+        console.log(h)
+        if(h!==131){
+            $(this).css({"color":"#cf9455","overflow":"visible"})
+            $(this).height("131px");
+            // $(this).find("p").css("display","block");
             $(this).find("i").css("transform","rotate(90deg)");
         }else {
-            $(this).css("color","#222")
-            $(this).find("p").css("display","none");
+            $(this).css({"color":"#222","overflow":"hidden"})
+            $(this).height("24px");
+            // $(this).find("p").css("display","none");
             $(this).find("i").css("transform","none");
-
         }
 
     });

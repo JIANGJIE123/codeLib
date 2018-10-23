@@ -135,8 +135,9 @@ header{width: 100%;border-bottom: 1px solid #d6d6d6;padding: 8px 0;}
     text-align: center;font-family: Roboto, sans-serif;font-weight: 500;}
 .lineM:after{background: #cf9455;content: "";height: 4px;position: absolute;left: 0;right: 0;margin: 0 auto;width: 50px;bottom: 0;}
 .benefit_item{background: #ffffff;padding: 30px;}
-.benefit_item ul li{border-bottom: 1px solid #dfdfdf;padding: 10px 20px 10px 15px;cursor: pointer;color: #222222;font-size: 18px;font-weight: 500;}
+.benefit_item ul li{box-sizing: content-box;;box-sizing: border-box;border-bottom: 1px solid #dfdfdf;padding: 10px 20px 10px 15px;cursor: pointer;color: #222222;font-size: 18px;font-weight: 500;}
 .benefit_item ul li i{float: right;color: #cf9455;}
+.buyer,.buyer p{webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;-ms-transition: all 0.5s ease-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}
 .benefit_swiper{background: #ffffff;padding: 43px 30px;}
 
 .write_msg{padding: 110px 0px 120px 0px;background-image: url('../imgs/section8_bg.jpg');background-repeat: no-repeat;background-size: cover;background-attachment: scroll;background-position: 50% 50%;width: 100%;}
@@ -170,7 +171,7 @@ header{width: 100%;border-bottom: 1px solid #d6d6d6;padding: 8px 0;}
 .static{padding: 120px 0px 100px 0px;background-image: url('../imgs/section8_bg.jpg');background-repeat: no-repeat;background-size: cover;background-attachment: scroll;background-position: 50% 50%;}
 .static_box{position: relative;width: 1200px;margin: 0 auto;display: flex;justify-content: space-between;}
 .static_item{flex: 1;text-align: center;}
-.static_item{animation-delay: 700ms;-webkit-animation-name: fadeInDown;animation-name: fadeInDown;}
+.static_item{animation-delay:3000ms;-webkit-animation-name: fadeInDown;animation-name: fadeInDown;animation-iteration-count:1;}
 .static_item:first-child{animation-duration: 1000ms;}
 .static_item:nth-child(2){animation-duration: 1500ms;}
 .static_item:nth-child(3){animation-duration: 2000ms;}
@@ -178,13 +179,13 @@ header{width: 100%;border-bottom: 1px solid #d6d6d6;padding: 8px 0;}
 @keyframes fadeInDown {
     0% {
         opacity: 0;
-        -webkit-transform: translateY(-20px);
-        transform: translateY(-20px);
+        -webkit-transform: translate3d(0,-50%,0);
+        transform: translate3d(0,-50%,0);
     }
     100% {
         opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
+        -webkit-transform: none;
+        transform: none;
     }
 }
 

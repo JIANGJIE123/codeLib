@@ -10,6 +10,12 @@ ul{font-size:0.8rem;}
             对其他的度量方式如padding、margin、border-radius等使用em。
             然而在必要时，需要声明容器的宽度的话，我更喜欢使用百分比。
 
+    另外，对于元素的font-size
+        safari,iphone 已经支持1px
+        pc chrome 12px 最小
+        android 1px
+        注意：PC端IE浏览器模拟手机端很麻烦，不怎么能模拟手机端
+
 3、em
   子元素字体大小的em是相对于父元素字体大小
   元素的width/height/padding/margin用em的话是相对于该元素的font-size

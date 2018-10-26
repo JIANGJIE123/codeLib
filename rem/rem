@@ -8,7 +8,7 @@ ul{font-size:0.8rem;}
 我的选择是，对font-size使用rem，
             对border使用px，
             对其他的度量方式如padding、margin、border-radius等使用em。
-            然而在必要时，需要声明容器的宽度的话，我更喜欢使用百分比。
+            然而在必要时,需要声明容器的宽度的话，我更喜欢使用百分比。
 
     另外，对于元素的font-size
         safari,iphone 已经支持1px

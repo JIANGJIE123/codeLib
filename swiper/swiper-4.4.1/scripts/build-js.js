@@ -21,7 +21,7 @@ function es(components, cb) {
 
   // Bundle
   rollup.rollup({
-    input: './src/swiper.js',
+    input: './src/swiper.lib',
     external: ['dom7/dist/dom7.modular', 'ssr-window'],
     plugins: [
       replace({
@@ -51,7 +51,7 @@ function es(components, cb) {
 
   // Modular
   rollup.rollup({
-    input: './src/swiper.js',
+    input: './src/swiper.lib',
     external: ['dom7/dist/dom7.modular', 'ssr-window'],
     plugins: [
       replace({
@@ -84,7 +84,7 @@ function umd(components, cb) {
   const target = process.env.TARGET || config.target;
 
   rollup.rollup({
-    input: './src/swiper.js',
+    input: './src/swiper.lib',
     plugins: [
       replace({
         delimiters: ['', ''],
@@ -111,7 +111,7 @@ function umd(components, cb) {
       return;
     }
     // Minified version
-    gulp.src('./dist/js/swiper.js')
+    gulp.src('./dist/lib/swiper.lib')
       .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(header(banner))
@@ -120,7 +120,7 @@ function umd(components, cb) {
         filePath.basename += '.min';
       }))
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./dist/js/'))
+      .pipe(gulp.dest('./dist/lib/'))
       .on('end', () => {
         cb();
       });

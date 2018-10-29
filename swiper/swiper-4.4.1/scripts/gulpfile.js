@@ -15,18 +15,18 @@ gulp.task('playground', (cb) => {
       if (env === 'development') {
         return content
           .replace('../dist/css/swiper.min.css', '../build/css/swiper.css')
-          .replace('../dist/js/swiper.min.js', '../build/js/swiper.js');
+          .replace('../dist/lib/swiper.min.lib', '../build/lib/swiper.lib');
       }
       return content
         .replace('../build/css/swiper.css', '../dist/css/swiper.min.css')
-        .replace('../build/js/swiper.js', '../dist/js/swiper.min.js');
+        .replace('../build/lib/swiper.lib', '../dist/lib/swiper.min.lib');
     }))
     .pipe(gulp.dest('./playground/'))
     .on('end', () => {
       if (cb) cb();
     });
 });
-gulp.task('js', (cb) => {
+gulp.task('lib', (cb) => {
   buildJs(cb);
 });
 
@@ -37,7 +37,7 @@ gulp.task('less', (cb) => {
 gulp.task('build', ['js', 'less']);
 
 gulp.task('watch', () => {
-  gulp.watch('./src/**/**/*.js', ['js']);
+  gulp.watch('./src/**/**/*.lib', ['lib']);
   gulp.watch('./src/**/**/*.less', ['less']);
 });
 

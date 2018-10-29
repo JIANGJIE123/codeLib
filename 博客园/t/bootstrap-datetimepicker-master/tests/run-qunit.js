@@ -36,7 +36,7 @@ function waitFor(testFx, onReady, timeOutMillis) {
 };
 
 if (system.args.length !== 2) {
-    console.log('Usage: run-qunit.js URL');
+    console.log('Usage: run-qunit.lib URL');
     phantom.exit(1);
 }
 
@@ -56,7 +56,7 @@ page.onError = function (msg, trace) {
 
 var _openPath = phantom.args[0].replace(/^.*(\\|\/)/, '');
 var openPath = _openPath;
-var origdir = '../js/';
+var origdir = '../lib/';
 var basedir = '../instrumented/';
 var coverageBase = fs.read('_coverage.html');
 

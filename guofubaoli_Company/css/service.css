@@ -1,0 +1,27 @@
+.service_main{width: 100%;}
+.service_imgs{padding: 120px 0px 90px 0px;width: 1200px;margin: 0 auto;}
+.imgs_line{width: 100%;display: flex;justify-content: space-between;margin-bottom: 30px;}
+.imgs_item{width:23%;position: relative;overflow: hidden;}
+.hoverShow{opacity:0;position: absolute;top:0;left: 0;background: rgba(0, 0, 0, 0.8);color: #ffffff;font-size: 14px;line-height: 22px;height: 100%;width: 100%;
+    -webkit-transition: all 0.7s ease-out;-moz-transition: all 0.7s ease-out;-ms-transition: all 0.7s ease-out;-o-transition: all 0.7s ease-out;transition: all 0.7s ease-out;
+    -moz-transform: scale(1) translateY(150px);-webkit-transform: scale(1) translateY(150px);-o-transform: scale(1) translateY(150px);-ms-transform: scale(1) translateY(150px);transform: scale(1) translateY(150px);
+}
+.hoverShow h3{font-size: 22px;margin-top: 20px;text-align: center;}
+.hoverShow h3 a{color: #fff;}
+.hoverShow p{text-align: center;padding: 15px}
+.hoverShow_btn a{margin-top: 10px!important;}
+.imgs_bottom{width: 100%;text-align: center;color:#fff;background:#cf9455;padding: 8px 0px;font-size: 22px;position: absolute;left: 0;bottom: 0;}
+/*.service_mid{padding: 110px 0px 120px 0px;background-image: url('../imgs/s_bottom.png');background-repeat: no-repeat;background-size: cover;background-attachment: scroll;background-position: 50% 50%;}*/
+.service_mid_box h1{font-size: 48px;color: #fff;font-weight: 500;margin-bottom: 20px;line-height: 1.4;}
+.service_mid_box{width: 1200px;margin: 0 auto;text-align: center;}
+.service_btn{transition: all 0.5s ease-out;color: #ffffff;margin-top: 30px;padding: 12px 30px;display: inline-block;border: 2px solid #cf9455;text-align: center;text-transform: uppercase;}
+.service_btn:hover{background-color: #cf9455;transition: all 0.5s ease-out;}
+.service_mid_box p{color: #d2d2d2;text-align: center;line-height: 24px;padding: 0 20%;}
+.clients{padding: 110px 0px 120px 0px;background-color: rgba(245, 245, 245, 1);width: 100%;}
+.clients_p{padding: 0 12%;text-align: center;}
+.clients_box{width: 1200px;margin: 0 auto;}
+.connect_banner_box{background-image: url("../imgs/t_bg.png"); background-repeat: no-repeat;
+    background-attachment:fixed;padding: 160px 0 160px 0;}
+
+/*动画*/
+.hoverShowS{-moz-transform: scale(1) translateY(0px);-webkit-transform: scale(1) translateY(0px);-o-transform: scale(1) translateY(0px);-ms-transform: scale(1) translateY(0px);transform: scale(1) translateY(0px);opacity: 1;}

@@ -1,5 +1,5 @@
 ﻿/* =========================================================
- * bootstrap-datetimepicker.js
+ * bootstrap-datetimepicker.lib
  * =========================================================
  * Copyright 2012 Stefan Petre
  *

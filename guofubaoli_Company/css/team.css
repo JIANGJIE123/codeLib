@@ -1,0 +1,14 @@
+.team_main{width: 100%;padding: 100px 0;}
+.team_box{width: 1200px;margin: 0 auto;}
+.team_tx{display: flex;justify-content: space-between;width: 100%;}
+.team_user{padding: 25px 0;}
+.team_user1 a{color: #cf9455;display: block;text-align: left;font-size: 18px;display: block}
+.team_user2{font-size: 14px;text-align: center;display: block;color: #444;padding-top: 10px;}
+.team_instruc{text-align:justify;line-height: 1.7;}
+.team_item{width: 23%}
+.team_item img{webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);-o-transform: scale(1);transform: scale(1);-webkit-transition: all 0.7s ease-out;-moz-transition: all 0.7s ease-out;-ms-transition: all 0.7s ease-out;-o-transition: all 0.7s ease-out;transition: all 0.7s ease-out;}
+.team_itemHover{-webkit-transform: scale(1.1);-moz-transform: scale(1.1);-ms-transform: scale(1.1);-o-transform: scale(1.1);transform: scale(1.1) !important;}
+.team_icon{text-align: center;margin-top: 10px;}
+.team_tx{margin-bottom: 40px;}
+.connect_banner_box{background-image: url("../imgs/t_bg.png"); background-repeat: no-repeat;background-attachment:fixed;padding: 160px 0 160px 0;}
+.team_icon a{webkit-transition: all 0.5s ease-out;-moz-transition: all 0.5s ease-out;-ms-transition: all 0.5s ease-out;-o-transition: all 0.5s ease-out;transition: all 0.5s ease-out;}

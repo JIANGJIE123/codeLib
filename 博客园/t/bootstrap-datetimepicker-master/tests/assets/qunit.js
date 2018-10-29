@@ -1481,7 +1481,7 @@ QUnit.jsDump = (function() {
 	return jsDump;
 }());
 
-// from Sizzle.js
+// from Sizzle.lib
 function getText( elems ) {
 	var ret = "", elem;
 
@@ -1501,7 +1501,7 @@ function getText( elems ) {
 	return ret;
 }
 
-//from jquery.js
+//from jquery.lib
 function inArray( elem, array ) {
 	if ( array.indexOf ) {
 		return array.indexOf( elem );

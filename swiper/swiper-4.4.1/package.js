@@ -12,7 +12,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'dist/css/swiper.min.css',
-    'dist/js/swiper.js'
+    'dist/lib/swiper.lib'
     ], ['client']
   );
 });

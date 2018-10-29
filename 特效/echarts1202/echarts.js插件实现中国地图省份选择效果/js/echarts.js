@@ -467,9 +467,9 @@ var esl;
                 // 导致此时resource id无法被normalize。
                 //
                 // 比如对a/b/c而言，下面几个resource可能指的是同一个资源：
-                // - js!../name.js
-                // - js!a/name.js
-                // - ../../js!../name.js
+                // - lib!../name.lib
+                // - lib!a/name.lib
+                // - ../../lib!../name.lib
                 //
                 // 所以加载资源的module ready时，需要遍历module.depRs进行处理
                 if (idInfo.res) {
@@ -1521,7 +1521,7 @@ var esl;
         // 再throw一个Error多此一举了
         var script = document.createElement('script');
         script.setAttribute('data-require-id', moduleId);
-        script.src = toUrl(moduleId + '.js');
+        script.src = toUrl(moduleId + '.lib');
         script.async = true;
         if (script.readyState) {
             script.onreadystatechange = innerOnload;

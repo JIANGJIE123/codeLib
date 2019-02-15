@@ -38,3 +38,7 @@ section{width: 100%;}
 .article_show h1{color: #000;letter-spacing: 4px;font-weight: normal;margin: 0 0 30px;text-align: center;text-transform: uppercase;font-size: 32px;}
 .article_author{text-align: center;color: #999999;margin: 40px 0 50px;font-size: 16px;font-weight: normal;line-height: 30px;}
 .article_text p{color: #000;font-size: 16px;font-weight: normal;line-height: 30px;margin-bottom: 30px;text-align: justify;}
+.randomArticle{display: inline-block;margin: 0 auto;width:100px;line-height: 30px;text-align: center;background-color: #ffb948;
+border-radius: 3px;border-width:1px;border-style: solid;border-color: #D69E31 #E3A037 #D5982D;color:#8F5A0A;cursor: pointer;
+box-shadow: 0 0 1px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.3)inset;}
+.randowmBtn{text-align: center;padding: 50px 0;}

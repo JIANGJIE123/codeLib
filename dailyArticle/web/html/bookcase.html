@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书架|每日一文</title>
+    <link href="../css/css.css" type="text/css" rel="stylesheet">
+    <link href="../css/bookcase.css" type="text/css" rel="stylesheet">
+    <style type="text/css">
+        .slidesjs-navigation,.slidesjs-pagination{display: none;}
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="../js/header.js"></script>
+    <section class="main">
+        <div class="content">
+            <div class="head">
+                <div id="slides">
+                    <a href="#"><img src="../img/bookcase/slide37.jpg" ></a>
+                    <a href="#"><img src="../img/bookcase/slide38.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide39.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide40.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide41.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide42.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide43.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide44.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide45.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide46.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide47.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide48.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide49.jpg"></a>
+                    <a href="#"><img src="../img/bookcase/slide50.jpg"></a>
+                </div>
+            </div>
+            <div id="books">
+                <ul class="book-list clearFloat">
+                    <li>
+                        <a href="" class="book-bg"><img src="../img/bookcase/1468511109.jpg" width="100px"></a>
+                        <div class="book-name"><a href="#">大众读者</a></div>
+                        <div class="book-author">斯蒂芬.巴特勒.里柯克</div>
+                    </li>
+                    <li>
+                        <a href="" class="book-bg"><img src="../img/bookcase/1455522021.jpg" width="100px"></a>
+                        <div class="book-name"><a href="#">思想的诞生</a></div>
+                        <div class="book-author">每日一文精选</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="foot"></div>
+        </div>
+    </section>
+    <script type="text/javascript" src="../js/footer.js"></script>
+    <script type="text/javascript" src="../lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery.slides.min.js"></script>
+    <script type="text/javascript" src="../js/bookcase.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#slides").slidesjs({
+                width:660,
+                height:150,
+                play:{
+                    auto:true
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+body{background:url(../img/default_bg.jpg)#999999!important;width: 100%;min-height: 100%;position: relative;}
+.content{width: 660px;background: #fff;margin: 40px auto;}
+.book-list{list-style-type: none;}
+.book-list li{margin: 20px 8px 10px 20px;width: 134px;height: 244px;float: left;text-align: center;}
+.book-list img{border-radius: 2px;margin-top: 14px;}
+#books{margin-top: 10px;}
+.book-bg{display: inline-block;background: url("../img/bookcase/book-bg.png")no-repeat;width: 134px;height: 184px;}
+.book-name{text-align: left;color: #000;padding-left: 17px;padding-bottom: 3px;}
+.book-name a{color: #000;}
+.book-author{font-size: 14px;color: #b3b3b3;text-align: left;padding-left: 17px;}

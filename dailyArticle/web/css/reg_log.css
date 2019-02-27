@@ -1,0 +1,4 @@
+.inputBox{margin:20px 0;}
+#reg_log{width: 840px;margin: 0 auto;}
+.inputBox input{display: block;background: #fff;border:1px solid #bbb;width:210px;padding:5px;height: 25px;}
+.inputBox p{color: #333;font-size: 14px;padding-bottom: 5px;}

@@ -10,6 +10,7 @@
 <!--验证https://docs.geetest.com/install/deploy/client/web-->
 <body>
 <header>
+
     <div class="hd clearFloat">
         <div class="hd_l">
             <a href="index.html" class="hd_item" >每日一文</a>
@@ -20,27 +21,33 @@
         </div>
     </div>
 </header>
-<section>
+<section id="register">
     <div id="reg_log">
        <div class="inputBox">
            <p>邮箱</p>
-           <input type="text">
+           <input type="text" class="comInput">
        </div>
         <div class="inputBox">
             <p>密码</p>
-            <input type="password">
+            <input type="password" class="comInput">
         </div>
         <div class="inputBox">
             <p>确认密码</p>
-            <input type="password">
+            <input type="password" class="comInput">
         </div>
         <div class="inputBox">
             <p>昵称</p>
-            <input type="text">
+            <input type="text" class="comInput">
+        </div>
+        <div class="inputBox">
+            <p>验证码</p>
+            <!--<div id="captcha-box" style="margin: 5px 0px;">-->
+            <input type="button" value="创建用户" id="creatUser">
         </div>
     </div>
-    <div>
-
+    <div id="reg_state">
+        <p>已经有帐号了?</p>
+        <a href="login.html">马上登录</a>
     </div>
 </section>
 <footer>
@@ -54,6 +61,19 @@
         </p>
     </div>
 </footer>
+<script type="text/javascript" src="../lib/gt.js"></script>
 <script type="text/css" src="../lib/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    initGeetest({
+        gt: '35cf11592d98ae78c43ad4339459bbeb',
+        challenge: '1fc949f68b50e30c018af229dbd6a522',
+        offline: !1,
+        new_captcha: '1',
+        width: "222px",
+    }, function (captchaObj) {
+        captchaObj.appendTo('#captcha-box');
+        captchaObj.bindForm('#gt-form');
+    });
+</script>
 </body>
 </html>

@@ -2,9 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>登录</title>
+    <title>注册</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/index.css" type="text/css">
+    <link rel="stylesheet" href="../css/reg_log.css">
 </head>
+<!--验证https://docs.geetest.com/install/deploy/client/web-->
 <body>
+<header>
+    <div class="hd clearFloat">
+        <div class="hd_l">
+            <a href="index.html" class="hd_item" >每日一文</a>
+        </div>
+        <div class="hd_r">
+            <a href="html/login.html" class="hd_item login">登录</a>
+            <a href="html/register.html" class="hd_item">注册</a>
+        </div>
+    </div>
+</header>
+<section id="register">
+    <p class="loginTitle">登录</p>
+    <div id="reg_log">
+        <div class="inputBox">
+            <p>邮箱</p>
+            <input type="text" class="comInput">
+        </div>
+        <div class="inputBox">
+            <p>密码</p>
+            <input type="password" class="comInput">
+        </div>
+        <div class="inputBox">
+            <p>验证码</p>
+            <!--<div id="captcha-box" style="margin: 5px 0px;">-->
+            <div>
+                <input type="checkbox" class="checkBox">
+                <label>7天内自动登录</label>
+                |
+                <a href="#">找回密码</a>
+            </div>
 
+            <input type="button" value="登录" id="creatUser">
+        </div>
+    </div>
+    <div id="reg_state">
+        <p>还没有账号?</p>
+        <a href="login.html">马上注册</a>
+    </div>
+</section>
+<footer>
+    <hr class="line" />
+    <div class="ft">
+        <p class="copyright">©2010-2019 吾志 wuzhi.me</p>
+        <p>
+            <span class="ftTx">手机版</span>
+            <span class="ftTx">吾志更新</span>
+            <span class="ftTx">关于吾志</span>
+        </p>
+    </div>
+</footer>
+<script type="text/javascript" src="../lib/gt.js"></script>
+<script type="text/css" src="../lib/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    initGeetest({
+        gt: '35cf11592d98ae78c43ad4339459bbeb',
+        challenge: '1fc949f68b50e30c018af229dbd6a522',
+        offline: !1,
+        new_captcha: '1',
+        width: "222px",
+    }, function (captchaObj) {
+        captchaObj.appendTo('#captcha-box');
+        captchaObj.bindForm('#gt-form');
+    });
+</script>
 </body>
 </html>

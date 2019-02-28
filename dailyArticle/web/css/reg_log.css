@@ -1,4 +1,13 @@
 .inputBox{margin:20px 0;}
-#reg_log{width: 840px;margin: 0 auto;}
-.inputBox input{display: block;background: #fff;border:1px solid #bbb;width:210px;padding:5px;height: 25px;}
+#register{content: "";display: block;clear: both;overflow: hidden;}
+#register{width: 840px;margin: 0 auto;}
+.comInput{display: block;background: #fff;border:1px solid #bbb;width:210px;padding:5px;height: 25px;}
 .inputBox p{color: #333;font-size: 14px;padding-bottom: 5px;}
+#creatUser{width: 100px;height: 35px;font-size: 16px;font-weight: bold;background:rgb(221,221,221);margin-top: 15px;}
+#reg_log,#reg_state{float: left;}
+#reg_state{margin-top:100px;padding-top: 20px;height: 70px;border-left: 1px solid #a0a0a0;padding-left: 20px;line-height: 25px;margin-left: 350px;}
+
+
+
+.loginTitle{font-size: 18px;margin-top: 20px;}
+.checkBox{}

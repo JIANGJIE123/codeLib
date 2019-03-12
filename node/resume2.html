@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>resume</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style type="text/css">
+        .nv{background-color: white;border-color: white;}
+        .nvBtn{background: white;border:none}
+        .strip{background: #e8e0de;width: 79%;height: 40px;margin: 0 0 0 auto;}
+        .resume2 h3{font-weight: bold;position: relative;color: #797979;padding-left: 8%;}
+        .resume2{padding: 0;position: relative;padding-top: 40px;}
+        .atlas{text-align: right}
+        .main p{padding-left: 12%;margin: 40px 0;font-weight: 600;color: #616161;line-height: 23px}
+        .resume2:before{content: "";width: 40%;height: 2px;background: #ddd;display: block;position: absolute;top: 20px;right: 0}
+        .main:after{content: "";width: 2px;height: 100%;background: #ddd;display: block;position: absolute;bottom: 0;left: 8%;}
+        .main{position: relative;padding-left: 5%;}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default nv" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle nvBtn" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="bookmarks.jpg" width="30"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">iOS</a></li>
+                <li><a href="#">SVN</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Java <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">jmeter</a></li>
+                        <li><a href="#">EJB</a></li>
+                        <li><a href="#">Jasper Report</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">分离的链接</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">另一个分离的链接</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid resume2">
+    <h3 class="title">The front-end<br> development</h3>
+    <section class="main">
+        <p>Heneman, Robert L., Judith W. Tansky, Sheng Wang , Compensation practices in small entrepreneurial and high-growth companies in the United States and China,[M],2002,13-22</p>
+        <div class="atlas">
+            <div><img src="00.jpg" width="88%"></div>
+            <div class="strip"></div>
+        </div>
+    </section>
+
+</div>
+
+
+
+<script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

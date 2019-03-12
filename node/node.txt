@@ -1,0 +1,8 @@
+1、安装node，只需要官网下载node直接下一步就好;webstorm里面setting设置一下node。
+2、node不需要nginx或apache服务器，node本身就有服务器，存在http模块里。
+3、解析URL   get方法的信息，存在URL模块里面，url.parse(url,true);true表示把query变为对象。
+4、保存一下代码就重启服务器的工具，supervisor。
+5、node有两类模块：核心模块(如http,url,fs)和文件模块(exports或module.exports暴露，require引入)。
+6、默认目录下面没有的话，会在node_modules里面查找这个模块
+     若node_modules里面有文件夹nav/nav.js，想要达到require('nav'),需要到
+     nav文件夹下创建package.json文件设置入口文件，命令为npm init --yes 	

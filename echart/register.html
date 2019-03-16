@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/commom.css">
+</head>
+<body>
+<div class="container">
+    <h3 class="instructions">新用户注册</h3>
+    <div class="main">
+        <form class="" role="form">
+            <div class="input-group inp">
+                <input type="number" id="user" class="form-control" placeholder="输入手机号码" value="" oninput="if(value.length>11)value=value.slice(0,11)">
+            </div>
+            <br>
+            <div class="input-group inp">
+                <input type="password" id="pwd" class="form-control" placeholder="输入密码" value="">
+            </div>
+            <br>
+            <div class="input-group inp">
+                <input type="password" id="pwd1" class="form-control" placeholder="再次输入密码" value="">
+            </div>
+        </form>
+        <div class="litterLink">
+            <!--<a href="#">忘记密码</a>-->
+            <a href="login0000.html">我已有账号</a>
+        </div>
+        <input type="button" value="下一步" id="submitBtn">
+    </div>
+</div>
+
+
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+<script src="lib/bootstrap/bootstrap.min.js"></script>
+<script>
+    $("#submitBtn").click(function () {
+        var user=$("#user").val();
+        var pwd=$("#pwd").val();
+        var pwd1=$("#pwd1").val();
+        // 验证手机号
+        var pattern = /^1[34578]\d{9}$/;
+        if(user && pwd && pwd1){
+            if(pattern.test(user)){   //是否是标准的手机号模式
+                if(pwd===pwd1){      //验证两次输入的密码是否一致
+                    window.location.href="validationReg.html?phone="+user+"&password="+pwd+"&secondPassword="+pwd1;
+                }else {
+                    alert("两次密码输入不一致");
+                };
+            }else {
+                alert("请输入合法的手机号")
+            };
+        }else {
+            alert("输入不能空白")
+        };
+    });
+
+</script>
+</body>
+</html>

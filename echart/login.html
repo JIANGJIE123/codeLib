@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动拼图验证码</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/commom.css">
+    <style>
+        .slidePic {
+            width: 310px;
+            margin: 30px auto;
+        }
+        /*input {*/
+            /*display: block;*/
+            /*width: 290px;*/
+            /*line-height: 40px;*/
+            /*margin: 10px 0;*/
+            /*padding: 0 10px;*/
+            /*outline: none;*/
+            /*border:1px solid #c8cccf;*/
+            /*border-radius: 4px;*/
+            /*color:#6a6f77;*/
+        /*}*/
+        #msg {
+            width: 100%;
+            line-height: 40px;
+            font-size: 14px;
+            text-align: center;
+        }
+        /*a:link,a:visited,a:hover,a:active {*/
+            /*margin-left: 100px;*/
+            /*color: #0366D6;*/
+        /*}*/
+        h3{text-align: center;margin-top: 30px;}
+    </style>
+</head>
+<body>
+<div class="container" style="text-align: center">
+    <h3 class="instructions">您好！ 请登录</h3>
+    <div class="main">
+        <form class="" role="form">
+            <div class="input-group inp">
+                <input type="number" id="user" class="form-control" placeholder="输入手机号码" value="18672673394" oninput="if(value.length>11)value=value.slice(0,11)">
+            </div>
+            <br>
+            <div class="input-group inp">
+                <input type="password" id="pwd" class="form-control" placeholder="输入密码" value="123">
+            </div>
+            <div class="litterLink">
+                <!--<a href="#">忘记密码</a>-->
+                <a href="register.html">新用户注册</a>
+            </div>
+        </form>
+    </div>
+    <div class="slidePic">
+        <div id="captcha"></div>
+        <div id="msg"></div>
+    </div>
+
+    <input type="button" value="登录" id="submitBtn" style="margin-top: 20px">
+</div>
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+<script src="lib/bootstrap/bootstrap.min.js"></script>
+<script>
+    if (!window.jigsaw) {
+        document.write('<script src="./lib/jigsaw.min.js"><\/script>')
+    }
+</script>
+<script>
+    jigsaw.init({
+        el: document.getElementById('captcha'),
+        onSuccess: function() {
+            // var str=location.search.slice(1);//获得用户账户密码信息
+            // console.log(str);
+            // var arr=str.split("&");//数组转换成json
+            // var userInfo=new Object();
+            // for(var i=0;i < arr.length;i++){
+            //     var num=arr[i].indexOf("=");
+            //     if(num>0){
+            //         var name=arr[i].substring(0,num);
+            //         var value=arr[i].substr(num+1);
+            //         userInfo[name]=value;
+            //     }
+            // };
+            document.getElementById('msg').innerHTML = '验证成功！请点击登录';
+            $("#submitBtn").click(function () {
+                var userInfo=new Object();
+                var user=$("#user").val();
+                var pwd=$("#pwd").val();
+                userInfo.phone=user;
+                userInfo.password=pwd;
+                console.log(userInfo);
+                // 验证手机号
+                var pattern = /^1[34578]\d{9}$/;
+                if(user && pwd){
+                    if(pattern.test(user)){
+                        $.ajax({
+                            type: "post",
+                            url: "https://game.hdiandian.com/agency/login",
+                            data: JSON.stringify(userInfo),
+                            contentType: 'application/json;charset=UTF-8',
+                            dataType: "json",
+                            success: function(data){
+                                console.log(data);
+                                if(data.code==0){
+                                    //分不同的权限进行登录
+                                    console.log(data);
+                                    var role=data.data.role;
+                                    if(role==2){        //商家
+                                        window.location.href="index.html?role="+role;
+                                    };
+                                    if(role==3){        //经销商
+                                        window.location.href="indexAddM.html?role="+role;
+                                    };
+                                };
+                                if(data.code==-1){
+                                    var msg=data.message;
+                                    alert(msg);
+                                }
+
+
+                            }
+                        });
+                    }else {
+                        alert("请输入合法的手机号")
+                    };
+
+                }else {
+                    alert("输入不能空白")
+                };
+            })
+
+
+
+        },
+        onFail: cleanMsg,
+        onRefresh: cleanMsg
+    })
+    function cleanMsg() {
+        document.getElementById('msg').innerHTML = ''
+    }
+</script>
+</body>
+</html>

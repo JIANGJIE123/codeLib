@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/commom.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
 <div class="container-fluid line">
     <div class="nv0 nv">
-        <a href="javascript:history.go(-1);" class="back" ><img src="imgs/back.png" width="16">返回</a>
+        <a href="indexAddM.html" class="back" ><img src="imgs/back.png" width="16">返回</a>
     </div>
     <div class="nv1 nv">
         <div>
@@ -58,34 +58,34 @@
 <div class="nv2 nv">
     <input type="text" id="calendar2" data-options="{'type':'YYYY-MM-DD','beginYear':2010,'endYear':2088}" style="width:75px;height:19px;border: none;" value="">
     <span class="caret"></span>
-    <p class="income money"><span>管理数量：</span><span>727</span></p>
-    <p class="spending money"><span>设备数量：</span><span>800</span></p>
+    <!--<p class="income money"><span>管理数量：</span><span>727</span></p>-->
+    <!--<p class="spending money"><span>设备数量：</span><span>800</span></p>-->
 </div>
 
 </div>
 
 <section class="content">
-    <div class="order">
-        <div class="orderL"><img src="imgs/head.png" width="40"></div>
-        <div class="orderM">
-            <p>xxx餐饮店<br/>2019-3-13 16:54:43</p>
-        </div>
-        <a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>
-    </div>
-    <div class="order">
-        <div class="orderL"><img src="imgs/head.png" width="40"></div>
-        <div class="orderM">
-            <p>xx深圳KTV<br/>2019-3-13 16:54:43</p>
-        </div>
-        <a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>
-    </div>
-    <div class="order">
-        <div class="orderL"><img src="imgs/head.png" width="40"></div>
-        <div class="orderM">
-            <p>xx深圳小店<br/>2019-3-13 16:54:43</p>
-        </div>
-        <a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>
-    </div>
+    <!--<div class="order">-->
+        <!--<div class="orderL"><img src="imgs/head.png" width="40"></div>-->
+        <!--<div class="orderM">-->
+            <!--<p>xxx餐饮店<br/>2019-3-13 16:54:43</p>-->
+        <!--</div>-->
+        <!--<a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>-->
+    <!--</div>-->
+    <!--<div class="order">-->
+        <!--<div class="orderL"><img src="imgs/head.png" width="40"></div>-->
+        <!--<div class="orderM">-->
+            <!--<p>xx深圳KTV<br/>2019-3-13 16:54:43</p>-->
+        <!--</div>-->
+        <!--<a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>-->
+    <!--</div>-->
+    <!--<div class="order">-->
+        <!--<div class="orderL"><img src="imgs/head.png" width="40"></div>-->
+        <!--<div class="orderM">-->
+            <!--<p>xx深圳小店<br/>2019-3-13 16:54:43</p>-->
+        <!--</div>-->
+        <!--<a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>-->
+    <!--</div>-->
 </section>
 </div>
 
@@ -94,26 +94,27 @@
 <script src="lib/jquery-3.3.1.min.js"></script>
 <script src="lib/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="lib/jquery.date.js"></script>
+<script type="text/javascript" src="lib/jquery.cookie.js"></script>
 <script type="text/javascript">
     $(function(){
-        $("#choose").click(function () {
-            $('#allPopup').hide();
-            if($('#choosePopup').is(':hidden')){//如果当前隐藏
-                $('#choosePopup').show();
-            }else{
-                $('#choosePopup').hide();
-            }
-
-        });
-        $("#all").click(function () {
-            $('#choosePopup').hide();
-            if($('#allPopup').is(':hidden')){//如果当前隐藏
-                $('#allPopup').show();
-            }else{
-                $('#allPopup').hide();
-            }
-
-        });
+        // $("#choose").click(function () {
+        //     $('#allPopup').hide();
+        //     if($('#choosePopup').is(':hidden')){//如果当前隐藏
+        //         $('#choosePopup').show();
+        //     }else{
+        //         $('#choosePopup').hide();
+        //     }
+        //
+        // });
+        // $("#all").click(function () {
+        //     $('#choosePopup').hide();
+        //     if($('#allPopup').is(':hidden')){//如果当前隐藏
+        //         $('#allPopup').show();
+        //     }else{
+        //         $('#allPopup').hide();
+        //     }
+        //
+        // });
         //日历
         function getNow(s) {
             return s < 10 ? '0' + s: s;
@@ -124,25 +125,60 @@
         var date=myDate.getDate();
         var now=year+'-'+getNow(month)+"-"+getNow(date);
         $("#calendar2").val(now);
-        $.date('#calendar2');
+        //$.date('#calendar2');
 
         //点击获得选项
-        var option;
-        $(".option").click(function () {
-            if($(this).hasClass("optionClick")){
-                $(this).removeClass("optionClick");
-            }
-            else{
-                $(".option").removeClass("optionClick");
-                $(this).addClass("optionClick");
-            }
-            option=$(this).text();
-            console.log(option);
+        // var option;
+        // $(".option").click(function () {
+        //     if($(this).hasClass("optionClick")){
+        //         $(this).removeClass("optionClick");
+        //     }
+        //     else{
+        //         $(".option").removeClass("optionClick");
+        //         $(this).addClass("optionClick");
+        //     }
+        //     option=$(this).text();
+        //     console.log(option);
+        //
+        // });
+        //获得具体信息
+        let token= $.cookie('token');
+        let agencyId= $.cookie('agencyId');
+        console.log(token)
+        $.ajax({
+            headers: {
+                "token": token
+            },
+            type: "get",
+            url: "https://game.hdiandian.com/agency/agencyManager/business/list",
+            data: {
+                "agencyId":agencyId
+            },
+            contentType: 'application/json;charset=UTF-8',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                for(let i=0;i<data.length;i++){
+                    $(".content").append(`
+                        <div class="order">
+                            <div class="orderL"><img src="imgs/head.png" width="40"></div>
+                        <div class="orderM">
+                                <p>${data[i].name}<br/>${data[i].createTime}</p>
+                            </div>
+                            <span class="orderR" data-id=\"${data[i].id}\" data-name=\"${data[i].name}\"><span class="orderNum machine">+设备</span></span>
+                        </div>
+                `);
+                };
+                //点击设备
+                $(".orderR").click(function () {
+                    let businessId=$(this).data('id');
+                    let name=encodeURI($(this).data('name'));
+                    window.location.href="addMachine.html?businessId="+businessId+"&name="+encodeURIComponent(name);
+                })
 
+            }
         });
-        $(document).click(function(event){
 
-        })
     })
 
 

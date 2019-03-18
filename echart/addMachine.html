@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/commom.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
 <div class="container-fluid line">
@@ -17,13 +17,13 @@
         <div class="addMContent">
             <form class="bs-example bs-example-form" role="form">
                 <div class="input-group" style="width: 100%;">
-                    <input type="text" class="form-control" value="海底捞（深圳）商户码10156" readonly="readonly">
+                    <input type="text" class="form-control" value="海底捞（深圳）商户码10156" readonly="readonly" id="busiName">
                 </div>
-                <br>
-                <div class="input-group bindingBtn">
-                    <input type="text" class="form-control" value="10171">
-                    <button type="button" class="btn btn-primary">已解绑</button>
-                </div>
+                <!--<br>-->
+                <!--<div class="input-group bindingBtn">-->
+                    <!--<input type="text" class="form-control" value="10171">-->
+                    <!--<button type="button" class="btn btn-primary">已解绑</button>-->
+                <!--</div>-->
                 <br>
                 <div class="input-group bindingBtn">
                     <input type="text" class="form-control" value="10171">
@@ -37,15 +37,40 @@
             <button type=tton" class="btn btn-default" style="width: 60%;font-weight: bold;background:#ccc;color: white;margin-top: 80px;">确认提交</button>
         </div>
     </section>
-
 </div>
-
-
 
 <script src="lib/jquery-3.3.1.min.js"></script>
 <script src="lib/bootstrap/bootstrap.min.js"></script>
+<script src="lib/jquery.cookie.js"></script>
+<script src="js/common.js" charset="utf-8" type="text/javascript"></script>
 <script type="text/javascript">
+$(function () {
+    let urlParamInfo=urlParam();
+    console.log(urlParamInfo)
+    let token= $.cookie('token');
+    let name=urlParamInfo.name;
+    let businessId=urlParamInfo.businessId;
+    if(businessId){
+        $("#busiName").val(name);
+    };
 
+    // $.ajax({
+    //     headers: {
+    //         "token": token
+    //     },
+    //     type: "get",
+    //     url: "https://game.hdiandian.com/agency/agencyManager/bind/box",
+    //     data: {
+    //         "businessId":businessId
+    //     },
+    //     contentType: 'application/json;charset=UTF-8',
+    //     dataType: "json",
+    //     success: function(data){
+    //
+    //
+    //     }
+    // });
+})
 
 
 

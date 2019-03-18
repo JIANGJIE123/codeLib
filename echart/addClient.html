@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/commom.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
 <div class="container-fluid line">
     <div class="nv0 nv">
         <a href="javascript:history.go(-1);" class="back" ><img src="imgs/back.png" width="16">返回</a>
     </div>
-    <section class="container">
+    <section class="container" id="add_main">
         <h3 class="addMT">增加客户</h3>
         <div class="addMContent">
-            <form class="bs-example bs-example-form" role="form">
+            <div class="bs-example bs-example-form" role="form">
                 <div class="input-group" style="width: 100%;">
                     <select id="industry">
                         <option value="">选择行业</option>
@@ -135,34 +135,34 @@
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
-                    <input type="text" class="form-control" value="" placeholder="输入客户名称 如xx酒吧或xx">
+                    <input type="text" class="form-control" value="jiangjie酒吧" placeholder="输入客户名称 如xx酒吧或xx" id="clientName">
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
                     <div id="address"><!-- container -->
-                        <select></select><!-- 省 -->
-                        <select></select><!-- 市 -->
-                        <select></select><!-- 区 -->
+                        <select id="province"></select><!-- 省 -->
+                        <select id="city"></select><!-- 市 -->
+                        <select id="area"></select><!-- 区 -->
                     </div>
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
-                    <input type="text" class="form-control" value="" placeholder="输入地址 如xx路或xx号">
+                    <input type="text" class="form-control" value="新安路103号" placeholder="输入地址 如xx路或xx号" id="addressD">
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
-                    <input type="text" class="form-control" value="" placeholder="为商户创建账号(11位手机号)">
+                    <input type="text" class="form-control" value="15576064120" placeholder="为商户创建账号(11位手机号)" id="phone" oninput="if(value.length>11)value=value.slice(0,11)">
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
-                    <input type="password" class="form-control" value="" placeholder="设置密码">
+                    <input type="password" class="form-control" value="612345" placeholder="设置密码" id="password">
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
-                    <input type="password" class="form-control" value="" placeholder="再次确认密码">
+                    <input type="password" class="form-control" value="612345" placeholder="再次确认密码" id="secondPwd">
                 </div>
-            </form>
-            <button type=tton" class="btn btn-default" style="width: 60%;font-weight: bold;background:#ccc;color: white;margin-top: 80px;">确认提交</button>
+            </div>
+            <button type="button" class="btn btn-default" style="width: 60%;font-weight: bold;background:#ccc;color: white;margin-top: 80px;" id="add_subbmit">确认提交</button>
         </div>
     </section>
 
@@ -174,11 +174,82 @@
 <script src="lib/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="lib/distpicker.data.js"></script>
 <script type="text/javascript" src="lib/distpicker.js"></script>
-
+<script type="text/javascript" src="lib/jquery.cookie.js"></script>
 <script type="text/javascript">
     $(function(){
-        $('#address').distpicker();
+        $('#address').distpicker();//地址选择
     });
+    //提交订单
+
+    $("#add_subbmit").click(function () {
+        let agencyId= $.cookie('agencyId');
+        let token= $.cookie('token');
+        console.log(agencyId)
+        console.log(token);
+        let name=$("#clientName").val();
+        let province= $('#province option:selected') .val();
+        let city= $('#city option:selected') .val();
+        let area= $('#area option:selected') .val();
+        let address=$("#addressD").val();
+        let phone=$("#phone").val();
+        let password=$("#password").val();
+        let secondPwd=$("#secondPwd").val();
+
+       let clientInfo={
+           "agencyId":agencyId,
+           "name":name,
+           "province":province,
+           "city":city,
+           "area":area,
+           "phone":phone,
+           "password":password,
+           "secondPwd":secondPwd,
+       };
+      //判断是否没有输入
+        let flag=false;//标志，false:表示不存在没有输入的空白
+        $.each(clientInfo, function(i, val) {
+                if(!val){
+                    flag=true;
+                    return;
+                }
+        });
+        let pattern = /^1[34578]\d{9}$/;
+        if(!flag){
+            if(pattern.test(phone)){   //是否是标准的手机号模式
+                if(password===secondPwd){      //验证两次输入的密码是否一致
+                    console.log(clientInfo);
+                    $.ajax({
+                        headers: {
+                            "token": token
+                        },
+                        type: "post",
+                        url: "https://game.hdiandian.com/agency/agencyManager/create/business",
+                        data: JSON.stringify(clientInfo),
+                        contentType: 'application/json;charset=UTF-8',
+                        dataType: "json",
+                        success: function(data){
+                            console.log(data);
+                            if(data.code==0){
+                                window.location.href="addClientSuccess.html";
+                            };
+                            if(data.code==-1){
+                                console.log(data.message);
+                            }
+                        }
+                    });
+                }else {
+                    alert("两次密码输入不一致");
+                };
+            }else {
+                alert("请输入合法的手机号")
+            };
+        }else {
+            alert("输入不能空白")
+        };
+
+
+    });
+
 
 
 

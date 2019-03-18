@@ -66,3 +66,4 @@ footer{display: flex;justify-content: space-around;width: 100%;position: absolut
 #address{display: flex}
 #address select{width: 34%;}
 #industry{width: 100%;padding: 5px 0;}
+#todayIncome{text-align: center;}

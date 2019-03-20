@@ -38,10 +38,10 @@
             </div>
         </div>
         <div class="popup" id="allPopup">
-            <div class="popupChoose clearFloat">
-                <p class="option">全部</p>
-                <p class="option">四国坦克</p><p class="option">雷霆战车</p><p class="option">整蛊轮盘</p>
-                <p class="option">致命骰子</p><p class="option">狼人杀</p>
+            <div class="popupChoose clearFloat" id="games">
+                <p class="option" data-code="all">全部</p>
+                <p class="option" data-code="0">四国坦克</p><p class="option" data-code="1">雷霆战车</p><p class="option" data-code="8">整蛊轮盘</p>
+                <p class="option" data-code="3">致命骰子</p><p class="option" data-code="9">狼人杀</p>
             </div>
             <div class="popupBtns">
                 <input type="button" value="重置" id="allReset">
@@ -73,7 +73,7 @@
 <div>
     <a href="javacript:void(0);" style="width: 40px;height: 40px;border-radius: 50%;background: #cf9455;border: 1px solid #cf9455;display: block;position: fixed;
     bottom: 62px;right: 50px;z-index: 999;color: #fff;display: none" class="set_top">
-        <span class="fa fa-chevron-up" aria-hidden="true" style="position: absolute;left: 50%; top: 46%;transform: translate(-50%,-50%);width: 30px">置顶<span/>
+        <span class="fa fa-chevron-up" aria-hidden="true" style="position: absolute;left: 50%; top: 46%;transform: translate(-50%,-50%);width: 30px">置顶</span>
     </a>
 </div>
 </div>
@@ -97,15 +97,15 @@
         //     }
         //
         // });
-        // $("#all").click(function () {
-        //     $('#choosePopup').hide();
-        //     if($('#allPopup').is(':hidden')){//如果当前隐藏
-        //         $('#allPopup').show();
-        //     }else{
-        //         $('#allPopup').hide();
-        //     }
-        //
-        // });
+        $("#all").click(function () {
+            $('#choosePopup').hide();
+            if($('#allPopup').is(':hidden')){//如果当前隐藏
+                $('#allPopup').show();
+            }else{
+                $('#allPopup').hide();
+            }
+
+        });
         //日历
         function getNow(s) {
             return s < 10 ? '0' + s: s;
@@ -119,125 +119,258 @@
         // $.date('#calendar');
 
         //点击获得选项
-        // var option;
-        // $(".option").click(function () {
-        //     if($(this).hasClass("optionClick")){
-        //         $(this).removeClass("optionClick");
-        //     }
-        //     else{
-        //         $(".option").removeClass("optionClick");
-        //         $(this).addClass("optionClick");
-        //     }
-        //     option=$(this).text();
-        //     console.log(option);
-        //
-        // });
+        var option;
+        var code;
         let token= $.cookie('token');
         let agencyId= $.cookie('agencyId');//商户ID，登录的时候返回的memberId
         let role= $.cookie('role');
+        let isGameChoose=false;
         //分页获得订单信息
         let page = 0;    // 每页展示5个
         let size = 10;    // dropload调用
+
         //上拉加载
-        $('#bContent').dropload({
-            scrollArea : window,
-            loadDownFn : function(me){
-                page++;
-                console.log(role);
-                if(role==3){//经销商
-                    $.ajax({
-                        headers: {
-                            "token": token
-                        },
-                        type: "get",
-                        contentType: 'application/json;charset=UTF-8',
-                        dataType: "json",
-                        url: "https://game.hdiandian.com/agency/agencyManager/orders",
-                        data:{
-                            "agencyId":agencyId,
-                            "current":page,
-                            "limit":size
-                        },
-                        success: function(data){
-                            console.log(data);
-                                if(data.data){
-                                    let orders=data.data.records;
-                                    $("#results").text(data.data.total);
-                                    for(let i=0;i<orders.length;i++){
-                                        $("#bContent").append(`<div class="order">
-                                    <div class="orderL"><img src="imgs/head.png" width="40"></div>
+        function loadMore(){
+            $('#bContent').dropload({
+                scrollArea : window,
+                loadDownFn : function(me){
+                    page++;
+                    console.log(role);
+                    if(role==3){//经销商
+                        console.log("isGameChoose:"+isGameChoose);
+                        if(!isGameChoose){//全部
+                            $.ajax({
+                                headers: {
+                                    "token": token
+                                },
+                                type: "get",
+                                contentType: 'application/json;charset=UTF-8',
+                                dataType: "json",
+                                url: "https://game.hdiandian.com/agency/agencyManager/orders",
+                                data:{
+                                    "agencyId":agencyId,
+                                    "current":page,
+                                    "limit":size
+                                },
+                                success: function(data){
+                                    console.log(data);
+                                    let msg=data.data;
+                                    if(msg){
+                                        let orders=msg.page.records;
+                                        $("#results").text(msg.page.total);
+                                        for(let i=0;i<orders.length;i++){
+                                            $("#bContent").append(`<div class="order">
+                                    <div class="orderL"><img src=\"${orders[i].iconUrl}\" width="40"></div>
                                     <div class="orderM">
                                         <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
                                     </div>
                                     <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
                                 </div>`);
+                                        };
+                                        if(orders.length==0){me.lock();me.noData();}
+                                    }else{
+                                        me.lock();  // 锁定
+                                        me.noData(); // 无数据
                                     };
-                                }else{
+                                    me.resetload();
+
+                                },
+                                error: function(xhr, type){
+                                    // alert('Ajax error!');
+                                    // 即使加载出错，也得重置
+                                    console.log(xhr)
                                     me.lock();  // 锁定
                                     me.noData(); // 无数据
-                                };
-                                me.resetload();
+                                    me.resetload();
+                                }
+                            });
+                        }else{//游戏筛选
+                            console.log("游戏code:"+code);
+                            $.ajax({
+                                headers: {
+                                    "token": token
+                                },
+                                type: "get",
+                                contentType: 'application/json;charset=UTF-8',
+                                dataType: "json",
+                                url: "https://game.hdiandian.com/agency/agencyManager/orders",
+                                data:{
+                                    "agencyId":agencyId,
+                                    "current":page,
+                                    "limit":size,
+                                    "gameCode":code
+                                },
+                                success: function(data){
+                                    console.log(data);
+                                    let msg=data.data;
+                                    if(msg){
+                                        let orders=msg.page.records;
+                                        $("#results").text(msg.page.total);
+                                        for(let i=0;i<orders.length;i++){
+                                            $("#bContent").append(`<div class="order">
+                                    <div class="orderL"><img src=\"${orders[i].iconUrl}\" width="40"></div>
+                                    <div class="orderM">
+                                        <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
+                                    </div>
+                                    <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
+                                </div>`);
+                                        };
+                                        if(orders.length==0){me.lock();me.noData();}
+                                    }else{
+                                        me.lock();  // 锁定
+                                        me.noData(); // 无数据
+                                    };
+                                    me.resetload();
 
-                        },
-                        error: function(xhr, type){
-                            // alert('Ajax error!');
-                            // 即使加载出错，也得重置
-                            console.log(xhr)
-                            me.lock();  // 锁定
-                            me.noData(); // 无数据
-                            me.resetload();
+                                },
+                                error: function(xhr, type){
+                                    // alert('Ajax error!');
+                                    // 即使加载出错，也得重置
+                                    console.log(xhr)
+                                    me.lock();  // 锁定
+                                    me.noData(); // 无数据
+                                    me.resetload();
+                                }
+                            });
                         }
-                    });
-                };
-                if(role==2){//商家
-                    $.ajax({
-                        headers: {
-                            "token": token
-                        },
-                        type: "get",
-                        url: "https://game.hdiandian.com/agency/business/orders",
-                        data:{
-                            "businessId":agencyId,
-                            "current":page,
-                            "limit":size
-                        },
-                        contentType: 'application/json;charset=UTF-8',
-                        dataType: "json",
-                        success: function(data){
-                            console.log(data);
-                            console.log("商家");
-                            if(data.data){
-                                let orders=data.data.records;
-                                $("#results").text(data.data.total);
-                                for(let i=0;i<orders.length;i++){
-                                    $("#bContent").append(`<div class="order">
+
+
+                    };
+                    if(role==2){//商家
+                        if(!isGameChoose){ //游戏筛选
+                            $.ajax({
+                                headers: {
+                                    "token": token
+                                },
+                                type: "get",
+                                url: "https://game.hdiandian.com/agency/business/orders",
+                                data:{
+                                    "businessId":agencyId,
+                                    "current":page,
+                                    "limit":size
+                                },
+                                contentType: 'application/json;charset=UTF-8',
+                                dataType: "json",
+                                success: function(data){
+                                    console.log(data);
+                                    console.log("商家");
+                                    if(data.data){
+                                        let orders=data.data.records;
+                                        $("#results").text(data.data.total);
+                                        for(let i=0;i<orders.length;i++){
+                                            $("#bContent").append(`<div class="order">
                                     <div class="orderL"><img src="imgs/head.png" width="40"></div>
                                     <div class="orderM">
                                         <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
                                     </div>
                                     <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
                                 </div>`);
-                                };
-                            }else{
-                                me.lock();  // 锁定
-                                me.noData(); // 无数据
-                            };
-                            me.resetload();
-                        },
-                        error: function(xhr, type){
-                            // alert('Ajax error!');
-                            // 即使加载出错，也得重置
-                            console.log(xhr)
-                            me.lock();  // 锁定
-                            me.noData(); // 无数据
-                            me.resetload();
-                        }
-                    });
-                };
+                                        };
+                                        if(orders.length==0){me.lock(); me.noData();}
+                                    }else{
+                                        me.lock();  // 锁定
+                                        me.noData(); // 无数据
+                                    };
+                                    me.resetload();
+                                },
+                                error: function(xhr, type){
+                                    // alert('Ajax error!');
+                                    // 即使加载出错，也得重置
+                                    console.log(xhr)
+                                    me.lock();  // 锁定
+                                    me.noData(); // 无数据
+                                    me.resetload();
+                                }
+                            });
+                        }else{
+                            $.ajax({
+                                headers: {
+                                    "token": token
+                                },
+                                type: "get",
+                                url: "https://game.hdiandian.com/agency/business/orders",
+                                data:{
+                                    "businessId":agencyId,
+                                    "current":page,
+                                    "limit":size,
+                                    "gameCode":code
+                                },
+                                contentType: 'application/json;charset=UTF-8',
+                                dataType: "json",
+                                success: function(data){
+                                    console.log(data);
+                                    console.log("商家");
+                                    if(data.data){
+                                        let orders=data.data.records;
+                                        $("#results").text(data.data.total);
+                                        for(let i=0;i<orders.length;i++){
+                                            $("#bContent").append(`<div class="order">
+                                    <div class="orderL"><img src="imgs/head.png" width="40"></div>
+                                    <div class="orderM">
+                                        <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
+                                    </div>
+                                    <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
+                                </div>`);
+                                        };
+                                        if(orders.length==0){me.lock(); me.noData();}
+                                    }else{
+                                        me.lock();  // 锁定
+                                        me.noData(); // 无数据
+                                    };
+                                    me.resetload();
+                                },
+                                error: function(xhr, type){
+                                    // alert('Ajax error!');
+                                    // 即使加载出错，也得重置
+                                    console.log(xhr)
+                                    me.lock();  // 锁定
+                                    me.noData(); // 无数据
+                                    me.resetload();
+                                }
+                            });
+                        };
+
+                    };
 
 
+                }
+            });
+        };
+        loadMore();
+//游戏筛选确定
+        $(".option").click(function () {
+            if($(this).hasClass("optionClick")){
+                $(this).removeClass("optionClick");
+            }else{
+                $(".option").removeClass("optionClick");
+                $(this).addClass("optionClick");
             }
+            option=$(this).text();
+            code=$(this).data("code");
+
         });
+        $("#allBtn").click(function () {
+            $('#allPopup').hide();
+            $(".option").removeClass("optionClick");
+            isGameChoose=true;
+            console.log(code);
+            if(code!=undefined){
+                isGameChoose=true;
+                page=0;
+                $('#bContent').empty();
+                console.log(option+":"+code );
+                if(code=="all"){isGameChoose=false;};
+                loadMore();
+            };
+
+        });
+        //游戏筛选重置
+        $("#allReset").click(function () {
+            $(".option").removeClass("optionClick");
+            option=undefined;
+            code=undefined;
+        });
+
 
         //下拉框重置
         $("#chooseReset").click(function () {

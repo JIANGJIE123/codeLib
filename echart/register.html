@@ -26,7 +26,7 @@
         </form>
         <div class="litterLink">
             <!--<a href="#">忘记密码</a>-->
-            <a href="login0000.html">我已有账号</a>
+            <a href="login.html">我已有账号</a>
         </div>
         <input type="button" value="下一步" id="submitBtn">
     </div>
@@ -46,6 +46,9 @@
         if(user && pwd && pwd1){
             if(pattern.test(user)){   //是否是标准的手机号模式
                 if(pwd===pwd1){      //验证两次输入的密码是否一致
+                    $("#pwd1").blur(function(){
+                        $("#submitBtn").css("background-color","#169bd5");
+                    });
                     window.location.href="validationReg.html?phone="+user+"&password="+pwd+"&secondPassword="+pwd1;
                 }else {
                     alert("两次密码输入不一致");

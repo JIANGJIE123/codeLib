@@ -12,7 +12,7 @@
 <body>
 <div class="container-fluid line">
     <div class="nv0 nv">
-        <a href="javascript:history.go(-1);" class="back"><img src="imgs/back.png" width="16">返回</a>
+        <span class="back"><img src="imgs/back.png" width="16">返回</span>
     </div>
     <div class="nv" style="display: flex">
         <div class=" choose">
@@ -53,62 +53,59 @@
     <div class="nv2 nv">
         <input type="text" id="calendar" data-options="{'type':'YYYY-MM-DD','beginYear':2010,'endYear':2088}" style="width:75px;height:19px;" value="">
             <span class="caret"></span>
+        <p class="income money" style="display: inline-block"><span>查询结果：</span><span id="results">0</span>条</p>
     </div>
         <!--<p class="income money"><span>收入：</span><span>￥727.00</span></p>-->
-        <!--<p class="spending money"><span>收入：</span><span>￥727.00</span></p>-->
+        <!--<p class="speing money"><span>收入：</span><span>￥727.00</span></p>-->
+
     </div>
 
     <section class="content" id="bContent">
-        <div class="order">
-            <div class="orderL"><img src="imgs/head.png" width="40"></div>
-            <div class="orderM">
-                <p>10086设备<br/>2019-3-13 16:54:43</p>
-            </div>
-            <div class="orderR"><span class="orderNum">+0.02</span></div>
-        </div>
-        <div class="order">
-            <div class="orderL"><img src="imgs/head.png" width="40"></div>
-            <div class="orderM">
-                <p>10086设备<br/>2019-3-13 16:54:43</p>
-            </div>
-            <div class="orderR"><span class="orderNum">+0.02</span></div>
-        </div>
-        <div class="order">
-            <div class="orderL"><img src="imgs/head.png" width="40"></div>
-            <div class="orderM">
-                <p>10086设备<br/>2019-3-13 16:54:43</p>
-            </div>
-            <div class="orderR"><span class="orderNum">+0.02</span></div>
-        </div>
+        <!--<div class="order">-->
+            <!--<div class="orderL"><img src="imgs/head.png" width="40"></div>-->
+            <!--<div class="orderM">-->
+                <!--<p>10086设备<br/>2019-3-13 16:54:43</p>-->
+            <!--</div>-->
+            <!--<div class="orderR"><span class="orderNum">+0.02</span></div>-->
+        <!--</div>-->
+
     </section>
+<div>
+    <a href="javacript:void(0);" style="width: 40px;height: 40px;border-radius: 50%;background: #cf9455;border: 1px solid #cf9455;display: block;position: fixed;
+    bottom: 62px;right: 50px;z-index: 999;color: #fff;display: none" class="set_top">
+        <span class="fa fa-chevron-up" aria-hidden="true" style="position: absolute;left: 50%; top: 46%;transform: translate(-50%,-50%);width: 30px">置顶<span/>
+    </a>
+</div>
 </div>
 
 
 
 <script src="lib/jquery-3.3.1.min.js"></script>
 <script src="lib/bootstrap/bootstrap.min.js"></script>
+<script src="lib/jquery.cookie.js"></script>
 <script type="text/javascript" src="lib/jquery.date.js"></script>
 <script src="lib/dropload/dropload.min.js"></script>
+<script src="js/common.js"></script>
 <script type="text/javascript">
     $(function(){
-        $("#choose").click(function () {
-            $('#allPopup').hide();
-            if($('#choosePopup').is(':hidden')){//如果当前隐藏
-                $('#choosePopup').show();
-            }else{
-                $('#choosePopup').hide();
-            }
-
-        });
-        $("#all").click(function () {
-            $('#choosePopup').hide();
-            if($('#allPopup').is(':hidden')){//如果当前隐藏
-                $('#allPopup').show();
-            }else{
-                $('#allPopup').hide();
-            }
-
-        });
+        // $("#choose").click(function () {
+        //     $('#allPopup').hide();
+        //     if($('#choosePopup').is(':hidden')){//如果当前隐藏
+        //         $('#choosePopup').show();
+        //     }else{
+        //         $('#choosePopup').hide();
+        //     }
+        //
+        // });
+        // $("#all").click(function () {
+        //     $('#choosePopup').hide();
+        //     if($('#allPopup').is(':hidden')){//如果当前隐藏
+        //         $('#allPopup').show();
+        //     }else{
+        //         $('#allPopup').hide();
+        //     }
+        //
+        // });
         //日历
         function getNow(s) {
             return s < 10 ? '0' + s: s;
@@ -119,61 +116,128 @@
         var date=myDate.getDate();
         var now=year+'-'+getNow(month)+"-"+getNow(date);
         $("#calendar").val(now);
-        $.date('#calendar');
+        // $.date('#calendar');
 
         //点击获得选项
-        var option;
-        $(".option").click(function () {
-            if($(this).hasClass("optionClick")){
-                $(this).removeClass("optionClick");
-            }
-            else{
-                $(".option").removeClass("optionClick");
-                $(this).addClass("optionClick");
-            }
-            option=$(this).text();
-            console.log(option);
-
-        });
-        $(document).click(function(event){
-
-        });
+        // var option;
+        // $(".option").click(function () {
+        //     if($(this).hasClass("optionClick")){
+        //         $(this).removeClass("optionClick");
+        //     }
+        //     else{
+        //         $(".option").removeClass("optionClick");
+        //         $(this).addClass("optionClick");
+        //     }
+        //     option=$(this).text();
+        //     console.log(option);
+        //
+        // });
+        let token= $.cookie('token');
+        let agencyId= $.cookie('agencyId');//商户ID，登录的时候返回的memberId
+        let role= $.cookie('role');
         //分页获得订单信息
-        var memberId;
-        // $.ajax({
-        //     type: "post",
-        //     url: "https://game.hdiandian.com/agency/business/orders",
-        //     data: {
-        //         "businessId ":memberId,
-        //     },
-        //     contentType: 'application/json;charset=UTF-8',
-        //     dataType: "json",
-        //     success: function(data){
-        //         var data=data.data;
-        //     }
-        // });
-
+        let page = 0;    // 每页展示5个
+        let size = 10;    // dropload调用
         //上拉加载
-        // $('#bContent').dropload({
-        //     scrollArea : window,
-        //     loadDownFn : function(me){
-        //         $.ajax({
-        //             type: 'GET',
-        //             url: 'https://game.hdiandian.com/agency/business/orders',
-        //             dataType: 'json',
-        //             success: function(data){
-        //                 alert(data);
-        //                 // 每次数据加载完，必须重置
-        //                 me.resetload();
-        //             },
-        //             error: function(xhr, type){
-        //                 alert('Ajax error!');
-        //                 // 即使加载出错，也得重置
-        //                 me.resetload();
-        //             }
-        //         });
-        //     }
-        // });
+        $('#bContent').dropload({
+            scrollArea : window,
+            loadDownFn : function(me){
+                page++;
+                console.log(role);
+                if(role==3){//经销商
+                    $.ajax({
+                        headers: {
+                            "token": token
+                        },
+                        type: "get",
+                        contentType: 'application/json;charset=UTF-8',
+                        dataType: "json",
+                        url: "https://game.hdiandian.com/agency/agencyManager/orders",
+                        data:{
+                            "agencyId":agencyId,
+                            "current":page,
+                            "limit":size
+                        },
+                        success: function(data){
+                            console.log(data);
+                                if(data.data){
+                                    let orders=data.data.records;
+                                    $("#results").text(data.data.total);
+                                    for(let i=0;i<orders.length;i++){
+                                        $("#bContent").append(`<div class="order">
+                                    <div class="orderL"><img src="imgs/head.png" width="40"></div>
+                                    <div class="orderM">
+                                        <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
+                                    </div>
+                                    <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
+                                </div>`);
+                                    };
+                                }else{
+                                    me.lock();  // 锁定
+                                    me.noData(); // 无数据
+                                };
+                                me.resetload();
+
+                        },
+                        error: function(xhr, type){
+                            // alert('Ajax error!');
+                            // 即使加载出错，也得重置
+                            console.log(xhr)
+                            me.lock();  // 锁定
+                            me.noData(); // 无数据
+                            me.resetload();
+                        }
+                    });
+                };
+                if(role==2){//商家
+                    $.ajax({
+                        headers: {
+                            "token": token
+                        },
+                        type: "get",
+                        url: "https://game.hdiandian.com/agency/business/orders",
+                        data:{
+                            "businessId":agencyId,
+                            "current":page,
+                            "limit":size
+                        },
+                        contentType: 'application/json;charset=UTF-8',
+                        dataType: "json",
+                        success: function(data){
+                            console.log(data);
+                            console.log("商家");
+                            if(data.data){
+                                let orders=data.data.records;
+                                $("#results").text(data.data.total);
+                                for(let i=0;i<orders.length;i++){
+                                    $("#bContent").append(`<div class="order">
+                                    <div class="orderL"><img src="imgs/head.png" width="40"></div>
+                                    <div class="orderM">
+                                        <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
+                                    </div>
+                                    <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
+                                </div>`);
+                                };
+                            }else{
+                                me.lock();  // 锁定
+                                me.noData(); // 无数据
+                            };
+                            me.resetload();
+                        },
+                        error: function(xhr, type){
+                            // alert('Ajax error!');
+                            // 即使加载出错，也得重置
+                            console.log(xhr)
+                            me.lock();  // 锁定
+                            me.noData(); // 无数据
+                            me.resetload();
+                        }
+                    });
+                };
+
+
+            }
+        });
 
         //下拉框重置
         $("#chooseReset").click(function () {
@@ -191,7 +255,17 @@
         //时间发送后台
         $("#d-confirm").click(function () {
 
+        });
+    //返回首页
+        $(".back").click(function () {
+            if(role==3){
+                window.location.href="indexAddM.html?memberId="+agencyId+"&token="+token+"&role="+role;
+            };
+            if(role==2){
+                window.location.href="index.html?memberId="+agencyId+"&token="+token+"&role="+role;
+            }
         })
+
         
     })
 

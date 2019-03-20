@@ -10,7 +10,7 @@
 <body>
 <div class="container-fluid line">
     <div class="nv0 nv">
-        <a href="indexAddM.html" class="back" ><img src="imgs/back.png" width="16">返回</a>
+        <span class="back" ><img src="imgs/back.png" width="16">返回</span>
     </div>
     <div class="nv1 nv">
         <div>
@@ -144,6 +144,7 @@
         //获得具体信息
         let token= $.cookie('token');
         let agencyId= $.cookie('agencyId');
+        let role= $.cookie('role');
         console.log(token)
         $.ajax({
             headers: {
@@ -158,27 +159,32 @@
             dataType: "json",
             success: function(data){
                 console.log(data);
-                for(let i=0;i<data.length;i++){
+                let infoList=data.data;
+                for(let i=0;i<infoList.length;i++){
                     $(".content").append(`
                         <div class="order">
                             <div class="orderL"><img src="imgs/head.png" width="40"></div>
                         <div class="orderM">
-                                <p>${data[i].name}<br/>${data[i].createTime}</p>
+                                <p>${infoList[i].name}<br/>${infoList[i].createTime}</p>
                             </div>
-                            <span class="orderR" data-id=\"${data[i].id}\" data-name=\"${data[i].name}\"><span class="orderNum machine">+设备</span></span>
+                            <span class="orderR" data-id=\"${infoList[i].id}\" data-name=\"${infoList[i].name}\"><img class="orderNum machine" src="imgs/add.png"></span>
                         </div>
                 `);
                 };
                 //点击设备
                 $(".orderR").click(function () {
+                    $(this).children().attr('src','imgs/add2.png');
                     let businessId=$(this).data('id');
-                    let name=encodeURI($(this).data('name'));
-                    window.location.href="addMachine.html?businessId="+businessId+"&name="+encodeURIComponent(name);
+                    let name=$(this).data('name');
+                    window.location.href=encodeURI("addMachine.html?businessId="+businessId+"&name="+name);
                 })
 
             }
         });
-
+//返回
+        $(".back").click(function () {
+            window.location.href="indexAddM.html?memberId="+agencyId+"&token="+token+"&role="+role;
+        })
     })
 
 

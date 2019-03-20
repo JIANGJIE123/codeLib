@@ -9,10 +9,25 @@
             if(num>0){
                 var name=arr[i].substring(0,num);
                 var value=arr[i].substr(num+1);
-                urlParamInfo[name]=decodeURIComponent(value);
+                urlParamInfo[name]=decodeURI(value);
             }
         };
         console.log(urlParamInfo);
         return urlParamInfo;
     }
+
+    //置顶
+var _scroll =function () {
+    if ($(window).scrollTop() > 1) {
+        $(".set_top").css("display","block");
+    }else {
+        $(".set_top").css("display","none");
+    };
+    $(".set_top").click(function () {
+        console.log("jiangjie")
+        $('html,body').stop().animate({"scrollTop":"0px"},1000);
+        return false;
+    })
+};
+$(document).ready($(window).scroll(_scroll))
 

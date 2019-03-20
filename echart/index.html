@@ -9,18 +9,18 @@
 </head>
 <body>
 <header id="hd">
-    <div class="report"><p>今日收入</p><p id="totalIncome">2666.00</p></div>
+    <div class="report"><p>今日收入</p><p id="totalIncome" style="text-align: center;">0</p></div>
     <a href="detail.html" id="detail">查看详情</a>
 </header>
 
 <footer>
     <div class="module">
         <p class="title">发券数量</p>
-        <p class="num">2245</p>
+        <p class="num" id="sendStamps">0</p>
     </div>
     <div class="module">
         <p class="title">兑换券数量</p>
-        <p class="num">22245</p>
+        <p class="num" id="exchange">0</p>
     </div>
 </footer>
 
@@ -28,37 +28,47 @@
 
 <script src="lib/jquery-3.3.1.min.js"></script>
 <script src="lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/jquery.cookie.js"></script>
+<script src="js/common.js"></script>
 <script type="text/javascript">
     $(function(){
-        var phone;
-        var memberId;
-        var totalIncome;
-        $.ajax({//商家绑定盒子
-            type: "post",
-            url: "https://game.hdiandian.com/agency/business/bindBox",
-            data: {
-                "businessPhone": phone,
-                "screenCode": 0
-
-            },
-            contentType: 'application/json;charset=UTF-8',
-            dataType: "json",
-            success: function(data){
-
-            }
+        let urlParamInfo=urlParam();
+        console.log(urlParamInfo);
+        let memberId=urlParamInfo.memberId;
+        let token=urlParamInfo.token;
+        let role=urlParamInfo.role;
+        //把数据存储到cookie里面
+        $.cookie('agencyId',memberId,{
+            path:'/',
         });
-        $.ajax({//商家报表信息
-            type: "post",
-            url: "https://game.hdiandian.com/agency/business/get/report",
-            data: {
-                "businessId ": memberId
-
+        $.cookie('token',token);
+        $.cookie('role',role);
+        $.ajax({
+            headers: {
+                "token": token
             },
             contentType: 'application/json;charset=UTF-8',
             dataType: "json",
+            type: "get",
+            url: "https://game.hdiandian.com/agency/business/get/report",
+            data:{
+                "businessId":memberId
+            },
             success: function(data){
-                totalIncome=data.data.incomeVo.totalIncome;
-                $("#totalIncome").text(totalIncome);
+                console.log(data);
+                let incomeVo=data.data.incomeVo;
+                if(incomeVo){
+                    $("#totalIncome").text(incomeVo.totalIncome);
+                    $("#sendStamps").text(incomeVo.sendCouponCount);
+                    $("#exchange").text(incomeVo.consumeCouponCount);
+                }else {
+                    console.log("您还没绑定商家");
+                }
+
+            },
+            error:function(err){
+            // console.log(err);
+
             }
         });
     })

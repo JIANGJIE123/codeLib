@@ -41,11 +41,11 @@
     <div class="main">
         <form class="" role="form">
             <div class="input-group inp">
-                <input type="number" id="user" class="form-control" placeholder="输入手机号码" value="15767639467" oninput="if(value.length>11)value=value.slice(0,11)">
+                <input type="number" id="user" class="form-control" placeholder="输入手机号码" value="" oninput="if(value.length>11)value=value.slice(0,11)">
             </div>
             <br>
             <div class="input-group inp">
-                <input type="password" id="pwd" class="form-control" placeholder="输入密码" value="jiangjie">
+                <input type="password" id="pwd" class="form-control" placeholder="输入密码" value="">
             </div>
             <div class="litterLink">
                 <!--<a href="#">忘记密码</a>-->
@@ -85,6 +85,7 @@
             //     }
             // };
             document.getElementById('msg').innerHTML = '验证成功！请点击登录';
+            $("#submitBtn").css("background","#169bd5");
             $("#submitBtn").click(function () {
                 var userInfo=new Object();
                 var user=$("#user").val();
@@ -110,12 +111,17 @@
                                     var role=data.data.role;
                                     var memberId=data.data.memberId;
                                     var token=data.data.token;
-                                    if(role==2){        //商家
-                                        window.location.href="index.html?memberId="+memberId+"&token="+token;
-                                    };
-                                    if(role==3){        //经销商
-                                        window.location.href="indexAddM.html?memberId="+memberId+"&token="+token;
-                                    };
+                                    if(role){
+                                        if(role==2){        //商家
+                                            window.location.href="index.html?memberId="+memberId+"&token="+token+"&role="+role;
+                                        };
+                                        if(role==3){        //经销商
+                                            window.location.href="indexAddM.html?memberId="+memberId+"&token="+token+"&role="+role;
+                                        };
+                                    }else {
+                                        window.location.href="indexEmpty.html";
+                                    }
+
                                 };
                                 if(data.code==-1){
                                     var msg=data.message;

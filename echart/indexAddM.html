@@ -9,7 +9,7 @@
 </head>
 <body>
 <header id="hd">
-    <a href="manage.html" id="manage">管理</a>
+    <img id="manage" src="imgs/add.png">
     <div class="report"><p>今日收入</p><p id="todayIncome">0</p></div>
     <a href="detail.html" id="detail">查看详情</a>
 </header>
@@ -36,11 +36,13 @@
         console.log(urlParamInfo);
         let memberId=urlParamInfo.memberId;
         let token=urlParamInfo.token;
+        let role=urlParamInfo.role;
         //把数据存储到cookie里面
         $.cookie('agencyId',memberId,{
             path:'/',
         });
         $.cookie('token',token);
+        $.cookie('role',role);
         $.ajax({
             headers: {
                 "token": token
@@ -65,6 +67,11 @@
 
             }
         });
+        //跳转管理
+        $("#manage").click(function () {
+            $(this).attr('src','imgs/add2.png');
+            window.location.href="manage.html";
+        })
     })
 
 </script>

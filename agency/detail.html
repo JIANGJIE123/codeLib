@@ -133,6 +133,9 @@
         function loadMore(){
             $('#bContent').dropload({
                 scrollArea : window,
+                domDown : {
+                    domNoData  : '<p class="dropload-noData">暂无更多数据</p>'
+                },
                 loadDownFn : function(me){
                     page++;
                     console.log(role);
@@ -254,12 +257,13 @@
                                 success: function(data){
                                     console.log(data);
                                     console.log("商家");
-                                    if(data.data){
-                                        let orders=data.data.records;
-                                        $("#results").text(data.data.total);
+                                    let msg=data.data.page
+                                    if(msg){
+                                        let orders=msg.records;
+                                        $("#results").text(msg.total);
                                         for(let i=0;i<orders.length;i++){
                                             $("#bContent").append(`<div class="order">
-                                    <div class="orderL"><img src="imgs/head.png" width="40"></div>
+                                    <div class="orderL"><img src=\"${orders[i].iconUrl}\" width="40"></div>
                                     <div class="orderM">
                                         <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
                                     </div>
@@ -268,6 +272,7 @@
                                         };
                                         if(orders.length==0){me.lock(); me.noData();}
                                     }else{
+                                        $("#results").text(0);
                                         me.lock();  // 锁定
                                         me.noData(); // 无数据
                                     };
@@ -300,12 +305,13 @@
                                 success: function(data){
                                     console.log(data);
                                     console.log("商家");
-                                    if(data.data){
-                                        let orders=data.data.records;
-                                        $("#results").text(data.data.total);
+                                    let msg=data.data.page;
+                                    if(msg){
+                                        let orders=msg.records;
+                                        $("#results").text(msg.total);
                                         for(let i=0;i<orders.length;i++){
                                             $("#bContent").append(`<div class="order">
-                                    <div class="orderL"><img src="imgs/head.png" width="40"></div>
+                                    <div class="orderL"><img src=\"${orders[i].iconUrl}\" width="40"></div>
                                     <div class="orderM">
                                         <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
                                     </div>
@@ -314,6 +320,7 @@
                                         };
                                         if(orders.length==0){me.lock(); me.noData();}
                                     }else{
+                                        $("#results").text(0);
                                         me.lock();  // 锁定
                                         me.noData(); // 无数据
                                     };

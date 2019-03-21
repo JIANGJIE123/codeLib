@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+<body>
+<div class="container">
+    <h3 class="instructions">您好！ 请登录</h3>
+    <div class="main">
+        <form class="" role="form">
+            <div class="input-group inp">
+                <input type="number" id="user" class="form-control" placeholder="输入手机号码" value="18672673394" oninput="if(value.length>11)value=value.slice(0,11)">
+            </div>
+            <br>
+            <div class="input-group inp">
+                <input type="password" id="pwd" class="form-control" placeholder="输入密码" value="123">
+            </div>
+        </form>
+        <div class="litterLink">
+            <!--<a href="#">忘记密码</a>-->
+            <a href="register.html">新用户注册</a>
+        </div>
+        <input type="button" value="登录" id="submitBtn">
+    </div>
+</div>
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+<script src="lib/bootstrap/bootstrap.min.js"></script>
+<script>
+    $("#submitBtn").click(function () {
+        var user=$("#user").val();
+        var pwd=$("#pwd").val();
+        // 验证手机号
+        var pattern = /^1[34578]\d{9}$/;
+        if(user && pwd){
+            if(pattern.test(user)){
+                window.location.href="validation.html?phone="+user+"&password="+pwd;
+            }else {
+                alert("请输入合法的手机号")
+            };
+
+        }else {
+          alert("输入不能空白")
+        };
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+<body>
+<header id="hd">
+    <img id="manage" src="imgs/add.png">
+    <div class="report"><p>今日收入</p><p id="todayIncome">0</p></div>
+    <a href="detail.html" id="detail">查看详情</a>
+</header>
+
+<footer>
+    <div class="module">
+        <p class="title">发券数量</p>
+        <p class="num" id="sendStamps">0</p>
+    </div>
+    <div class="module">
+        <p class="title">兑换券数量</p>
+        <p class="num" id="exchange">0</p>
+    </div>
+</footer>
+
+<script src="lib/jquery-3.3.1.min.js"></script>
+<script src="lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+    $(function () {
+        let urlParamInfo=urlParam();
+        console.log("url参数：");
+        console.log(urlParamInfo);
+        let memberId=urlParamInfo.memberId;
+        let token=urlParamInfo.token;
+        let role=urlParamInfo.role;
+        //把数据存储到cookie里面
+        $.cookie('agencyId',memberId,{
+            path:'/',
+        });
+        $.cookie('token',token);
+        $.cookie('role',role);
+        $.ajax({
+            headers: {
+                "token": token
+            },
+            type: "get",
+            url: "https://game.hdiandian.com/agency/agencyManager/report",
+            data: {
+                "agencyId":memberId
+            },
+            contentType: 'application/json;charset=UTF-8',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                let incomeVo=data.data.incomeVo;
+                if(incomeVo){
+                    let totalIncome=incomeVo.totalIncome/100;
+                  $("#todayIncome").text(totalIncome+"元");
+                  $("#sendStamps").text(incomeVo.sendCouponCount);
+                  $("#exchange").text(incomeVo.consumeCouponCount);
+                }else {
+                    console.log("您还没绑定商家");
+                }
+
+            }
+        });
+        //跳转管理
+        $("#manage").click(function () {
+            $(this).attr('src','imgs/add2.png');
+            window.location.href="manage.html";
+        })
+    })
+
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@
         <a href="manage.html" class="back" ><img src="imgs/back.png" width="16">返回</a>
     </div>
     <section class="container" id="add_main">
-        <h3 class="addMT">增加客户</h3>
+        <h3 class="addMT">客户资料</h3>
         <div class="addMContent">
             <div class="bs-example bs-example-form" role="form">
                 <div class="input-group" style="width: 100%;">
@@ -155,7 +155,7 @@
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
-                    <input type="password" class="form-control" value="" placeholder="设置密码" id="password">
+                    <input type="password" class="form-control" value="" placeholder="帮商家重设密码（谨慎操作）" id="password">
                 </div>
                 <br>
                 <div class="input-group" style="width: 100%;">
@@ -176,95 +176,86 @@
 <script type="text/javascript" src="lib/distpicker.data.js"></script>
 <script type="text/javascript" src="lib/distpicker.js"></script>
 <script type="text/javascript" src="lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
-    $(function(){
+    $(function() {
         $('#address').distpicker();//地址选择
-    });
-    //提交订单
-
-    $("#secondPwd").blur(function(){
-        let name1=$("#clientName").val();
-        let province1= $('#province option:selected').val();
-        let city1= $('#city option:selected').val();
-        let area1= $('#area option:selected').val();
-        let address1=$("#addressD").val();
-        let phone1=$("#phone").val();
-        let password1=$("#password").val();
-        let secondPwd1=$("#secondPwd").val();
-        if(name1!="" && province1!="" && city1!="" && area1!="" && address1!="" && phone1!="" && password1!="" && secondPwd1!=""){
-            $("#add_submit").css("background","rgb(22, 155, 213)");
-        }else {
-            $("#add_submit").css("background","#c8cccf");
-        }
-    });
-
-    $("#add_submit").click(function () {
-        let agencyId= $.cookie('agencyId');
+        // 获取商家信息
         let token= $.cookie('token');
-        let name=$("#clientName").val();
-        let province= $('#province option:selected').val();
-        let city= $('#city option:selected').val();
-        let area= $('#area option:selected').val();
-        let industry= $('#industry option:selected').val();
-        let address=$("#addressD").val();
-        let phone=$("#phone").val();
-        let password=$("#password").val();
-        let secondPwd=$("#secondPwd").val();
-        let clientInfo={
-            "agencyId":agencyId,
-            "name":name,
-            "province":province,
-            "city":city,
-            "area":area,
-            "address":address,
-            "phone":phone,
-            "password":password,
-            "secondPwd":secondPwd,
-            "occupation":industry
-        };
-        console.log(clientInfo);
-      //判断是否没有输入
-        let flag=false;//标志，false:表示不存在没有输入的空白
-        $.each(clientInfo, function(i, val) {
-                if(!val){
-                    flag=true;
-                    return;
-                }
+        let urlParamInfo=urlParam();
+        let businessId=urlParamInfo.businessId;
+        $.ajax({
+            headers: {
+                "token": token
+            },
+            type: "get",
+            url: "https://game.hdiandian.com/agency/business/get/information",
+            data:{
+                "businessId":businessId
+            },
+            contentType: 'application/json;charset=UTF-8',
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                let cilentInfo=data.data;
+                // $('#industry option:selected').val()
+                $("#clientName").val(cilentInfo.name);
+
+                $("#province").val(cilentInfo.province);
+                $("#province").trigger("change");//distpicker插件改变三级城市联动关键
+                $("#city").val(cilentInfo.city);
+                $("#city").trigger("change");
+                $("#area").val(cilentInfo.area);
+                $("#area").trigger("change");
+
+                $("#addressD").val(cilentInfo.address);
+                $("#phone").val(cilentInfo.phone);
+
+            }
         });
-        let pattern = /^1[34578]\d{9}$/;
-        if(!flag){
-            if(pattern.test(phone)){   //是否是标准的手机号模式
-                if(password===secondPwd){      //验证两次输入的密码是否一致
-                    console.log(clientInfo);
-                    $.ajax({
-                        headers: {
-                            "token": token
-                        },
-                        type: "post",
-                        url: "https://game.hdiandian.com/agency/agencyManager/create/business",
-                        data: JSON.stringify(clientInfo),
-                        contentType: 'application/json;charset=UTF-8',
-                        dataType: "json",
-                        success: function(data){
-                            console.log(data);
-                            if(data.code==0){
-                                window.location.href="addClientSuccess.html";
-                            };
-                            if(data.code==-1){
-                                console.log(data.message);
-                                $("#info").text("添加失败！"+data.message);
-                            }
-                        }
-                    });
-                }else {
-                    $("#info").text("添加失败！创建的商户密码不一致");
-                };
-            }else {
-                alert("请输入合法的手机号")
+        //提交商家修改信息
+        $("#add_submit").click(function () {
+            let agencyId= $.cookie('agencyId');
+            let token= $.cookie('token');
+            let name=$("#clientName").val();
+            let province= $('#province option:selected').val();
+            let city= $('#city option:selected').val();
+            let area= $('#area option:selected').val();
+            let industry= $('#industry option:selected').val();
+            let address=$("#addressD").val();
+            let phone=$("#phone").val();
+            let password=$("#password").val();
+            let secondPwd=$("#secondPwd").val();
+            let clientInfo={
+                "address":address,
+                "province":province,
+                "area":area,
+                "city":city,
+                "createTime": "2019-03-22T09:13:11.546Z",
+                "id": 0,
+                "lastLoginTime": "2019-03-22T09:13:11.546Z",
+                "name":name,
+                "occupation":industry,
+                "password":password,
+                "phone":phone,
+                "role": 2
             };
-        }else {
-            alert("输入不能空白")
-        };
+            $.ajax({
+                headers: {
+                    "token": token
+                },
+                type: "post",
+                url: "https://game.hdiandian.com/agency/business/post/edit",
+                data:JSON.stringify({clientInfo}),
+                contentType: 'application/json;charset=UTF-8',
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+
+
+                }
+            });
+        })
     });
 
 

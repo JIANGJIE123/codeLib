@@ -72,20 +72,6 @@
         <!--</div>-->
         <!--<a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>-->
     <!--</div>-->
-    <!--<div class="order">-->
-        <!--<div class="orderL"><img src="imgs/head.png" width="40"></div>-->
-        <!--<div class="orderM">-->
-            <!--<p>xx深圳KTV<br/>2019-3-13 16:54:43</p>-->
-        <!--</div>-->
-        <!--<a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>-->
-    <!--</div>-->
-    <!--<div class="order">-->
-        <!--<div class="orderL"><img src="imgs/head.png" width="40"></div>-->
-        <!--<div class="orderM">-->
-            <!--<p>xx深圳小店<br/>2019-3-13 16:54:43</p>-->
-        <!--</div>-->
-        <!--<a href="addMachine.html" class="orderR"><span class="orderNum machine">+设备</span></a>-->
-    <!--</div>-->
 </section>
 </div>
 
@@ -164,27 +150,33 @@
                     $(".content").append(`
                         <div class="order">
                             <div class="orderL"><img src="imgs/head.png" width="40"></div>
-                        <div class="orderM">
+                        <div class="orderM" data-id=\"${infoList[i].id}\">
                                 <p>${infoList[i].name}<br/>${infoList[i].createTime}</p>
-                            </div>
+                         </div>
                             <span class="orderR" data-id=\"${infoList[i].id}\" data-name=\"${infoList[i].name}\"><img class="orderNum machine" src="imgs/add.png"></span>
                         </div>
                 `);
                 };
-                //点击设备
+                //点击设备"+"
                 $(".orderR").click(function () {
                     $(this).children().attr('src','imgs/add2.png');
                     let businessId=$(this).data('id');
                     let name=$(this).data('name');
                     window.location.href=encodeURI("addMachine.html?businessId="+businessId+"&name="+name);
-                })
+                });
+                //跳转商户信息
+                $(".orderM").click(function (){
+                    let businessId=$(this).data("id");
+                    console.log(businessId);
+                    window.location.href="modifyClient.html?businessId="+businessId;
+                });
 
             }
         });
 //返回
         $(".back").click(function () {
             window.location.href="indexAddM.html?memberId="+agencyId+"&token="+token+"&role="+role;
-        })
+        });
     })
 
 

@@ -12,7 +12,7 @@
     <div class="nv0 nv">
         <a href="manage.html" class="back" ><img src="imgs/back.png" width="16">返回</a>
     </div>
-    <section class="container" id="add_main">
+    <section class="container" id="add_main" data-id="">
         <h3 class="addMT">客户资料</h3>
         <div class="addMContent">
             <div class="bs-example bs-example-form" role="form">
@@ -163,14 +163,11 @@
                 </div>
                 <div id="info" style="text-align: left;color: red;"></div>
             </div>
-            <button type="button" class="btn btn-default" style="width: 60%;font-weight: bold;background:#ccc;color: white;margin-top: 50px;" id="add_submit">确认提交</button>
+            <button type="button" class="btn btn-default" style="width: 60%;font-weight: bold;background:#169bd5;color: white;margin-top: 50px;" id="add_submit">确认提交</button>
         </div>
     </section>
 
 </div>
-
-
-
 <script src="lib/jquery-3.3.1.min.js"></script>
 <script src="lib/bootstrap/bootstrap.min.js"></script>
 <script type="text/javascript" src="lib/distpicker.data.js"></script>
@@ -199,6 +196,7 @@
                 console.log(data);
                 let cilentInfo=data.data;
                 // $('#industry option:selected').val()
+                $("#add_main").data("id",cilentInfo.id);
                 $("#clientName").val(cilentInfo.name);
 
                 $("#province").val(cilentInfo.province);
@@ -226,19 +224,17 @@
             let phone=$("#phone").val();
             let password=$("#password").val();
             let secondPwd=$("#secondPwd").val();
+            let id=$("#add_main").data("id");
             let clientInfo={
                 "address":address,
                 "province":province,
                 "area":area,
                 "city":city,
-                "createTime": "2019-03-22T09:13:11.546Z",
-                "id": 0,
-                "lastLoginTime": "2019-03-22T09:13:11.546Z",
+                "id": id,
                 "name":name,
-                "occupation":industry,
-                "password":password,
                 "phone":phone,
-                "role": 2
+                "role": 2,
+                "password":password,
             };
             $.ajax({
                 headers: {
@@ -246,11 +242,14 @@
                 },
                 type: "post",
                 url: "https://game.hdiandian.com/agency/business/post/edit",
-                data:JSON.stringify({clientInfo}),
+                data:JSON.stringify(clientInfo),
                 contentType: 'application/json;charset=UTF-8',
                 dataType: "json",
                 success: function(data){
                     console.log(data);
+                    if(data.code==0){
+                        alert("修改数据成功！");
+                    };
 
 
                 }

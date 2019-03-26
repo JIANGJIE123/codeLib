@@ -56,7 +56,8 @@
     </div>
 </div>
 <div class="nv2 nv">
-    <input type="text" id="calendar2" data-options="{'type':'YYYY-MM-DD','beginYear':2010,'endYear':2088}" style="width:75px;height:19px;border: none;" value="">
+    <!--<input type="text" id="calendar2" data-options="{'type':'YYYY-MM-DD','beginYear':2010,'endYear':2088}" style="width:75px;height:19px;border: none;" value="">-->
+    <span id="calendar2" style="width:75px;height:19px;border: none;"></span>
     <span class="caret"></span>
     <!--<p class="income money"><span>管理数量：</span><span>727</span></p>-->
     <!--<p class="spending money"><span>设备数量：</span><span>800</span></p>-->
@@ -110,7 +111,8 @@
         var month=myDate.getMonth()+1;
         var date=myDate.getDate();
         var now=year+'-'+getNow(month)+"-"+getNow(date);
-        $("#calendar2").val(now);
+        // $("#calendar2").val(now);
+        $("#calendar2").text(now);
         //$.date('#calendar2');
 
         //点击获得选项

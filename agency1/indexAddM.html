@@ -11,9 +11,37 @@
 <header id="hd">
     <img id="manage" src="imgs/add.png">
     <div class="report"><p>今日收入</p><p id="todayIncome">0</p></div>
-    <a href="detail.html" id="detail">查看详情</a>
+    <a href="detail.html" id="detail">订单详情</a>
 </header>
-
+<section class="container">
+    <div class="search">
+        <div>
+            <div><span style="margin-right: 5px;">选择设备ID</span><select><option>10178</option></select></div>
+            <div style="margin-top: 5px;"><span style="margin-right: 5px;">查询日期</span>
+                <div class="calBox"><input type="text" id="calendar3" data-options="{'type':'YYYY-MM-DD','beginYear':2010,'endYear':2088}" style="width:72px;height:19px;" value=""> <span class="caret"></span></div>
+                -
+                <div class="calBox"><input type="text" id="calendar4" data-options="{'type':'YYYY-MM-DD','beginYear':2010,'endYear':2088}" style="width:72px;height:19px;" value=""> <span class="caret"></span></div>
+            </div>
+        </div>
+        <div class="couponD"><a href="couponDetail.html">兑券详情</a></div>
+    </div>
+    <div class="reportTx">
+        <div class="reportL">
+            <p>登录人数：<span>112人</span></p>
+            <p>中奖人数：<span>56人</span></p>
+            <p>发奖数量：<span>60张</span></p>
+            <p>奖品核销数：<span>50张</span></p>
+            <p>支付人数：<span>5人</span></p>
+        </div>
+        <div class="reportR">
+            <p>人均游戏时长：<span>321秒</span></p>
+            <p>兑奖人数：<span>50人</span></p>
+            <p>发掘金额：<span>50元</span></p>
+            <p>核销金额：<span>10元</span></p>
+            <p>营收金额：<span>100元</span></p>
+        </div>
+    </div>
+</section>
 <footer>
     <div class="module">
         <p class="title">发券数量</p>
@@ -27,6 +55,7 @@
 
 <script src="lib/jquery-3.3.1.min.js"></script>
 <script src="lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/jquery.date.js"></script>
 <script type="text/javascript" src="lib/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript">
@@ -72,7 +101,24 @@
         $("#manage").click(function () {
             $(this).attr('src','imgs/add2.png');
             window.location.href="manage.html";
-        })
+        });
+        //日历
+        $.date('#calendar3');
+        $.date('#calendar4');
+        function getNow(s) {
+            return s < 10 ? '0' + s: s;
+        };
+        var myDate = new Date();
+        var year=myDate.getFullYear();
+        var month=myDate.getMonth()+1;
+        var date=myDate.getDate();
+        var now=year+'-'+getNow(month)+"-"+getNow(date);
+        //昨天
+        myDate.setTime(myDate.getTime()-24*60*60*1000);
+        var yesterday = myDate.getFullYear()+"-" + (myDate.getMonth()+1) + "-" + myDate.getDate();
+        $("#calendar4").val(now);
+        $("#calendar3").val(yesterday);
+
     })
 
 </script>

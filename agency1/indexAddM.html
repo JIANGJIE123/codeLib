@@ -32,18 +32,18 @@
     </div>
     <div class="reportTx">
         <div class="reportL">
-            <p>登录人数：<span>112人</span></p>
-            <p>中奖人数：<span>56人</span></p>
-            <p>发奖数量：<span>60张</span></p>
-            <p>奖品核销数：<span>50张</span></p>
-            <p>支付人数：<span>5人</span></p>
+            <p>登录人数：<span id="loginNum">112人</span></p>
+            <p>中奖人数：<span id="winners">56人</span></p>
+            <p>发奖数量：<span id="prizeNum">60张</span></p>
+            <p>奖品核销数：<span id="prizeUsed">50张</span></p>
+            <p>支付人数：<span id="payNum">5人</span></p>
         </div>
         <div class="reportR">
-            <p>人均游戏时长：<span>321秒</span></p>
-            <p>兑奖人数：<span>50人</span></p>
-            <p>发掘金额：<span>50元</span></p>
-            <p>核销金额：<span>10元</span></p>
-            <p>营收金额：<span>100元</span></p>
+            <p>人均游戏时长：<span id="gameTime">321秒</span></p>
+            <p>兑奖人数：<span id="usedPrizeNum">50人</span></p>
+            <p>发奖金额：<span id="money">50元</span></p>
+            <p>核销金额：<span id="usedMoney">10元</span></p>
+            <p>营收金额：<span id="profits">100元</span></p>
         </div>
     </div>
 </section>
@@ -92,10 +92,18 @@
                 console.log(data);
                 let incomeVo=data.data.incomeVo;
                 if(incomeVo){
-                    let totalIncome=incomeVo.totalIncome/100;
-                  $("#todayIncome").text(totalIncome+"元");
-                  $("#sendStamps").text(incomeVo.sendCouponCount);
-                  $("#exchange").text(incomeVo.consumeCouponCount);
+                   $("#loginNum").text(incomeVo.loginMembers);
+                   $("#winners").text(incomeVo.winnerMembers);
+                   $("#prizeNum").text(incomeVo.sendCouponCount);
+                   $("#prizeUsed").text(incomeVo.consumeCouponCount);
+                   $("#payNum").text(incomeVo.payCount);
+
+                   $("#gameTime").text(incomeVo.avgGameTime);
+                   $("#usedPrizeNum").text(incomeVo.exchangeMembers);
+                   $("#money").text(incomeVo.totalReturnMoney);
+                   $("#usedMoney").text(incomeVo.consumeCouponWorth);
+                   $("#profits").text(incomeVo.totalRevenue);
+
                 }else {
                     console.log("您还没绑定商家");
                 }

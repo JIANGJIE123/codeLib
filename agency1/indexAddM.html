@@ -19,7 +19,7 @@
             <div style="display: flex;justify-content: space-between">
                 <div>
                     <span style="margin-right: 5px;">选择设备ID</span>
-                    <select><option>10178</option></select>
+                    <select id="screenCodes"><option>全部</option></select>
                 </div>
                 <div class="couponD"><a href="couponDetail.html">兑券详情</a></div>
             </div>
@@ -91,25 +91,41 @@
             success: function(data){
                 console.log(data);
                 let incomeVo=data.data.incomeVo;
+                let bindScreenCodes=data.data.bindScreenCodes;
                 if(incomeVo){
-                   $("#loginNum").text(incomeVo.loginMembers);
-                   $("#winners").text(incomeVo.winnerMembers);
-                   $("#prizeNum").text(incomeVo.sendCouponCount);
-                   $("#prizeUsed").text(incomeVo.consumeCouponCount);
-                   $("#payNum").text(incomeVo.payCount);
+                    let totalIncome=incomeVo.totalIncome/100;
+                    $("#todayIncome").text(totalIncome+"元")
+                   $("#loginNum").text(incomeVo.loginMembers+"人");
+                   $("#winners").text(incomeVo.winnerMembers+"人");
+                   $("#prizeNum").text(incomeVo.sendCouponCount+"张");
+                   $("#prizeUsed").text(incomeVo.consumeCouponCount+"张");
+                   $("#payNum").text(incomeVo.payCount+"人");
 
-                   $("#gameTime").text(incomeVo.avgGameTime);
-                   $("#usedPrizeNum").text(incomeVo.exchangeMembers);
-                   $("#money").text(incomeVo.totalReturnMoney);
-                   $("#usedMoney").text(incomeVo.consumeCouponWorth);
-                   $("#profits").text(incomeVo.totalRevenue);
+                   $("#gameTime").text(incomeVo.avgGameTime+"秒");
+                   $("#usedPrizeNum").text(incomeVo.exchangeMembers+"人");
+                   $("#money").text(incomeVo.totalReturnMoney/100+"元");
+                   $("#usedMoney").text(incomeVo.consumeCouponWorth/100+"元");
+                   $("#profits").text(incomeVo.totalRevenue/100+"元");
+
+                   $("#sendStamps").text(incomeVo.sendCouponCount);
+                   $("#exchange").text(incomeVo.consumeCouponCount);
 
                 }else {
                     console.log("您还没绑定商家");
+                };
+                //绑定的屏幕码
+                if(bindScreenCodes){
+                    for(let i=0;i<bindScreenCodes.length;i++){
+                        $("#screenCodes").append(`
+                        <option>${bindScreenCodes[i]}</option>
+                    `)
+                    };
+
                 }
 
             }
         });
+
         //跳转管理
         $("#manage").click(function () {
             $(this).attr('src','imgs/add2.png');
@@ -131,6 +147,92 @@
         var yesterday = myDate.getFullYear()+"-" + (myDate.getMonth()+1) + "-" + myDate.getDate();
         $("#calendar4").val(now);
         $("#calendar3").val(yesterday);
+        //屏幕码搜索
+        $("#screenCodes").change(function(){
+            let screenCode=$("#screenCodes  option:selected").text();
+            $.ajax({
+                headers: {
+                    "token": token
+                },
+                type: "get",
+                url: "https://game.hdiandian.com/agency/agencyManager/report",
+                data: {
+                    "agencyId":memberId,
+                    "screenCode":screenCode
+                },
+                contentType: 'application/json;charset=UTF-8',
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    let incomeVo=data.data.incomeVo;
+                    let bindScreenCodes=data.data.bindScreenCodes;
+                    if(incomeVo){
+                        $("#loginNum").text(incomeVo.loginMembers+"人");
+                        $("#winners").text(incomeVo.winnerMembers+"人");
+                        $("#prizeNum").text(incomeVo.sendCouponCount+"张");
+                        $("#prizeUsed").text(incomeVo.consumeCouponCount+"张");
+                        $("#payNum").text(incomeVo.payCount+"人");
+
+                        $("#gameTime").text(incomeVo.avgGameTime+"秒");
+                        $("#usedPrizeNum").text(incomeVo.exchangeMembers+"人");
+                        $("#money").text(incomeVo.totalReturnMoney+"元");
+                        $("#usedMoney").text(incomeVo.consumeCouponWorth+"元");
+                        $("#profits").text(incomeVo.totalRevenue+"元");
+
+                        $("#sendStamps").text(incomeVo.sendCouponCount);
+                        $("#exchange").text(incomeVo.consumeCouponCount);
+
+                    }else {
+                        console.log("您还没绑定商家");
+                    };
+
+                }
+            });
+        });
+        //日期搜索
+        $("#d-confirm").click(function () {
+            let startTime=$("#calendar3").val();
+            let endTime=$("#calendar4").val();
+            console.log(endTime)
+            $.ajax({
+                headers: {
+                    "token": token
+                },
+                type: "get",
+                url: "https://game.hdiandian.com/agency/agencyManager/report",
+                data: {
+                    "agencyId":memberId,
+                    "startTime":startTime,
+                    "endTime":endTime
+                },
+                contentType: 'application/json;charset=UTF-8',
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                    let incomeVo=data.data.incomeVo;
+                    if(incomeVo){
+                        $("#loginNum").text(incomeVo.loginMembers+"人");
+                        $("#winners").text(incomeVo.winnerMembers+"人");
+                        $("#prizeNum").text(incomeVo.sendCouponCount+"张");
+                        $("#prizeUsed").text(incomeVo.consumeCouponCount+"张");
+                        $("#payNum").text(incomeVo.payCount+"人");
+
+                        $("#gameTime").text(incomeVo.avgGameTime+"秒");
+                        $("#usedPrizeNum").text(incomeVo.exchangeMembers+"人");
+                        $("#money").text(incomeVo.totalReturnMoney+"元");
+                        $("#usedMoney").text(incomeVo.consumeCouponWorth+"元");
+                        $("#profits").text(incomeVo.totalRevenue+"元");
+
+                        $("#sendStamps").text(incomeVo.sendCouponCount);
+                        $("#exchange").text(incomeVo.consumeCouponCount);
+
+                    }else {
+                        console.log("您还没绑定商家");
+                    };
+
+                }
+            });
+        })
 
     })
 

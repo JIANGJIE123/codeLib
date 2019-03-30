@@ -33,7 +33,7 @@
         </div>
     </div>
 </div>
-<div class="popUpBox">
+<div class="popUpBox" style="display: none">
     <div class="popUp">
         <h3>提示</h3>
         <p style="margin-top: 31px;font-size: 16px;">您还没有权限，请通知管理员授权</p>
@@ -53,7 +53,7 @@
         let memberId=urlParamInfo.memberId;
         let token=urlParamInfo.token;
         let role=urlParamInfo.role;
-
+        console.log("role:"+role);
         if((role==4)||(role==undefined)){//内容商没有权限页面
             $(".popUpBox").show();
         }else {
@@ -84,7 +84,7 @@
                     "token": token
                 },
                 type: "get",
-                url: "https://game.hdiandian.com/agency/business/orders",
+                url: "https://game.hdiandian.com/agency/business/get/report",
                 data: {
                     "businessId":memberId,
                     "startTime":startTime,

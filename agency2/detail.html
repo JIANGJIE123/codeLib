@@ -194,106 +194,60 @@
                         });
                     };
                     if(role==2){//商家
-                        if(!isGameChoose){ //游戏筛选
-                            $.ajax({
-                                headers: {
-                                    "token": token
-                                },
-                                type: "get",
-                                url: "https://game.hdiandian.com/agency/business/orders",
-                                data:{
-                                    "businessId":agencyId,
-                                    "current":page,
-                                    "limit":size
-                                },
-                                contentType: 'application/json;charset=UTF-8',
-                                dataType: "json",
-                                success: function(data){
-                                    console.log(data);
-                                    console.log("商家");
-                                    let msg=data.data.page
-                                    if(msg){
-                                        let orders=msg.records;
-                                        if(page==1){
-                                            $("#results").text(msg.total);
-                                        };
-                                        for(let i=0;i<orders.length;i++){
-                                            $("#bContent").append(`<div class="order">
-                                    <div class="orderL"><img src=\"${orders[i].iconUrl}\" width="40"></div>
-                                    <div class="orderM">
-                                        <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
-                                    </div>
-                                    <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
-                                </div>`);
-                                        };
-                                        if(orders.length==0){me.lock(); me.noData();}
-                                    }else{
-                                        $("#results").text(0);
-                                        me.lock();  // 锁定
-                                        me.noData(); // 无数据
-                                    };
-                                    me.resetload();
-                                },
-                                error: function(xhr, type){
-                                    // alert('Ajax error!');
-                                    // 即使加载出错，也得重置
-                                    console.log(xhr)
-                                    me.lock();  // 锁定
-                                    me.noData(); // 无数据
-                                    me.resetload();
-                                }
-                            });
-                        }else{
-                            $.ajax({
-                                headers: {
-                                    "token": token
-                                },
-                                type: "get",
-                                url: "https://game.hdiandian.com/agency/business/orders",
-                                data:{
-                                    "businessId":agencyId,
-                                    "current":page,
-                                    "limit":size,
-                                    "gameCode":code
-                                },
-                                contentType: 'application/json;charset=UTF-8',
-                                dataType: "json",
-                                success: function(data){
-                                    console.log(data);
-                                    console.log("商家");
-                                    let msg=data.data.page;
-                                    if(msg){
-                                        let orders=msg.records;
-                                        if(page==1){
-                                            $("#results").text(msg.total);
-                                        };
-                                        for(let i=0;i<orders.length;i++){
-                                            $("#bContent").append(`<div class="order">
-                                    <div class="orderL"><img src=\"${orders[i].iconUrl}\" width="40"></div>
-                                    <div class="orderM">
-                                        <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
-                                    </div>
-                                    <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
-                                </div>`);
-                                        };
-                                        if(orders.length==0){me.lock(); me.noData();}
-                                    }else{
-                                        $("#results").text(0);
-                                        me.lock();  // 锁定
-                                        me.noData(); // 无数据
-                                    };
-                                    me.resetload();
-                                },
-                                error: function(xhr, type){
-                                    // alert('Ajax error!');
-                                    // 即使加载出错，也得重置
-                                    console.log(xhr)
-                                    me.lock();  // 锁定
-                                    me.noData(); // 无数据
-                                    me.resetload();
-                                }
-                            });
+                        if(msg==undefined){
+                            msg = {
+                                "businessId": agencyId,
+                                "current": page,
+                                "limit": size
+                            };
                         };
+                        console.log(msg);
+                        $.ajax({
+                            headers: {
+                                "token": token
+                            },
+                            type: "get",
+                            contentType: 'application/json;charset=UTF-8',
+                            dataType: "json",
+                            url: "https://game.hdiandian.com/agency/business/orders",
+                            data:msg,
+                            success: function(data){
+                                console.log(data);
+                                let msg=data.data;
+                                if(msg){
+                                    let orders=msg.page.records;
+                                    if(page==1){
+                                        $("#results").text(msg.page.total);
+                                    };
+                                    for(let i=0;i<orders.length;i++){
+                                        $("#bContent").append(`<div class="order">
+                                    <div class="orderL"><img src=\"${orders[i].iconUrl}\" width="40"></div>
+                                    <div class="orderM">
+                                        <p>${orders[i].screenCode}设备<br/>${orders[i].createTime}</p>
+                                    </div>
+                                    <div class="orderR"><span class="orderNum">${orders[i].money/100}</span></div>
+                                </div>`);
+                                    };
+                                    if(orders.length==0){
+                                        me.lock();me.noData();
+
+                                    }
+                                }else{
+                                    me.lock();  // 锁定
+                                    me.noData(); // 无数据
+
+                                };
+                                me.resetload();
+                            },
+                            error: function(xhr, type){
+                                // alert('Ajax error!');
+                                // 即使加载出错，也得重置
+                                console.log(xhr)
+                                me.lock();  // 锁定
+                                me.noData(); // 无数据
+                                me.resetload();
+                            }
+                        });
 
                     };
 
@@ -308,12 +262,24 @@
             $('#bContent').empty();
             let startTime=$("#calendarD1").val();
             let endTime=$("#calendarD2").val();
-            let msg = {
-                "agencyId": agencyId,
-                "current": page,
-                "limit": size,
-                "startTime": startTime,
-                "endTime": endTime,
+            let msg;
+            if(role==3){//经销商
+                msg = {
+                    "agencyId": agencyId,
+                    "current": page,
+                    "limit": size,
+                    "startTime": startTime,
+                    "endTime": endTime,
+                };
+            };
+            if(role==2){//商户
+                msg = {
+                    "businessId": agencyId,
+                    "current": page,
+                    "limit": size,
+                    "startTime": startTime,
+                    "endTime": endTime,
+                };
             };
             loadMore(msg);
         });
@@ -341,12 +307,24 @@
                 $('#bContent').empty();
                 console.log(option+":"+code );
                 if(code=="all"){isGameChoose=false;};
-                let msg = {
-                    "agencyId": agencyId,
-                    "current": page,
-                    "limit": size,
-                    "gameCode": code
+                let msg;
+                if(role==3){//经销商
+                    msg = {
+                        "agencyId": agencyId,
+                        "current": page,
+                        "limit": size,
+                        "gameCode": code
+                    };
                 };
+                if(role==2){//商户
+                    msg = {
+                        "businessId": agencyId,
+                        "current": page,
+                        "limit": size,
+                        "gameCode": code
+                    };
+                }
+
                 loadMore(msg);
             };
 
@@ -374,12 +352,7 @@
         });
     //返回首页
         $(".back").click(function () {
-            if(role==3){
-                window.location.href="indexAddM.html?memberId="+agencyId+"&token="+token+"&role="+role;
-            };
-            if(role==2){
-                window.location.href="index.html?memberId="+agencyId+"&token="+token+"&role="+role;
-            }
+            window.location.href="indexAddM.html?memberId="+agencyId+"&token="+token+"&role="+role;
         })
 
         

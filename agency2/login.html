@@ -98,21 +98,7 @@
                                         var role=data.data.role;
                                         var memberId=data.data.memberId;
                                         var token=data.data.token;
-                                        if(role){
-                                            console.log("角色："+role);
-                                            if(role==2){        //商家
-                                                window.location.href="index.html?memberId="+memberId+"&token="+token+"&role="+role;
-                                            };
-                                            if(role==3){        //经销商
-                                                window.location.href="indexAddM.html?memberId="+memberId+"&token="+token+"&role="+role;
-                                            };
-                                            if(role==4){        //内容商
-                                                window.location.href="indexEmpty.html";
-                                            };
-                                        }else{
-                                            window.location.href="indexEmpty.html";
-                                        }
-
+                                        window.location.href="indexAddM.html?memberId="+memberId+"&token="+token+"&role="+role;
                                     };
                                     if(data.code==-1){
                                         var msg=data.message;

@@ -1,0 +1,73 @@
+.fu{
+  position:absolute;
+  width: 100%;
+}
+.shouzi{
+  width: 750rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.yi{
+  width: 277rpx;
+  height: 150rpx;
+  position:relative;
+  left:65rpx;
+  top:30rpx;
+}
+.er{
+  width: 277rpx;
+  height: 150rpx;
+  position:relative;
+  left:130rpx;
+  top:30rpx;
+}
+.san{
+  width: 277rpx;
+  height: 150rpx;
+  position:relative;
+  left:65rpx;
+  top:50rpx;
+}
+.si{
+  width: 277rpx;
+  height: 150rpx;
+  position:relative;
+  left:130rpx;
+  top:50rpx;
+}
+.lunbo{
+  width: 700rpx;
+  height: 400rpx;
+  margin: auto;
+  position:relative;
+  top:-200rpx;
+}
+
+.section_box{margin-top:40rpx;display: flex;display: -webkit-flex;justify-content: center;width: 100%;flex-wrap: wrap;}
+.section{color: white;text-align:center;border-radius:12rpx;
+     display: table-cell;vertical-align: middle;width: 45%;padding: 40rpx 0;margin:10rpx;background-color: #3bac6c}
+.num{font-size: 34rpx;padding:6rpx 0;}
+.money{font-size: 23rpx;padding:6rpx 0;}
+.section_box::after{display: block;content: "";clear: both;}
+.bg{background:#33925a;color:white}
+.state{text-align: center;color: red;font-weight:bold;font-family: '宋体';margin-top: 150rpx;letter-spacing:6rpx}
+.single{width:70%!important;}
+.bottomBar{position: fixed;bottom: 0;width: 100%}
+.barItem{display: inline-block;width: 50%;text-align: center;font-size:28rpx;line-height: 100rpx;position: relative}
+.barItem image{width: 54rpx;height: 54rpx;}
+.barItem text{position: absolute;top:26rpx;display:block;width: 100%;}
+.countTime{color: blue!important;padding-top:21px;text-align: center;letter-spacing:6rpx;font-weight:bold;font-family:'宋体';}
+
+.survey{width:652rpx;height:340rpx;text-align: center;margin:100rpx auto 0;background:url(https://game.hdiandian.com/bg.png)no-repeat;background-size:cover;}
+.survey3{width:652rpx;height:400rpx;text-align:center;margin:40rpx auto 0;border:6rpx solid #8b95c0;border-radius:25rpx;}
+.choice3{color:#3fa86d;line-height:44rpx;font-weight:bold;font-size:26rpx;border:1px dotted #8dc7af;width:70%;margin:0 auto;border-radius:100rpx;margin-bottom:14rpx;}
+.pageTitle{font-size: 40rpx;font-weight: bold;color:#7a84b9;margin-bottom: 28rpx;text-align:left;padding-left:50rpx;}
+.choice{color: #3fa86d;line-height:70rpx;font-weight: bold;font-size:32rpx;border:1px dotted #8dc7af;width:70%;margin:0 auto;border-radius:100rpx;margin-bottom:18rpx;}
+.show{display: block;}
+.hidden{display: none;}
+.comPage{width:100%;padding-top:40rpx;}
+.thankPage{color: #ffa349;font-size: 80rpx;line-height: 240rpx;}
+.hoverChoice{background: #d8eee2}
+.choice4{line-height: 56rpx;}

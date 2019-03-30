@@ -1,0 +1,10 @@
+<view>
+  <view wx:if="{{loadSuccess}}"> 
+    <web-view src="{{src}}" bindmessage="bindmessage"></web-view>
+  </view>
+  <view wx:else>
+    <image src='../../images/indexBg.png' style='margin:0;width:750rpx;height:1100rpx'></image> 
+  </view>
+</view>
+
+ 
